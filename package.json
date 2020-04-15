@@ -1,17 +1,39 @@
 {
-  "name": "",
-  "version": "",
+  "name": "Property-Service",
+  "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Justin Anderson",
   "license": "",
   "engines": {
-    "node": ">=6.13.0"
+    "node": ">=12.16.2"
   },
   "scripts": {
+    "build": "webpack",
+    "dev:react": "webpack -d --watch",
+    "start": "nodemon --inspect server/index.js",
+    "db:setup": "node database/seed.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.9",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^25.3.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
