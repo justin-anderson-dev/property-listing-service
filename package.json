@@ -1,5 +1,5 @@
 {
-  "name": "Property-Service",
+  "name": "property-service",
   "version": "0.0.1",
   "description": "",
   "author": "Justin Anderson",
@@ -11,7 +11,8 @@
     "build": "webpack",
     "dev:react": "webpack -d --watch",
     "start": "nodemon --inspect server/index.js",
-    "db:setup": "node database/seed.js"
+    "db:setup": "node database/seed.js",
+    "db:seedFeatures": "node database/feature-data.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

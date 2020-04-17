@@ -1,87 +1,538 @@
-const db  = require('./index.js');
+const db = require('./index.js');
 const Listing = require('./Listing.js');
 
 const sampleListings = [
-  //TODO: Fill this out with some sample property data based on the defined Mongoose schema
-
   {
-    title: 'Chatty Cat Tells Long Yarn',
-    author: 'Tae Sung Kim',
-    imageUrl: 'https://source.unsplash.com/1600x900/?cat',
-    createdAt: '2017-11-14T05:57:26.037Z',
-    body: `It was discovered yesterday that a stray cat found on the streets of Oakland, California by local animal shelter officials possesses the ability to talk. According to a volunteer at the animal shelter who asked to remain anonymous the cat, lovingly dubbed Chatty Catherine or Chatty Cat for short by shelter staff, remained silent at first when it was brought to the shelter. It was during a routine feeding when an overzealous volunteer engaged in baby talk prompting Chatty Cat to look up from it’s bowl of kibble and respond, “Don’t be patronizing.”
+    hostId: 1,
+    headline: 'Bright & Airy in Highland Park',
+    stars: 4.98,
+    reviews: 43,
+    superHost: true,
+    location: {
+      neighborhood: 'Cypress Hills',
+      city: 'Brooklyn',
+      State: 'New York'
+    },
+    subHeadline: 'Entire apartment hosted by Graziella',
+    guestCapacity: 3,
+    totalBedrooms: 2,
+    totalBeds: 2,
+    totalBaths: 1,
+    topFeatures: {
+      entireHome: true,
+      selfCheckIn: true,
+      sparklingClean: true,
+      superHost: true
+    },
+    keyAmenities: {
+      kitchen: true,
+      wifi: true,
+      washer: true,
+      dryer: true,
+      iron: true,
+      laptopFriendlyWorkspace: true,
+      tv: true,
+      hangers: true,
+      hairDryer: true,
+      essentials: true
+    },
+    allAmenities: {
+      basic: {
+        wifi: true,
+        washer: true,
+        dryer: true,
+        iron: true,
+        tv: true,
+        essentials: true,
+        heating: true,
+        airCon: true,
+        hotWater: true
+      },
+      familyFeatures: {
+        outletCovers: true
+      },
+      facilities: {
+        freeStreetPark: true
+      },
+      dining: {
+        kitchen: true,
+        coffeeMaker: true,
+        cookingBasics: true,
+        dishwasher: true,
+        dishes: true,
+        refrigerator: true,
+        microwave: true,
+        oven: true,
+        stove: true
+      },
+      guestAccess: {
+        lockbox: true,
+      },
+      logistics: {
+        longtermAllowed: true
+      },
+      bedAndBath: {
+        hangers: true,
+        hairDryer: true,
+        shampoo: true,
+        bedLinens: true,
+        extraBedding: true
+      },
+      safetyFeatures: {
+        fireExting: true,
+        co2Alarm: true,
+        smokeAlarm: true,
+        firstAidKit: true
+      },
+      notIncluded: {
+        privateEntrance: true
+      }
+    },
+    descriptionText: `
+      My spacious two-bedroom home has everything you need for your NYC trip. On the first floor, but set above street level, I am offering two bedrooms, bathroom, kitchen with a dining/living area, plus ROKU tv, WIFI, and washer/dryer. While Brooklyn is very large, I am walking distance to several major train/bus routes that run into Manhattan for all the popular sites: Freedom Tower, the Metropolitan Museum of Art, Times Square. There is so much culture and excitement to be experienced!
 
-The volunteer, believing she was hallucinating from overwork, promptly took the day off and returned home. It wasn’t until multiple other volunteers experienced the same phenomenon that the shelter realized the miraculous display and became uproarious. Local scientists and veterinarians were promptly called to the scene to examine Chatty Cat to try and discern the exact cause of its ability to speak.
+      The space
 
-After thorough examinations and tests, which came up inconclusive, local news reporters were allowed to interview Chatty Cat to discern its origins and its unusual ability to talk which prompted the cat to issue the following statement:
+      Both bedrooms are very quiet, as they are located in the rear of the house. The first bedroom has a queen-size bed, and the second bedroom has a twin size bed. The new bathroom has a large shower, but no tub, with strong water pressure. The kitchen/living/dining area are set in an open plan setup. French doors that open to a sunroom separate open plan kitchen/dining/living area. The sunroom is shared with me who has my own entrance. It is stocked with many types of plants to create a truly alive and lush area.
 
-“Okay first of all my name is not Catherine, I don’t know where they got that from because my name is Margaret. They just decided that on their own. Second I am not originally from earth. I am from a planet inhabited by cats who possess the ability of speech. I landed on your planet days ago on a goodwill mission only to be captured and renamed. My story begins 9 years ago when I was born, a young simple minded little lass. I grew up poor and with a limited future. It wasn’t until I entered grade school where I met my best friend Elizabeth that I decided to dream bigger, reach for the stars. Who knew I’d end up actually reaching it? Heh...what? Nobody. Come on, that was funny.”
+      Cats and one dog have and continue to live on this site. They live with the host an do sit in the shared sunrooms. No matter how much preparation, if you are sensitive to pets this place is probably isn't the best choice.
 
-After hours of mundane back story it became apparent that Chatty’s Cat’s story is far from over and unlikely to stop anytime soon. We will update the article with new information as the yarn unravels.
-`,
-    views: 214
+      Guest access
+
+      Guest have access to the entire first floor of the home. The front room is shared with the owner. There are doors (with lock) that separate the two sections for security. Guests are welcome to use that area at any time. Upon your exit of the shared sun-room please remember to lock your doors and to leave it as it was found.
+
+      Other things to note
+
+      NYC may be the city that ever sleeps but it certainly slows down on the weekends. On top of the reduced train schedules, there are the ever-present repairs which can further slow you down. Finally, Brooklyn is a big place and I am on one end and Manhattan across a river on the other. Until transporters (ala Star Trek) become commonplace, please allow yourself plenty of time to get from point 'A' to point 'B'.
+    `,
+    sleepArrangements: {
+      bedroom1: {
+        exists: true,
+        queenBed: 1
+      },
+      bedroom2: {
+        exists: true,
+        twinBed: 1
+      }
+    }
   },
   {
-    title: 'Corgi With Cork Shaped Birthmark Declared Adorable',
-    author: 'Sandeep Gonnabathula',
-    imageUrl: 'https://source.unsplash.com/1600x900/?corgi',
-    createdAt: '2017-11-13T03:30:26.037Z',
-    body:`A San Francisco couple who adopted a Corgi found a pleasant surprise when they went to pick up their new family member from a breeder in Antioch last week. Michael and Sarah Smith drove up to the breeder’s house where they were greeted by Joanne Doberman at the door with their bundle of joy in her arms. Upon first glance Michael and Sarah noticed nothing out of the norm and quickly took their new corgi to their San Francisco loft.
+    hostId: 2,
+    headline: 'The Kiva Cave Creek',
+    stars: 4.96,
+    reviews: 209,
+    superHost: true,
+    location: {
+      neighborhood: null,
+      city: 'Cave Creek',
+      State: 'Arizona'
+    },
+    subHeadline: 'Earth house hosted by Sarah',
+    guestCapacity: 4,
+    totalBedrooms: 2,
+    totalBeds: 2,
+    totalBaths: 1,
+    topFeatures: {
+      entireHome: true,
+      sparklingClean: true,
+      superHost: true,
+      freeCancel: true
+    },
+    keyAmenities: {
+      kitchen: true,
+      wifi: true,
+      freeParkOnPrem: true,
+      tv: true,
+      laptopFriendlyWorkspace: true,
+      iron: true,
+      essentials: true,
+      hangers: true,
+      airCon: true
+    },
+    allAmenities: {
+      basic: {
+        wifi: true,
+        tv: true,
+        laptopFriendlyWorkspace: true,
+        iron: true,
+        essentials: true,
+        airCon: true,
+        heating: true,
+        hotWater: true
+      },
+      facilities: {
+        freeParkOnPrem: true
+      },
+      dining: {
+        kitchen: true,
+        refrigerator: true,
+        dishwasher: true,
+        cookingBasics: true,
+        stove: true,
+        dishes: true,
+        oven: true,
+        coffeeMaker: true,
+        microwave: true
+      },
+      bedAndBath: {
+        hangers: true,
+        shampoo: true
+      },
+      outdoor: {
+        patioBalcony: true,
+        gardenYard: true,
+        bbqGrill: true
+      },
+      safetyFeatures: {
+        smokeAlarm: true
+      },
+      notIncluded: {
+        washer: true,
+        hairDryer: true,
+        privateEntrance: true,
+        co2Alarm: true
+      }
+    },
+    descriptionText: `
+    We invite you to stay in our one-of-a-kind underground "kiva"... This home is located on a private 1/4 acre lot, wonderful outdoor living space, and great location.
 
-During the next three days the couple spent every waking hour meticulously videotaping their corgi doing mundane everyday dog things like eating food, sleeping, and playing with the abundance of toys they had prepared. It was during one of these video tapings that Sarah discovered a tiny spot on the back of the corgi’s head in a shape of a cork. After confirming with her boyfriend Michael, the couple began to focus their documentation on the birthmark and decided to name the dog Cork the corgi.
+    The space
+    This home is on a private 1/4 acre, 10 ft ceilings, sleeping loft, Indian flagstone floors, watch the sunrise from your bed. There is a Smart TV with Chromecast at the home, come to relax, renew and enjoy the beauty of the Sonoran Desert.
 
-The couple uploaded videos of Cork the corgi online and in the span of a few days the videos of Cork have gone viral garnering millions of views on various platforms. Comments on various forums and comment sections show that millions of viewers agree that Cork is a heckin good pupper and a good boy. It’s not just online viewers that are fans of the newly celebritized dog; Local wineries have offered the couple sponsorship deals and already the couple is planning a line of Cork the corgi merchandise.
-
-“We’re just blown away by the response,” said Sarah during our interview with the couple. “We thought we’d get a couple of views and maybe a few comments here and there but the fact that so many people are showing their love and support is amazing. It was destiny that brought Cork to us and I couldn’t be happier.”
-
-The mayor of San Francisco released an official statement this morning declaring Cork to be “officially adorable and a heckin good boy” and has declared this coming Friday to be Cork the corgi day.
-`,
-    views: 501
+    Guest access
+    Walking trails, private driveway, outdoor fire pit and bbq.
+    `
   },
   {
-    title: 'Corgi Gifted At Sploots To Teach Yoga',
-    author: 'Sandeep Gonnabathula',
-    imageUrl: 'https://source.unsplash.com/1600x900/?corgi',
-    createdAt: '2017-11-11T01:24:26.037Z',
-    body: `A hot new trend has emerged in Berkeley, California; Local yoga instructor and wellness guru Yasmine Matterson, an avid yoga enthusiast and dog lover, has come up with the idea of a yoga class led by her two year old corgi named Stretch. The hour long session consists of following the movements of Stretch as he assumes various positions and poses, most notably, the sploot.
+    hostId: 3,
+    headline: 'Brooklyn Heights 1 Bed Floorthru 950ft Garden Apt',
+    stars: 4.97,
+    reviews: 39,
+    superHost: true,
+    location: {
+      neighborhood: null,
+      city: 'Brooklyn',
+      State: 'New York'
+    },
+    subHeadline: 'Entire apartment hosted by Alex',
+    guestCapacity: 4,
+    totalBedrooms: 1,
+    totalBeds: 1,
+    totalBaths: 1,
+    topFeatures: {
+      entireHome: true,
+      sparklingClean: true,
+      superHost: true,
+      freeCancel: true
+    },
+    keyAmenities: {
+      kitchen: true,
+      wifi: true,
+      cableTv: true,
+      laptopFriendlyWorkspace: true,
+      tv: true,
+      hangers: true,
+      hairDryer: true,
+      essentials: true,
+      heating: true,
+      airCon: true
+    },
+    allAmenities: {
+      basic: {
+        wifi: true,
+        cableTv: true,
+        laptopFriendlyWorkspace: true,
+        tv: true,
+        essentials: true,
+        heating: true,
+        airCon: true,
+        hotWater: true
+      },
+      facilities: {
+        freeStreetPark: true
+      },
+      dining: {
+        kitchen: true,
+        coffeeMaker: true,
+        dishes: true,
+        dishwasher: true,
+        refrigerator: true,
+        microwave: true,
+        stove: true
+      },
+      guestAccess: {
+        privateEntrance: true
+      },
+      bedAndBath: {
+        hangers: true,
+        hairDryer: true,
+        shampoo: true,
+        bedLinens: true
+      },
+      safetyFeatures: {
+        smokeAlarm: true,
+        fireExting: true,
+        co2Alarm: true
+      },
+      notIncluded: {
+        washer: true,
+      }
+    },
+    descriptionText: `
+      Located on a 1 block long very quiet road in Brooklyn Heights this full floor garden level 1 bedroom apartment with own private entrance of 950sq ft sleeps 4. the townhouse dates to 1846 in the Greek Revival Style of architecture.
+      Features include: windowed bathroom; central heat & AC; brand new renovated bathroom & kitchen with new appliances; 2 exposures (east & west) from 6 windows.
 
-“It just came to me one day as I was doing my daily morning yoga routine in my living room,” said Yasmine in her North Berkeley home. “I looked over and saw Stretch stretched out in a sploot and I thought, hey, that looks promising. So I joined him and tried incorporating the sploot to my yoga routine and the rest is history.”
-
-Already the class has been booked solid for the foreseeable future with intrigued yoga practitioners from all over flocking to the see Stretch in action. When asked if this would become a permanent fixture in Yasmine’s yoga studio she replied, “I believe that the sploot is the future of yoga. I won’t be surprised if I wake up tomorrow to find yoga studios across the country incorporating it into their classes. Stretch is a visionary and I think he’s taking yoga to new heights.”
-
-When asked on his thoughts about his popular niche offering Stretch simply replied, “Bark bark, bark bark bark, *pant*...bark.”
-`,
-    views: 318
+      The space
+      Very quiet as located on a 'Place' block & only 1 block long so no through traffic.
+    `,
+    sleepArrangements: {
+      bedroom1: {
+        exists: true,
+        queenBed: 1
+      },
+      commonRooms: {
+        exists: true,
+        sofaBed: 2
+      }
+    }
   },
   {
-    title: 'Hipster Owners Create Cat DJ Sensation',
-    author: 'Tae Sung Kim',
-    imageUrl: 'https://source.unsplash.com/1600x900/?turntable',
-    createdAt: '2017-11-08T05:05:26.037Z',
-    body: `A New York couple has made waves in the east coast music scene. Trent Joule and Macca Klein, residents in the neighborhood of hell's kitchen in Manhattan, are the proud owners of their cat Darby who now goes by the moniker DJ Lil Paws. The couple who collect vinyl records discovered Darby’s talent for DJing one afternoon in their tiny Manhattan apartment when Darby jumped up on the record player and proceeded to scratch the vinyl record with her claws.
+    hostId: 4,
+    headline: 'The Beach Studio',
+    stars: 4.77,
+    reviews: 291,
+    superHost: false,
+    location: {
+      neighborhood: null,
+      city: 'Long Beach',
+      State: 'California'
+    },
+    subHeadline: 'Entire house hosted by Dorothy',
+    guestCapacity: 2,
+    totalBedrooms: 0,
+    totalBeds: 1,
+    totalBaths: 1,
+    topFeatures: {
+      entireHome: true,
+      selfCheckIn: true,
+      sparklingClean: true,
+      freeCancel: true
+    },
+    keyAmenities: {
+      kitchen: true,
+      wifi: true,
+      pool: true,
+      laptopFriendlyWorkspace: true,
+      iron: true,
+      hangers: true,
+      hairDryer: true,
+      tv: true,
+      airCon: true,
+      essentials: true
+    },
+    allAmenities: {
+      basic: {
+        wifi: true,
+        laptopFriendlyWorkspace: true,
+        iron: true,
+        tv: true,
+        airCon: true,
+        essentials: true,
+        heating: true,
+        hotWater: true
+      },
+      facilities: {
+        pool: true,
+        freeStreetPark: true,
+        singleLevel: true
+      },
+      dining: {
+        kitchen: true,
+        dishes: true,
+        coffeeMaker: true,
+        cookingBasics: true,
+        stove: true,
+        refrigerator: true,
+        microwave: true
+      },
+      guestAccess: {
+        keypad: true,
+        privateEntrance: true
+      },
+      bedAndBath: {
+        hangers: true,
+        hairDryer: true,
+        shampoo: true,
+        bedLinens: true
+      },
+      outdoor: {
+        gardenYard: true,
+        patioBalcony: true
+      },
+      safetyFeatures: {
+        co2Alarm: true,
+        fireExting: true,
+        firstAidKit: true,
+        smokeAlarm: true
+      },
+      notIncluded: {
+        washer: true,
+      }
+    },
+    descriptionText: `
+      The Beach Studio is a beautifully renovated studio guest house, with an oversized modern tiled shower and fully functional kitchenette. There is a gorgeous shared larger outdoor courtyard, with Spanish architecture and splash pool. There is a commissioned mural, succulent wall, and a fire pit. Light-filled, with plants, and lots of funky art work. There is one queen sized bed, and one full-size couch.
 
-“We had just gotten a brand new record player from this small shop in Brooklyn. You’ve probably never heard of them,” said Trent as he stroked his mustache. “We put on a record and were making a vegan gluten free dinner when we heard a scratching sound and ran into the living to find Darby scratching the vinyl. We would have stopped her but she was actually making some real genuine soul searching music. So instead we made some flyers for a show and she’s been touring ever since.”
+      Please NO EXTRA GUESTS (MAXIMUM IS 2), NO PHOTO SHOOTS, NO PARTIES/EVENTS.
 
-DJ Lil Paws is now a mainstay of the New York party scene, playing at large venues as well as various clubs and even private parties. When asked, various people who attended DJ Lil Paws’s shows described her music as, “Confusingly weird”, “Totally unreal”, and “Like nails on a chalkboard but in the best way possible”.
+      The space
+      This space is a classic Spanish style house built in 1932, but has been completely renovated with all new everything. We are nestled in the heart of the historic Wrigley neighborhood in Long Beach. A minibar with fridge, microwave, and coffee maker, crisp linens (hypoallergenic), towels, games, and Netflix await you. You'll find coffee, tea, water, and some rotating treats floating around. You'll also love the 48 inch Smart LED television. There is one queen bed. Get to downtown, the beach, Bixby Knolls, Cal Heights or Belmont Shore within minutes. Several culturally diverse restaurants with fantastic food, and amazing coffee shops, sprinkled around the neighborhood just a short drive away.
 
-DJ Lil Paws released her first album earlier this month which was well received by critics and fans alike and she is already a favorite to win the award for Best Animal DJ of the year as she is the first and only nominee in existence. Her hit single, “Hiss Hiss Meow” is also up for best DJ single of the year. When asked about her thoughts on her success and her nominations, DJ Lil Paws simply purred contently.
-`,
-    views: 479
+      Guest access
+      -The Beach Studio is a guest house detached from a front main house, and also shares use of the main large backyard as well.
+      -The pool and fire pit are common areas, and you can use them at any time.
+      -You will be given a temporary access code for the door prior to your arrival.
+      -There is plenty of street parking available right outside.
+
+      Other things to note
+      1) There is an airbnb called "The Spanish House" which is on the front of the house. This is totally separate with it's own entrance.
+      3) The main backyard is a common area, for all guests to share and use the pool, and fire pit.
+      4) The pool guy comes early Friday mornings for 15 minute maintenance.
+      5) The gardeners come Wednesdays for 1 hour maintenance.
+      9) PARKING: STREET PARKING ONLY! There is plenty of street parking available in the front of the house.
+    `,
+    sleepArrangements: {
+      commonRooms: {
+        exists: true,
+        queenBed: 1,
+        sofaBed: 1
+      }
+    }
   },
   {
-    title: 'Owner Accuses Cat Of Having A Bad “Catitude”',
-    author: 'Tae Sung Kim',
-    imageUrl: 'https://source.unsplash.com/1600x900/?cat',
-    createdAt: '2017-11-10T05:05:26.037Z',
-    body: `A New York couple has made waves in the east coast music scene. Trent Joule and Macca Klein, residents in the neighborhood of hell's kitchen in Manhattan, are the proud owners of their cat Darby who now goes by the moniker DJ Lil Paws. The couple who collect vinyl records discovered Darby’s talent for DJing one afternoon in their tiny Manhattan apartment when Darby jumped up on the record player and proceeded to scratch the vinyl record with her claws.
+    hostId: 5,
+    headline: 'PRIVATE STUDIO on a budget, Pool, Laundry',
+    stars: 4.81,
+    reviews: 511,
+    superHost: true,
+    location: {
+      neighborhood: null,
+      city: 'Los Angeles',
+      State: 'California'
+    },
+    subHeadline: 'Private room in a house hosted by Janna',
+    guestCapacity: 2,
+    totalBedrooms: 1,
+    totalBeds: 1,
+    totalBaths: 1,
+    topFeatures: {
+      sparklingClean: true,
+      superHost: true,
+      freeCancel: true
+    },
+    keyAmenities: {
+      wifi: true,
+      pool: true,
+      cableTv: true,
+      fireplace: true,
+      laptopFriendlyWorkspace: true,
+      iron: true,
+      dryer: true,
+      hangers: true,
+      washer: true,
+      hairDryer: true
+    },
+    allAmenities: {
+      basic: {
+        wifi: true,
+        cableTv: true,
+        fireplace: true,
+        laptopFriendlyWorkspace: true,
+        iron: true,
+        dryer: true,
+        washer: true,
+        tv: true,
+        airCon: true,
+        essentials: true,
+        heating: true,
+        ethernet: true,
+        hotWater: true
+      },
+      facilities: {
+        pool: true,
+        freeStreetPark: true
+      },
+      dining: {
+        cookingBasics: true,
+        coffeeMaker: true,
+        microwave: true,
+        dishes: true,
+        refrigerator: true
+      },
+      guestAccess: {
+        privateEntrance: true,
+        hostGreets: true
+      },
+      logistics: {
+        luggageDropoff: true
+      },
+      bedAndBath: {
+        hangers: true,
+        hairDryer: true,
+        shampoo: true,
+        extraBedding: true,
+        bedroomLock: true,
+        bedLinens: true
+      },
+      outdoor: {
+        gardenYard: true,
+        patioBalcony: true
+      },
+      safetyFeatures: {
+        fireExting: true,
+        co2Alarm: true,
+        firstAidKit: true,
+        smokeAlarm: true
+      },
+      notIncluded: {
+        kitchen: true,
+      }
+    },
+    descriptionText: `
+      Welcome to our house! Centrally located in historic Hancock Park, we just short drive away from Hollywood Attractions, Beverly Hills, Grove Shopping Center, Universal Studio, Downtown and Great Museums!
+      You will be within walking distance to great restaurants, cafes and food markets.
 
-“We had just gotten a brand new record player from this small shop in Brooklyn. You’ve probably never heard of them,” said Trent as he stroked his mustache. “We put on a record and were making a vegan gluten free dinner when we heard a scratching sound and ran into the living to find Darby scratching the vinyl. We would have stopped her but she was actually making some real genuine soul searching music. So instead we made some flyers for a show and she’s been touring ever since.”
+      The space
+      Located on a first floor of the house, studio is completely PRIVATE. You will have your own key entrance, bedroom, ‘en-suite’ bathroom, washer/ dryer and small kitchenette. You’ll have the space to yourself and will only share it with those you’re traveling with.
+      Kitchenette has a coffee machine, microwave, mini fridge, electric water kettle, toaster, and all necessary dishes and glasses.
+      You have full access of the back yard and the pool area to enjoy the warm LA weather and over sized pool.
+      If you rent a car, you can park on a street in front of our house (a lot of unlimited, unrestricted parking 24/7.
+      Enjoy your vacation on a budget. ADULTS ONLY!
 
-DJ Lil Paws is now a mainstay of the New York party scene, playing at large venues as well as various clubs and even private parties. When asked, various people who attended DJ Lil Paws’s shows described her music as, “Confusingly weird”, “Totally unreal”, and “Like nails on a chalkboard but in the best way possible”.
+      Guest access
+      Outdoor patio, big swimming pool
+      Washer/dryer with complimentary detergent
+      Complimentary Coffee, Tea
+      Complimentary Spa Amenities, Hair dryer & Hair Style products
+      WI-FI
 
-DJ Lil Paws released her first album earlier this month which was well received by critics and fans alike and she is already a favorite to win the award for Best Animal DJ of the year as she is the first and only nominee in existence. Her hit single, “Hiss Hiss Meow” is also up for best DJ single of the year. When asked about her thoughts on her success and her nominations, DJ Lil Paws simply purred contently.
-`,
-    views: 479
+      Other things to note
+      **NO PARTIES, OR EVENTS.
+      **WE CAN NOT ACCOMMODATE ADDITIONAL VISITORS-
+      If you are joining friends please plan to meet them OFF-SITE.
+      ***Please, be respectful during your stay, lowering music and loud speaking by 11 pm.
+      **ADULTS ONLY
+      ** Room is SMALL, but has 2 big windows & Quinn size bed:)
+      *Pool and backyard are shared with other guests.
+
+      License number
+      HSR19-000397
+    `,
+    sleepArrangements: {
+      bedroom1: {
+        exists: true,
+        queenBed: 1
+      }
+    }
   }
 ];
 
