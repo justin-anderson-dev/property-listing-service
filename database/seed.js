@@ -18,207 +18,75 @@ const sampleListings = [
     totalBedrooms: 2,
     totalBeds: 2,
     totalBaths: 1,
-    coreAmenities: [
-      {
-        amenityTitle: 'Entire home',
-        amenityDescr: 'You’ll have the apartment to yourself.',
-        iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-      },
-      {
-        amenityTitle: 'Self check-in',
-        amenityDescr: 'Check yourself in with the lockbox.',
-        iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-      },
-      {
-        amenityTitle: 'Sparkling clean',
-        amenityDescr: '8 recent guests said this place was sparkling clean.',
-        iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-      },
-      {
-        amenityTitle: 'Graziella is a Superhost',
-        amenityDescr: 'Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.',
-        iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-      }
-    ],
+    topFeatures: {
+      entireHome: true,
+      selfCheckIn: true,
+      sparklingClean: true,
+      superHost: true
+    },
+    keyAmenities: {
+      kitchen: true,
+      wifi: true,
+      washer: true,
+      dryer: true,
+      iron: true,
+      laptopFriendlyWorkspace: true,
+      tv: true,
+      hangers: true,
+      hairDryer: true,
+      essentials: true
+    },
     allAmenities: {
-      basic: [
-        {
-          amenityTitle: 'Wifi',
-          amenityDescr: 'Continuous access in the listing',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Washer',
-          amenityDescr: 'In the building, free or for a fee',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Dryer',
-          amenityDescr: 'In the building, free or for a fee',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Iron',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'TV',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Essentials',
-          amenityDescr: 'Towels, bed sheets, soap, and toilet paper',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Heating',
-          amenityDescr: 'Central heating or a heater in the listing',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Air conditioning',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Hot water',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-      ],
-      familyFeatures: [
-        {
-          amenityTitle: 'Outlet covers',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-      ],
-      facilities: [
-        {
-          amenityTitle: 'Free street parking',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        }
-      ],
-      dining: [
-        {
-          amenityTitle: 'Kitchen',
-          amenityDescr: 'Space where guests can cook their own meals',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Coffee maker',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Cooking basics',
-          amenityDescr: 'Pots and pans, oil, salt and pepper',
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Dishes and silverware',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Dishwasher',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Microwave',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Refrigerator',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Oven',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        },
-        {
-          amenityTitle: 'Stove',
-          amenityDescr: null,
-          iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
-        }
-      ],
-      guestAccess: [
-        {
-          amenityTitle: 'Lockbox',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        }
-      ],
-      logistics: [
-        {
-          amenityTitle: 'Long term stays allowed',
-          amenityDescr: 'Allow stay for 28 days or more',
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        }
-      ],
-      bedAndBath: [
-        {
-          amenityTitle: 'Hangers',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'Hair dryer',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'Shampoo',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'Bed linens',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'Extra pillows and blankets',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        }
-      ],
-      safetyFeatures: [
-        {
-          amenityTitle: 'Fire extinguisher',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'Carbon monoxide alarm',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'Smoke alarm',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        },
-        {
-          amenityTitle: 'First aid kit',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        }
-      ],
-      notIncluded: [
-        {
-          amenityTitle: 'Private entrance',
-          amenityDescr: null,
-          iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-        }
-      ]
+      basic: {
+        wifi: true,
+        washer: true,
+        dryer: true,
+        iron: true,
+        tv: true,
+        essentials: true,
+        heating: true,
+        airCon: true,
+        hotWater: true
+      },
+      familyFeatures: {
+        outletCovers: true
+      },
+      facilities: {
+        freeStreetPark: true
+      },
+      dining: {
+        kitchen: true,
+        coffeeMaker: true,
+        cookingBasics: true,
+        dishwasher: true,
+        dishes: true,
+        refrigerator: true,
+        microwave: true,
+        oven: true,
+        stove: true
+      },
+      guestAccess: {
+        lockbox: true,
+      },
+      logistics: {
+        longtermAllowed: true
+      },
+      bedAndBath: {
+        hangers: true,
+        hairDryer: true,
+        shampoo: true,
+        bedLinens: true,
+        extraBedding: true
+      },
+      safetyFeatures: {
+        fireExting: true,
+        co2Alarm: true,
+        smokeAlarm: true,
+        firstAidKit: true
+      },
+      notIncluded: {
+        privateEntrance: true
+      }
     },
     descriptionText: `
       My spacious two-bedroom home has everything you need for your NYC trip. On the first floor, but set above street level, I am offering two bedrooms, bathroom, kitchen with a dining/living area, plus ROKU tv, WIFI, and washer/dryer. While Brooklyn is very large, I am walking distance to several major train/bus routes that run into Manhattan for all the popular sites: Freedom Tower, the Metropolitan Museum of Art, Times Square. There is so much culture and excitement to be experienced!
@@ -237,18 +105,19 @@ const sampleListings = [
 
       NYC may be the city that ever sleeps but it certainly slows down on the weekends. On top of the reduced train schedules, there are the ever-present repairs which can further slow you down. Finally, Brooklyn is a big place and I am on one end and Manhattan across a river on the other. Until transporters (ala Star Trek) become commonplace, please allow yourself plenty of time to get from point 'A' to point 'B'.
     `,
-    sleepArrangements: [
-      {
-        roomName: 'Bedroom 1',
-        bedInfo: ['1 queen bed']
+    sleepArrangements: {
+      bedroom1: {
+        exists: true,
+        queenBed: 1
       },
-      {
-        roomName: 'Bedroom 2',
-        bedInfo: ['1 single bed']
-      },
-    ]
-  }
+      bedroom2: {
+        exists: true,
+        twinBed: 1
+      }
+    }
+  },
 ];
+
 
 const insertSampleListings = function() {
   Listing.create(sampleListings)
