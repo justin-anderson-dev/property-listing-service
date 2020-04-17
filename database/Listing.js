@@ -6,7 +6,7 @@ const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
   hostId: Number,
   headline: { type: String, unique: true },
-  stars: { type: Decimal128 },
+  stars: { type: Number },
   reviews: Number,
   superHost: Boolean,
   location: {
