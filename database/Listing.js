@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
   hostId: Number,
-  headline: String,
+  headline: { type: String, unique: true },
   stars: { type: Decimal128 },
   reviews: Number,
   superHost: Boolean,
@@ -135,7 +135,7 @@ const listingSchema = new mongoose.Schema({
   descriptionText: String,
   sleepArrangements: {
     bedroom1: {
-      exists: {type: Boolean, default: true},
+      exists: {type: Boolean, default: false},
       kingBed: {type: Number, default: 0},
       queenBed: {type: Number, default: 0},
       fullBed: {type: Number, default: 0},
