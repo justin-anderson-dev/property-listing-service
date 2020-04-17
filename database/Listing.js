@@ -6,72 +6,181 @@ const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
   hostId: Number,
   headline: String,
+  stars: { type: Decimal128 },
+  reviews: Number,
+  superHost: Boolean,
   location: {
-    neighborhood: String,
-    city: String,
-    State: String
+    neighborhood: { type: String, required: false },
+    city: { type: String, required: true },
+    State: { type: String, required: true }
   },
+  subHeadline: String,
   guestCapacity: Number,
   totalBedrooms: Number,
   totalBeds: Number,
   totalBaths: Number,
-  coreAmenities: [{
-    amenityTitle: {type: String, required: true},
-    amenityDescr: {type: String, required: false},
-    iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-  }],
+  topFeatures: {
+    entireHome: { type: Boolean, default: false },
+    selfCheckIn: { type: Boolean, default: false },
+    sparklingClean: { type: Boolean, default: false },
+    freeCancel: { type: Boolean, default: false },
+    experiencedHost: { type: Boolean, default: false },
+    greatLocation: { type: Boolean, default: false }
+  },
+  keyAmenities: {
+    kitchen: { type: Boolean, default: false },
+    wifi: { type: Boolean, default: false },
+    cableTv: { type: Boolean, default: false },
+    fireplace: { type: Boolean, default: false },
+    washer: { type: Boolean, default: false },
+    dryer: { type: Boolean, default: false },
+    iron: { type: Boolean, default: false },
+    laptopFriendlyWorkspace: { type: Boolean, default: false },
+    tv: { type: Boolean, default: false },
+    hangers: { type: Boolean, default: false },
+    hairDryer: { type: Boolean, default: false },
+    essentials: { type: Boolean, default: false },
+    freeParkOnPrem: { type: Boolean, default: false },
+    heating: { type: Boolean, default: false },
+    airCon: { type: Boolean, default: false },
+    co2Alarm: { type: Boolean, default: false },
+    gym: { type: Boolean, default: false },
+    hotTub: { type: Boolean, default: false },
+    pool: { type: Boolean, default: false }
+  },
   allAmenities: {
-    basic: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    familyFeatures: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    facilities: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    dining: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    guestAccess: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    logistics: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    bedAndBath: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    safetyFeatures: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }],
-    notIncluded: [{
-      amenityTitle: {type: String, required: true},
-      amenityDescr: {type: String, required: false},
-      iconUrl: {type: String, default: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'}
-    }]
+    basic: {
+      wifi: { type: Boolean, default: false },
+      cableTv: { type: Boolean, default: false },
+      fireplace: { type: Boolean, default: false },
+      washer: { type: Boolean, default: false },
+      dryer: { type: Boolean, default: false },
+      iron: { type: Boolean, default: false },
+      laptopFriendlyWorkspace: { type: Boolean, default: false },
+      tv: { type: Boolean, default: false },
+      essentials: { type: Boolean, default: false },
+      heating: { type: Boolean, default: false },
+      ethernet: { type: Boolean, default: false },
+      airCon: { type: Boolean, default: false },
+      hotWater: { type: Boolean, default: false }
+    },
+    familyFeatures: {
+      outletCovers: { type: Boolean, default: false },
+      bathtub: { type: Boolean, default: false },
+      childDishes: { type: Boolean, default: false },
+      packAndPlay: { type: Boolean, default: false },
+      highChair: { type: Boolean, default: false },
+      crib: { type: Boolean, default: false },
+      booksAndToys: { type: Boolean, default: false },
+      roomDark: { type: Boolean, default: false }
+    },
+    facilities: {
+      freeStreetPark: { type: Boolean, default: false },
+      freeParkOnPrem: { type: Boolean, default: false },
+      paidParkOnPrem: { type: Boolean, default: false },
+      paidParkOffPrem: { type: Boolean, default: false },
+      pool: { type: Boolean, default: false },
+      gym: { type: Boolean, default: false },
+      hotTub: { type: Boolean, default: false },
+      singleLevel: { type: Boolean, default: false }
+    },
+    dining: {
+      kitchen: { type: Boolean, default: false },
+      cookingBasics: { type: Boolean, default: false },
+      oven: { type: Boolean, default: false },
+      refrigerator: { type: Boolean, default: false },
+      microwave: { type: Boolean, default: false },
+      dishwasher: { type: Boolean, default: false },
+      dishes: { type: Boolean, default: false },
+      coffeeMaker: { type: Boolean, default: false },
+      stove: { type: Boolean, default: false }
+    },
+    guestAccess: {
+      hostGreets: { type: Boolean, default: false },
+      lockbox: { type: Boolean, default: false },
+      privateEntrance: { type: Boolean, default: false },
+      keypad: { type: Boolean, default: false }
+    },
+    logistics: {
+      longtermAllowed: { type: Boolean, default: false },
+      luggageDropoff: { type: Boolean, default: false }
+    },
+    bedAndBath: {
+      hangers: { type: Boolean, default: false },
+      hairDryer: { type: Boolean, default: false },
+      shampoo: { type: Boolean, default: false },
+      bedLinens: { type: Boolean, default: false },
+      extraBedding: { type: Boolean, default: false },
+      bedroomLock: { type: Boolean, default: false }
+    },
+    outdoor: {
+      bbqGrill: { type: Boolean, default: false },
+      gardenYard: { type: Boolean, default: false },
+      patioBalcony: { type: Boolean, default: false }
+    },
+    safetyFeatures: {
+      fireExting: { type: Boolean, default: false },
+      co2Alarm: { type: Boolean, default: false },
+      smokeAlarm: { type: Boolean, default: false },
+      firstAidKit: { type: Boolean, default: false }
+    },
+    notIncluded: {
+      privateEntrance: { type: Boolean, default: false },
+      washer: { type: Boolean, default: false },
+      hairDryer: { type: Boolean, default: false },
+      co2Alarm: { type: Boolean, default: false },
+      kitchen: { type: Boolean, default: false }
+    }
   },
   descriptionText: String,
-  sleepArrangements: [{
-    roomName: {type: String, default: 'Bedroom 1'},
-    bedInfo: [{type: String, default: '1 queen bed'}]
-  }]
+  sleepArrangements: {
+    bedroom1: {
+      exists: {type: Boolean, default: true},
+      kingBed: {type: Number, default: 0},
+      queenBed: {type: Number, default: 0},
+      fullBed: {type: Number, default: 0},
+      twinBed: {type: Number, default: 0},
+      sofaBed: {type: Number, default: 0},
+      crib: {type: Number, default: 0},
+      childBed: {type: Number, default: 0}
+    },
+    bedroom2: {
+      exists: {type: Boolean, default: false},
+      kingBed: {type: Number, default: 0},
+      queenBed: {type: Number, default: 0},
+      fullBed: {type: Number, default: 0},
+      twinBed: {type: Number, default: 0},
+      sofaBed: {type: Number, default: 0},
+      crib: {type: Number, default: 0},
+      childBed: {type: Number, default: 0}
+    },
+    bedroom3: {
+      exists: {type: Boolean, default: false},
+      kingBed: {type: Number, default: 0},
+      queenBed: {type: Number, default: 0},
+      fullBed: {type: Number, default: 0},
+      twinBed: {type: Number, default: 0},
+      sofaBed: {type: Number, default: 0},
+      crib: {type: Number, default: 0},
+      childBed: {type: Number, default: 0}
+    },
+    bedroom4: {
+      exists: {type: Boolean, default: false},
+      kingBed: {type: Number, default: 0},
+      queenBed: {type: Number, default: 0},
+      fullBed: {type: Number, default: 0},
+      twinBed: {type: Number, default: 0},
+      sofaBed: {type: Number, default: 0},
+      crib: {type: Number, default: 0},
+      childBed: {type: Number, default: 0}
+    },
+    commonRooms: {
+      exists: {type: Boolean, default: false},
+      sofaBed: {type: Number, default: 0},
+      crib: {type: Number, default: 0},
+      childBed: {type: Number, default: 0}
+    },
+  }
 },
 {
   timestamps: true

@@ -5,11 +5,15 @@ const sampleListings = [
   {
     hostId: 1,
     headline: 'Bright & Airy in Highland Park',
+    stars: 4.98,
+    reviews: 43,
+    superHost: true,
     location: {
       neighborhood: 'Cypress Hills',
       city: 'Brooklyn',
       State: 'New York'
     },
+    subHeadline: 'Entire apartment hosted by Graziella',
     guestCapacity: 3,
     totalBedrooms: 2,
     totalBeds: 2,
