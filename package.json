@@ -13,7 +13,7 @@
     "start": "nodemon --inspect server/index.js",
     "db:setup": "node database/seed.js",
     "db:seedFeatures": "node database/feature-data.js",
-    "test": "jest"
+    "test": "node_modules/jest/bin/jest.js spec"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -31,6 +31,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",

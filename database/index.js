@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost:27017/property-service';
+const mongoUri = process.env.MONGODB_URI;
 
-const db = mongoose.connect(mongoUri);
+const db = mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 module.exports = db;

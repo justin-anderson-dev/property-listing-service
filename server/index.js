@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -6,7 +7,7 @@ const Features = require('../database/Feature.js');
 
 const pretty = require('express-prettify');
 const app = express();
-const PORT = 3005;
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(pretty({ query: 'pretty' }));
@@ -28,8 +29,8 @@ app.get('/:id', (req, res) => {
 
 // GET features for that listing ?? or do I send all features data along with the listing to be added to app state?
 
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
 
-
+module.exports.app = app;
