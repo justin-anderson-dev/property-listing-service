@@ -1,31 +1,34 @@
 var path = require('path');
-var webpack = require('webpack');
+// var webpack = require('webpack');
 var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
+var htmlTemplate = path.join(__dirname, 'client/src/index.html');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: htmlTemplate,
+  filename: 'index.html',
+  inject: 'body'
+});
 
 module.exports = {
-  // mode: 'development',
-  entry: `${SRC_DIR}/index.jsx`,
-  target: 'node',
+  mode: 'development',
+  entry: [`${SRC_DIR}/index.jsx`],
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: DIST_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.m?js$/,
+        test: /\.jsx?$/,
         include: SRC_DIR,
         loader: 'babel-loader',
-        query: {
+        options: {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
     ]
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env.NODE_ENV': JSON.stringify('development')
-  //   })
-  // ]
+
+  plugins: [HTMLWebpackPluginConfig]
 };
