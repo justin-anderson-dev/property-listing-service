@@ -8,11 +8,6 @@
   "engines": {
     "node": ">=12.16.2"
   },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "./node_modules/jest-enzyme/lib/index.js"
-    ]
-  },
   "scripts": {
     "build": "webpack --mode production",
     "build:watch": "webpack --watch",
