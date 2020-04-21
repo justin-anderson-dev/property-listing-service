@@ -12,7 +12,7 @@
     "build": "webpack --mode production",
     "build:watch": "webpack --watch",
     "dev:react": "webpack-dev-server --open",
-    "start": "nodemon --inspect server/index.js",
+    "start": "nodemon --inspect server/start.js",
     "db:setup": "node database/seed.js",
     "db:seedFeatures": "node database/feature-data.js",
     "test": "node_modules/jest/bin/jest.js spec --detectOpenHandles"
@@ -47,6 +47,7 @@
     "nodemon": "^2.0.3",
     "react-test-renderer": "^16.13.1",
     "style-loader": "^1.1.4",
+    "supertest": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
