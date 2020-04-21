@@ -1,0 +1,1 @@
+// Room component displays info and icons for sleeping arrangements for a given room in the listing

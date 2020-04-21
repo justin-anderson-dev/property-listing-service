@@ -1,0 +1,1 @@
+// top-line property info with location, host, key features
