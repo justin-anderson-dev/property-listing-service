@@ -3,6 +3,7 @@ const Listing = require('./Listing.js');
 
 const sampleListings = [
   {
+    listingId: 1001,
     hostId: 1,
     headline: 'Bright & Airy in Highland Park',
     stars: 4.98,
@@ -117,6 +118,7 @@ const sampleListings = [
     }
   },
   {
+    listingId: 1002,
     hostId: 2,
     headline: 'The Kiva Cave Creek',
     stars: 4.96,
@@ -204,6 +206,7 @@ const sampleListings = [
     `
   },
   {
+    listingId: 1003,
     hostId: 3,
     headline: 'Brooklyn Heights 1 Bed Floorthru 950ft Garden Apt',
     stars: 4.97,
@@ -297,6 +300,7 @@ const sampleListings = [
     }
   },
   {
+    listingId: 1004,
     hostId: 4,
     headline: 'The Beach Studio',
     stars: 4.77,
@@ -409,6 +413,7 @@ const sampleListings = [
     }
   },
   {
+    listingId: 1005,
     hostId: 5,
     headline: 'PRIVATE STUDIO on a budget, Pool, Laundry',
     stars: 4.81,

@@ -4,6 +4,7 @@ mongoose.Promise = global.Promise;
 
 const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
+  listingId: { type: Number, unique: true },
   hostId: Number,
   headline: { type: String, unique: true },
   stars: { type: Number },

@@ -1,31 +1,45 @@
-var path = require('path');
-var webpack = require('webpack');
-var SRC_DIR = path.join(__dirname, '/client/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
+const path = require('path');
+// var webpack = require('webpack');
+const SRC_DIR = path.join(__dirname, '/client/src');
+const DIST_DIR = path.join(__dirname, '/client/dist');
+const htmlTemplate = path.join(__dirname, 'client/src/index.html');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+let HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  title: 'Development',
+  template: htmlTemplate,
+  filename: 'index.html',
+  inject: 'body'
+});
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  // mode: 'development',
-  entry: `${SRC_DIR}/index.jsx`,
-  target: 'node',
+  mode: 'development',
+  entry: [`${SRC_DIR}/index.jsx`],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: DIST_DIR,
+  },
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: DIST_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.m?js$/,
+        test: /\.jsx$/,
         include: SRC_DIR,
         loader: 'babel-loader',
         query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
+          presets: [
+            '@babel/preset-react'
+            // '@babel/preset-env'
+          ]
         }
       }
     ]
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env.NODE_ENV': JSON.stringify('development')
-  //   })
-  // ]
+  plugins: [
+    new CleanWebpackPlugin(),
+    HTMLWebpackPluginConfig
+  ]
 };
