@@ -23,9 +23,6 @@ module.exports = {
         test: /\.js?$/,
         include: SRC_DIR,
         loader: 'babel-loader',
-        // options: {
-        //   presets: ['@babel/preset-react']
-        // }
       }
     ]
   },
