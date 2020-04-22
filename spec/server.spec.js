@@ -1,4 +1,6 @@
-/* eslint-disable */
+/**
+ * @jest-environment node
+ */
 
 const app = require('../server/index');
 const supertest = require('supertest');
@@ -6,7 +8,7 @@ const request = supertest(app);
 const mongoose = require('mongoose');
 import 'regenerator-runtime';
 
-describe('SERVER TESTS', () => {
+describe('Server Tests', () => {
   it('Gets the test endpoint', async (done) => {
     const response = await request.get('/test');
 
@@ -23,7 +25,7 @@ describe('SERVER TESTS', () => {
   });
 
   afterAll( async () => {
-    await mongoose.connection.close()
+    await mongoose.connection.close();
   });
 
 });

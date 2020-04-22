@@ -3,13 +3,13 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Amenities from '../client/src/components/Amenities.jsx';
+import App from '../client/src/components/App.jsx';
 
 configure({ adapter: new Adapter() });
 
-describe('Amenities Component', () => {
+describe('App Component', () => {
   it('renders', () => {
-    const wrapper = shallow(<Amenities />);
+    const wrapper = shallow(<App/>);
     expect(wrapper.exists()).toBe(true);
   });
 });
