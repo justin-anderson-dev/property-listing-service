@@ -1,14 +1,31 @@
-// const path = require('path');
-// const server = require('../server/index').server;
+/* eslint-disable */
 
-// describe('server stuff', () => {
-//   // test('server exists', () => {
-//   //   expect(server.app).to.exist();
-//   //   done();
-//   // });
-//   test('server app is a function', () => {
-//     expect(server).to.be.a('function');
-//     server.close();
-//     // server.close();
-//   });
-// });
+const app = require('../server/index');
+const supertest = require('supertest');
+const request = supertest(app);
+const mongoose = require('mongoose');
+import 'regenerator-runtime';
+
+describe('SERVER TESTS', () => {
+  it('Gets the test endpoint', async (done) => {
+    const response = await request.get('/test');
+
+    expect(response.status).toBe(200);
+    expect(response.body.message).toBe('pass!');
+    done();
+  });
+  it('Gets the listings endpoint', async (done) => {
+    const response = await request.get('/listings/1001');
+
+    expect(response.status).toBe(200);
+    expect(response.body.listingId).toBe(1001);
+    done();
+  });
+
+  afterAll( async () => {
+    await mongoose.connection.close()
+  });
+
+});
+
+

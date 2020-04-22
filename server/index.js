@@ -22,8 +22,12 @@ app.get('/listings/:id', (req, res) => {
     }
     res.json(listing);
   });
+  // need to mongoose.connection.close() here?
 });
 
 // GET features for that listing ?? Need an endpoint for features data
+app.get('/test', (req, res) => {
+  res.json({ message: 'pass!' });
+});
 
 module.exports = app;

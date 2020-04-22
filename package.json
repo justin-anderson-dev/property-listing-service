@@ -15,7 +15,7 @@
     "start": "nodemon --inspect server/start.js",
     "db:setup": "node database/seed.js",
     "db:seedFeatures": "node database/feature-data.js",
-    "test": "node_modules/jest/bin/jest.js spec --detectOpenHandles"
+    "test": "node_modules/jest/bin/jest.js spec --runInBand"
   },
   "dependencies": {
     "axios": "^0.19.2",
