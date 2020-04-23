@@ -13,9 +13,12 @@ let HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: [`${SRC_DIR}/index.jsx`],
   devtool: 'inline-source-map',
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? "warning" : false
+  },
   devServer: {
     contentBase: DIST_DIR,
   },

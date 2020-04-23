@@ -1,0 +1,18 @@
+If the server has a route '/:id', it can just res.send the client/dist/index.html file. The browser URL will still contain `id` after the slash.
+
+Then the index.jsx file can parse the id value and pass it as props to the App component. <App listingId={function that gets id} />
+
+The App component sends a GET request to /listings/:id, stores the response data as state.listingData, and then renders child components. (Can this be async? Can I delay mounting the component until after the GET request comes back?)
+
+App
+state: {
+  listingData: {result of GET request}
+}
+
+etc.
+
+SO:
+1. Write new server endpoint that serves index.html to dynamic url
+2. Write another endpoint that sends all features data
+3. Add function to index.jsx that gets the id parameter value and passes it to the App component
+
