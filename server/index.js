@@ -17,6 +17,8 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
+// look into sending id as query parameters from client
+// bring this up in next team standup
 // GET listing data
 app.get('/listings/:id', (req, res) => {
   // res.send(`The id you specified is: ${req.params.id}`);
