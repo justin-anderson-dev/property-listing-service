@@ -12,7 +12,9 @@ state: {
 etc.
 
 SO:
-1. Write new server endpoint that serves index.html to dynamic url
-2. Write another endpoint that sends all features data
+DONE 1. Write new server endpoint that serves index.html to dynamic url
+DONE 2. Write another endpoint that sends all features data
 3. Add function to index.jsx that gets the id parameter value and passes it to the App component
+
+HELP DESK: Why is bundle.js not working when index.html is served from server api??
 

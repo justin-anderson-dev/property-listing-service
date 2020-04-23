@@ -7,6 +7,7 @@
 
 module.exports = {
   extends: './node_modules/eslint-config-hackreactor/index.js',
+  parser: 'esprima',
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2017,
