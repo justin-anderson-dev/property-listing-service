@@ -6,5 +6,13 @@
  */
 
 module.exports = {
-  extends: './node_modules/eslint-config-hackreactor/index.js'
+  extends: './node_modules/eslint-config-hackreactor/index.js',
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2017,
+    ecmaFeatures: {
+        jsx: true,
+        experimentalObjectRestSpread: true
+    }
+  }
 };

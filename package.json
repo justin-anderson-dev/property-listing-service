@@ -12,10 +12,10 @@
     "build": "webpack --mode production",
     "build:watch": "webpack --watch",
     "dev:react": "webpack-dev-server --open",
-    "start": "nodemon --inspect server/index.js",
+    "start": "nodemon --inspect server/start.js",
     "db:setup": "node database/seed.js",
     "db:seedFeatures": "node database/feature-data.js",
-    "test": "node_modules/jest/bin/jest.js spec --detectOpenHandles"
+    "test": "node_modules/jest/bin/jest.js spec --runInBand"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -34,7 +34,6 @@
     "@babel/preset-react": "^7.9.4",
     "babel-jest": "^25.4.0",
     "babel-loader": "^8.1.0",
-    "chai": "^4.2.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.2",
     "enzyme": "^3.11.0",
@@ -43,10 +42,12 @@
     "html-webpack-plugin": "^4.2.0",
     "jest": "^25.3.0",
     "jest-cli": "^25.3.0",
+    "jest-enzyme": "^7.1.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.3",
     "react-test-renderer": "^16.13.1",
     "style-loader": "^1.1.4",
+    "supertest": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
