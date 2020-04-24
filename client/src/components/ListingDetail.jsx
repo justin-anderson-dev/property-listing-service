@@ -9,10 +9,16 @@ const ListingDetail = (props) => (
   <div className = "full-listing">
     <h3>This is the ListingDetail component.</h3>
     It renders the Summary, Description, Amenities, and Beds components.
-    <Summary />
-    <Description />
-    <Amenities />
-    <Beds />
+    <Summary
+      summaryData={props.listing}
+      featuresData={props.features}
+    />
+    <Description description={props.listing}/>
+    <Amenities
+      amenitiesData={props.listing}
+      featuresData={props.features}
+    />
+    <Beds bedsData={props.listing}/>
   </div>
 );
 
