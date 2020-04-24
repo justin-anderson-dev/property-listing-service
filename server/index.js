@@ -13,8 +13,20 @@ app.use(pretty({ query: 'pretty' }));
 
 app.use(express.static(__dirname + '/../client/dist'));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 // GET listing page
 app.get('/:id', (req, res) => {
+  if (req.params.id === 'features') {
+
+  }
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 // look into sending id as query parameters from client
@@ -29,7 +41,7 @@ app.get('/listings/:id', (req, res) => {
 });
 
 // GET features for that listing ?? Need an endpoint for features data
-app.get('/features', (req, res) => {
+app.get('/features/all', (req, res) => {
   Features.find({})
     .then(featureData => {
       res.json(featureData);

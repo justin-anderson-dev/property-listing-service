@@ -20,8 +20,8 @@ class App extends React.Component {
     // axios get request to /id
     axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
-        console.log(`got listing data: ${Object.keys(listing)}`);
-        self.setState({listingData: listing});
+        console.log(`got listing data: ${Object.keys(listing.data)}`);
+        self.setState({listingData: listing.data});
       })
       .catch((error) => {
         return new Error(error);
@@ -30,10 +30,10 @@ class App extends React.Component {
 
   fetchFeaturesData() {
     const self = this;
-    axios.get(`${API_URL}/features`)
+    axios.get(`${API_URL}/features/all`)
       .then((features) => {
-        console.log(`got features data for ${features.length} features`);
-        self.setState({featuresData: features});
+        console.log(`got features data for ${features.data.length} features`);
+        self.setState({featuresData: features.data});
       })
       .catch((error) => {
         return new Error(error);

@@ -2,7 +2,7 @@ If the server has a route '/:id', it can just res.send the client/dist/index.htm
 
 Then the index.jsx file can parse the id value and pass it as props to the App component. <App listingId={function that gets id} />
 
-The App component sends a GET request to /listings/:id, stores the response data as state.listingData, and then renders child components. (Can this be async? Can I delay mounting the component until after the GET request comes back?)
+The App component sends a GET request to /listings/:id, stores the response data as state.listingData, and then renders child components. (Can this be async? Can I delay rendering the component until after the GET request comes back?)
 
 App
 state: {
@@ -17,6 +17,7 @@ DONE 2. Write another endpoint that sends all features data
 DONE 3. Add function to index.jsx that gets the id parameter value and passes it to the App component
 
 DONE: HELP DESK: Why is bundle.js not working when index.html is served from server api??
+
 
 NEXT: Add 'Access-Control-Allow-Origin' header to server responses
 Access to XMLHttpRequest at 'http://localhost:3005/listings/1005' from origin 'https://localhost:8080' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
