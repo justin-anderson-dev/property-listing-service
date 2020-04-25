@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Listings = require('../database/Listing.js');
@@ -24,9 +25,6 @@ app.use((req, res, next) => {
 
 // GET listing page
 app.get('/:id', (req, res) => {
-  if (req.params.id === 'features') {
-
-  }
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 // look into sending id as query parameters from client
@@ -47,6 +45,10 @@ app.get('/features/all', (req, res) => {
       res.json(featureData);
     })
     .catch(err => new Error(err));
+});
+
+app.get('/assets/:id', (req, res) => {
+  res.sendFile(path.join(__dirname + '/assets/' + req.params.id));
 });
 
 app.get('/test', (req, res) => {

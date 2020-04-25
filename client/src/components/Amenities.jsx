@@ -3,10 +3,16 @@
 import React from 'react';
 
 const Amenities = (props) => (
-  <div className = "all-amenities">
-    <h3>This is the Amenities component.</h3>
-    A list of the top few amenities goes here.
-    There will be a 'show all <em>X</em> amenities' link that opens a modal overlay with all amenities.
+  <div className = "amenities">
+    <div className="amenities-header">
+      <h2>Amenities</h2>
+    </div>
+    <div className="amenities-list">
+      A bunch of amenities go here, in two columns.
+    </div>
+    <div className="show-all-amenities">
+      <a href="#">Show all <em>X</em> amenities</a>
+    </div>
   </div>
 );
 

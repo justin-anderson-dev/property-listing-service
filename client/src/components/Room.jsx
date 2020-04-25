@@ -4,8 +4,10 @@ import React from 'react';
 
 const Room = (props) => (
   <div className = "room-info">
-    <h3>This is a Room component.</h3>
-    It displays details about a room with a bed.
+    <h3>Room component</h3>
+    icon <br></br>
+    room name <br></br>
+    beds
   </div>
 );
 

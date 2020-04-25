@@ -49,8 +49,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="main">
-        <h3>This is the main App component.</h3>
-        It renders the ListingDetail component.
         <ListingDetail
           listing={this.state.listingData}
           features={this.state.featuresData}
