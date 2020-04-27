@@ -59,7 +59,7 @@ class App extends React.Component {
     const self = this;
     axios.get(`${API_URL}/features/all`)
       .then((features) => {
-        console.log(`got features data for all ${features.data.length} features`);
+        console.log(`got features data for ${features.data.length} features`);
         self.setState({featuresData: features.data});
       })
       .catch((error) => {

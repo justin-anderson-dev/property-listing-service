@@ -30,6 +30,16 @@ app.get('/:id', (req, res) => {
 // look into sending id as query parameters from client
 // bring this up in next team standup
 // GET listing data
+app.get('/listings/all', (req, res) => {
+  // res.send(`The id you specified is: ${req.params.id}`);
+  Listings.find( {} )
+    .then( listings => {
+      res.json(listings);
+    })
+    .catch( err => new Error(err));
+  // need to mongoose.connection.close() here?
+});
+
 app.get('/listings/:id', (req, res) => {
   // res.send(`The id you specified is: ${req.params.id}`);
   Listings.findOne( {listingId: req.params.id} )
@@ -38,7 +48,7 @@ app.get('/listings/:id', (req, res) => {
   // need to mongoose.connection.close() here?
 });
 
-// GET features for that listing ?? Need an endpoint for features data
+// GET features/[some] for that listing ??
 app.get('/features/all', (req, res) => {
   Features.find({})
     .then(featureData => {
