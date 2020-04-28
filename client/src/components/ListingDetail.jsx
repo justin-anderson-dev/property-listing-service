@@ -28,13 +28,14 @@ const ListingDetail = (props) => (
       totalBeds={props.listing.totalBeds}
       totalBaths={props.listing.totalBaths}
       topFeatures={props.topFeatures ? props.topFeatures : null}
-      myFeatures={props.features ? props.features : null} // need to filter props.features: if props.topFeatures includes thisFeature.idString
+      myFeatures={props.features ? props.features : null}
     />
     <Description description={props.listing.descriptionText ? props.listing.descriptionText : 'placeholder'}/>
     <Beds bedsData={props.listing}/>
     <Amenities
-      amenitiesData={props.listing}
-      featuresData={props.features}
+      amenitiesList={props.amenities ? props.amenities : null}
+      myAmenities={props.features ? props.features : null}
+      keyAmenities={props.keyAmenities ? props.keyAmenities : null}
     />
   </div>
 );

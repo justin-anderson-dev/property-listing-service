@@ -83,6 +83,8 @@ class App extends React.Component {
           // location={this.state.listingData.location}
           features={this.state.featuresData}
           topFeatures={this.state.topFeatures}
+          amenities={this.state.allAmenities}
+          keyAmenities={this.state.keyAmenities}
         />
       </div>
     );

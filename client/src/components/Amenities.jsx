@@ -11,7 +11,18 @@ const Amenities = (props) => (
       A bunch of amenities go here, in two columns.
     </div>
     <div className="show-all-amenities">
-      <a href="#">Show all <em>X</em> amenities</a>
+      <a href="#">Show all <strong>{ props.amenitiesList ? (
+        props.amenitiesList.basic.length +
+        props.amenitiesList.bedAndBath.length +
+        props.amenitiesList.dining.length +
+        props.amenitiesList.facilities.length +
+        props.amenitiesList.familyFeatures.length +
+        props.amenitiesList.guestAccess.length +
+        props.amenitiesList.logistics.length +
+        props.amenitiesList.outdoor.length +
+        props.amenitiesList.safetyFeatures.length
+      ) : 'X'
+      }</strong> amenities</a>
     </div>
   </div>
 );

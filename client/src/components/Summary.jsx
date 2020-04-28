@@ -26,7 +26,7 @@ const Summary = (props) => (
           <Feature
             idString={feature}
             key={`topFeatures_${index}`}
-            feature={props.myFeatures[0] ? props.myFeatures.find(element => element.idString === feature) : 'null' }
+            feature={props.myFeatures[0] ? props.myFeatures.find(element => element.idString === feature) : 'not found' }
           />
         )) : null}
       </div>
