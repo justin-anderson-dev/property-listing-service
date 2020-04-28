@@ -206,7 +206,17 @@ const sampleListings = [
 
     Guest access
     Walking trails, private driveway, outdoor fire pit and bbq.
-    `
+    `,
+    sleepArrangements: {
+      bedroom1: {
+        exists: true,
+        queenBed: 1
+      },
+      bedroom2: {
+        exists: true,
+        twinBed: 1
+      }
+    }
   },
   {
     listingId: 1003,
