@@ -57,6 +57,8 @@ class App extends React.Component {
 
   fetchFeaturesData() {
     const self = this;
+    const featureList = [];
+    featureList.concat(this.state.topFeatures, this.state.allAmenities.basic, ); // TODO: finish this list, then write new API endpoint that GETs only specified feature data
     axios.get(`${API_URL}/features/all`)
       .then((features) => {
         console.log(`got features data for ${features.data.length} features`);
