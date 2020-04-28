@@ -1,6 +1,7 @@
 // Amenities component contains all amenities for the displayed property
 
 import React from 'react';
+import AmenityPrev from './AmenityPrev.jsx';
 
 const Amenities = (props) => (
   <div className = "amenities">
@@ -8,9 +9,15 @@ const Amenities = (props) => (
       <h2>Amenities</h2>
     </div>
     <div className="amenities-list">
-      A bunch of amenities go here, in two columns.
+      {props.keyAmenities ? props.keyAmenities.map((amenity, index) => (
+        <AmenityPrev
+          idString={amenity}
+          key={`keyAmenities_${index}`}
+          amenity={props.myAmenities.length ? props.myAmenities.find(element => element.idString === amenity) : 'not found' }
+        />
+      )) : null }
     </div>
-    <div className="show-all-amenities">
+    <div className="show-all-amenities-link">
       <a href="#">Show all <strong>{ props.amenitiesList ? (
         props.amenitiesList.basic.length +
         props.amenitiesList.bedAndBath.length +

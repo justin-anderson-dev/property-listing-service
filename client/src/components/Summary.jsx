@@ -20,9 +20,7 @@ const Summary = (props) => (
     </div>
     <div className="summary-info">
       <div className="summary-features">
-
         { props.topFeatures ? props.topFeatures.map((feature, index) => (
-          console.log(`${props.myFeatures}`),
           <Feature
             idString={feature}
             key={`topFeatures_${index}`}

@@ -5,7 +5,7 @@ import React from 'react';
 const Feature = (props) => (
   <div className="feature-block">
     <div className="feature-icon">
-      <img src={props.feature.iconUrl}></img>
+      <img src={props.feature.iconUrl}/>
     </div>
     <div className="feature-text">
       <div className="feature-title">

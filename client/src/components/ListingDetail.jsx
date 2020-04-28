@@ -31,7 +31,7 @@ const ListingDetail = (props) => (
       myFeatures={props.features ? props.features : null}
     />
     <Description description={props.listing.descriptionText ? props.listing.descriptionText : 'placeholder'}/>
-    <Beds bedsData={props.listing}/>
+    <Beds bedrooms={props.listing.sleepArrangements ? Object.entries(props.listing.sleepArrangements).filter(element => element[1].exists) : null}/>
     <Amenities
       amenitiesList={props.amenities ? props.amenities : null}
       myAmenities={props.features ? props.features : null}

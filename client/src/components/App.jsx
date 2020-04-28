@@ -79,7 +79,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <ListingDetail
-          listing={this.state.listingData}
+          listing={this.state.listingData ? this.state.listingData : 'loading'}
           // location={this.state.listingData.location}
           features={this.state.featuresData}
           topFeatures={this.state.topFeatures}
