@@ -19,7 +19,7 @@ const Header = (props) => (
           {props.superHost === true ? 'Superhost •' : null}
         </div>
         <div className="location-info">
-          {props.neighborhood ? props.neighborhood + ', ': null}
+          {props.neighborhood ? props.neighborhood + ', ' : null}
           {props.city}, {props.state}
         </div>
       </div>
