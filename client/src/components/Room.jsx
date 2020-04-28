@@ -3,9 +3,28 @@
 import React from 'react';
 
 const Room = (props) => (
-  <div className = "room-info">
-    <h3>This is a Room component.</h3>
-    It displays details about a room with a bed.
+  <div className = "bedroom-info">
+    <div className="bed-icons">
+      <img src="http://localhost:3005/assets/Bed-595b40b75ba036ed117d8820.svg"/>
+    </div>
+    <div className="bedroom-title">
+      {
+        props.name === 'bedroom1' ? 'Bedroom 1' :
+          props.name === 'bedroom2' ? 'Bedroom 2' :
+            props.name === 'bedroom3' ? 'Bedroom 3' :
+              props.name === 'bedroom4' ? 'Bedroom 4' :
+                props.name === 'commonRooms' ? 'Shared spaces' : 'Room'
+      }
+    </div>
+    <div className="bedroom-beds">
+      {
+        props.kingBeds > 0 ? props.kingBeds + ' king bed' :
+          props.queenBeds > 0 ? props.queenBeds + ' queen bed' :
+            props.fullBeds > 0 ? props.fullBeds + ' full bed' :
+              props.twinBeds > 0 ? props.twinBeds + ' single bed' :
+                props.sofaBeds > 0 ? props.sofaBeds + ' couch' : '0 beds'
+      }
+    </div>
   </div>
 );
 

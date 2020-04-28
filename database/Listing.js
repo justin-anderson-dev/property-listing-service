@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-mongoose.Promise = global.Promise;
 
 const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
   listingId: { type: Number, unique: true },
   hostId: Number,
+  price: Number,
   headline: { type: String, unique: true },
   stars: { type: Number },
   reviews: Number,
