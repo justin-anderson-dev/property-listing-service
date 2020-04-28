@@ -5,7 +5,7 @@ import React from 'react';
 const Description = (props) => (
   <div className = "listing-description">
     <div className="description-preview">
-      {props.description.descriptionText}...<a href="#">read more</a>
+      {props.description.slice(0, 220)}...<a href="#">read more</a>
     </div>
     <div className="contact-link">
       <a href="#">Contact host</a>

@@ -8,18 +8,19 @@ still need to solve:
 const Header = (props) => (
   <div className="listing-header">
     <div className="headline">
-      <h1>{props.headerData.headline}</h1>
+      <h1>{props.headline}</h1>
     </div>
     <div className="header-widgets">
       <div className="header-info">
         <div className="stars-info">
-          {props.headerData.stars} ({props.headerData.reviews}) •
+          {props.stars} ({props.reviews}) •
         </div>
-        <div className="superhost-info">
-          superhost •
+        <div className="superhost-badge">
+          {props.superHost === true ? 'Superhost •' : null}
         </div>
         <div className="location-info">
-          neighborhood, city, state
+          {props.neighborhood ? props.neighborhood + ', ': null}
+          {props.city}, {props.state}
         </div>
       </div>
       <div className="header-actions">

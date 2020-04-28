@@ -70,7 +70,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Promise.resolve(this.fetchListingData(this.props.id))
+    return Promise.resolve(this.fetchListingData(this.props.id))
       .then(() => this.fetchFeaturesData())
       .catch(err => new Error(err));
   }
@@ -80,7 +80,9 @@ class App extends React.Component {
       <div className="main">
         <ListingDetail
           listing={this.state.listingData}
+          // location={this.state.listingData.location}
           features={this.state.featuresData}
+          topFeatures={this.state.topFeatures}
         />
       </div>
     );

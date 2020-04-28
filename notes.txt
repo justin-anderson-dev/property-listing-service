@@ -3,7 +3,8 @@ NOTES 4/27 - Fixing Data Flow in Client
 - Collections of properties in the Mongo model should be arrays of objects rather than strictly nested objects literal.
 - Destructure props in each component to include only relevant properties from the listingData and featuresData objects.
 
-
+Dang it, I need to add another component: the Feature component.
+ - need a template for rendering the icon, title and description
 
 
 
