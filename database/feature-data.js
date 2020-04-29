@@ -390,7 +390,7 @@ const featureData = [
 
 const insertFeatureData = function() {
   Feature.create(featureData)
-    .then(() => db.disconnect());
+    .then(() => db.close());
 };
 
 insertFeatureData();
