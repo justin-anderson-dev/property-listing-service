@@ -15,9 +15,7 @@ const lorem = new LoremIpsum({
   }
 });
 
-const randomCity = ['Los Angeles', 'Long Beach', 'Brooklyn', 'Cave Creek', 'Napa', 'Boston', 'Naples'];
-
-const randomState = ['California', 'New York', 'Arizona', 'Massachusetts', 'Florida'];
+const randomCity = ['Los Angeles', 'Long Beach', 'Brooklyn', 'Cave Creek', 'Napa', 'Boston', 'Naples']; // add 5 or 6 options here
 
 const generateRandomInteger = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -44,7 +42,15 @@ const createMockListings = function() {
       location: {
         neighborhood: null,
         city: randomCity[Math.round(Math.random() * 6)],
-        State: randomState[Math.round(Math.random() * 4)]
+        State: 'California'
+        // storage.location.city === 'Los Angeles' ? 'California' :
+        //   storage.location.city === 'Long Beach' ? 'California' :
+        //     storage.location.city === 'Brooklyn' ? 'New York' :
+        //       storage.location.city === 'Cave Creek' ? 'Arizona' :
+        //         storage.location.city === 'Napa' ? 'California' :
+        //           storage.location.city === 'Boston' ? 'Massachusetts' :
+        //             storage.location.city === 'Naples' ? 'Florida' :
+        //               'not found'
       },
       subHeadline: lorem.generateWords(5),
       guestCapacity: generateRandomInteger(2, 9),
@@ -82,18 +88,18 @@ const createMockListings = function() {
       },
       allAmenities: {
         basic: {
-          wifi: Math.random() >= 0.6,
-          cableTv: Math.random() >= 0.6,
-          fireplace: Math.random() >= 0.6,
-          washer: Math.random() >= 0.6,
-          dryer: Math.random() >= 0.6,
-          iron: Math.random() >= 0.6,
-          laptopFriendlyWorkspace: Math.random() >= 0.6,
-          tv: Math.random() >= 0.6,
-          essentials: Math.random() >= 0.6,
-          heating: Math.random() >= 0.6,
+          wifi: storage.keyAmenities.wifi,
+          cableTv: storage.keyAmenities.cableTv,
+          fireplace: storage.keyAmenities.fireplace,
+          washer: storage.keyAmenities.washer,
+          dryer: storage.keyAmenities.dryer,
+          iron: storage.keyAmenities.iron,
+          laptopFriendlyWorkspace: storage.keyAmenities.laptopFriendlyWorkspace,
+          tv: storage.keyAmenities.tv,
+          essentials: storage.keyAmenities.essentials,
+          heating: storage.keyAmenities.heating,
           ethernet: Math.random() >= 0.6,
-          airCon: Math.random() >= 0.6,
+          airCon: storage.keyAmenities.airCon,
           hotWater: true
         },
         familyFeatures: {
@@ -104,32 +110,32 @@ const createMockListings = function() {
           highChair: Math.random() >= 0.8,
           crib: Math.random() >= 0.8,
           booksAndToys: Math.random() >= 0.8,
-          roomDark: Math.random() >= 0.6
+          roomDark: Math.random() >= 0.6,
         },
         facilities: {
           freeStreetPark: Math.random() >= 0.6,
-          freeParkOnPrem: Math.random() >= 0.6,
+          freeParkOnPrem: storage.keyAmenities.freeParkOnPrem,
           paidParkOnPrem: Math.random() >= 0.6,
           paidParkOffPrem: Math.random() >= 0.6,
-          pool: Math.random() >= 0.6,
-          gym: Math.random() >= 0.6,
-          hotTub: Math.random() >= 0.6,
-          singleLevel: Math.random() >= 0.8
+          pool: storage.keyAmenities.pool,
+          gym: storage.keyAmenities.gym,
+          hotTub: storage.keyAmenities.hotTub,
+          singleLevel: Math.random() >= 0.8,
         },
         dining: {
-          kitchen: Math.random() >= 0.6,
-          cookingBasics: Math.random() >= 0.6,
-          oven: Math.random() >= 0.6,
-          refrigerator: Math.random() >= 0.6,
-          microwave: Math.random() >= 0.6,
-          dishwasher: Math.random() >= 0.6,
-          dishes: Math.random() >= 0.6,
-          coffeeMaker: Math.random() >= 0.6,
-          stove: Math.random() >= 0.6
+          kitchen: storage.keyAmenities.kitchen,
+          cookingBasics: storage.keyAmenities.kitchen,
+          oven: storage.keyAmenities.kitchen,
+          refrigerator: storage.keyAmenities.kitchen,
+          microwave: storage.keyAmenities.kitchen,
+          dishwasher: storage.keyAmenities.kitchen,
+          dishes: storage.keyAmenities.kitchen,
+          coffeeMaker: storage.keyAmenities.kitchen,
+          stove: storage.keyAmenities.kitchen
         },
         guestAccess: {
           hostGreets: Math.random() >= 0.6,
-          lockbox: Math.random() >= 0.6,
+          lockbox: !storage.allAmenities.guestAccess.hostGreets,
           privateEntrance: Math.random() >= 0.6,
           keypad: Math.random() >= 0.6
         },
@@ -138,8 +144,8 @@ const createMockListings = function() {
           luggageDropoff: Math.random() >= 0.6
         },
         bedAndBath: {
-          hangers: Math.random() >= 0.6,
-          hairDryer: Math.random() >= 0.6,
+          hangers: storage.keyAmenities.hangers,
+          hairDryer: storage.keyAmenities.hairDryer,
           shampoo: Math.random() >= 0.4,
           bedLinens: Math.random() >= 0.1,
           extraBedding: Math.random() >= 0.8,
@@ -152,16 +158,16 @@ const createMockListings = function() {
         },
         safetyFeatures: {
           fireExting: Math.random() >= 0.6,
-          co2Alarm: Math.random() >= 0.2,
+          co2Alarm: storage.keyAmenities.co2Alarm,
           smokeAlarm: true,
           firstAidKit: Math.random() >= 0.7,
         },
         notIncluded: {
-          privateEntrance: Math.random() >= 0.8,
-          washer: Math.random() >= 0.8,
-          hairDryer: Math.random() >= 0.8,
-          co2Alarm: Math.random() >= 0.8,
-          kitchen: Math.random() >= 0.8
+          privateEntrance: !storage.allAmenities.guestAccess.privateEntrance,
+          washer: !storage.keyAmenities.washer,
+          hairDryer: !storage.keyAmenities.hairDryer,
+          co2Alarm: !storage.keyAmenities.co2Alarm,
+          kitchen: !storage.keyAmenities.kitchen
         }
       },
       descriptionText: lorem.generateParagraphs(3),
@@ -176,11 +182,11 @@ const createMockListings = function() {
         },
         bedroom3: {
           exists: Math.random() >= 0.9,
-          fullBed: 1,
+          fullBed: storage.sleepArrangements.bedroom3.exists ? 1 : 0,
         },
         commonRooms: {
           exists: Math.random() >= 0.9,
-          sofaBed: 1,
+          sofaBed: storage.sleepArrangements.commonRooms.exists ? 1 : 0,
         }
       }
     };
@@ -191,8 +197,7 @@ const createMockListings = function() {
 const insertSampleListings = function() {
   createMockListings();
   Listing.create(sampleListings)
-    .then(() => db.close())
-    .catch( (err) => new Error(err));
+    .then(() => db.close());
 };
 
 insertSampleListings();
