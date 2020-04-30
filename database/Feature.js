@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-mongoose.Promise = global.Promise;
 
 const featureSchema = new mongoose.Schema({
   //TODO: define features schema

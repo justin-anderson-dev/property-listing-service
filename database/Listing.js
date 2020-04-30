@@ -3,7 +3,7 @@ const db = require('./index.js');
 
 const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
-  listingId: { type: Number, unique: true },
+  listingId: { type: Number, required: true, unique: true },
   hostId: Number,
   price: Number,
   headline: { type: String, unique: true },
