@@ -6,7 +6,7 @@ const featureData = [
     idString: 'entireHome',
     featureTitle: 'Entire home',
     featureDescr: 'You’ll have the space to yourself.',
-    iconUrl: 'https://visualpharm.com/assets/757/Briefcase-595b40b85ba036ed117daf4c.svg'
+    iconUrl: 'http://localhost:3005/assets/Briefcase-595b40b85ba036ed117daf4c.svg'
   },
   {
     idString: 'selfCheckIn',
