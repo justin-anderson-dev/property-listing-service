@@ -15,9 +15,9 @@ const lorem = new LoremIpsum({
   }
 });
 
-const randomCity = ['Los Angeles', 'Long Beach', 'Brooklyn', 'Cave Creek', 'Napa', 'Boston', 'Naples'];
+const randomLocation = ['Los Angeles, California', 'Long Beach, California', 'Brooklyn, New York', 'Cave Creek, Arizona', 'Napa, California', 'Boston, Massachusetts', 'Naples, Florida'];
 
-const randomState = ['California', 'New York', 'Arizona', 'Massachusetts', 'Florida'];
+const randomRoomType = ['Entire apartment', 'Entire home', 'Private room', 'Shared room', 'Entire guesthouse', 'Entire cottage'];
 
 const generateRandomInteger = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -37,20 +37,17 @@ const createMockListings = function() {
       listingId: 1000 + i,
       hostId: i,
       price: generateRandomInteger(50, 299),
-      headline: lorem.generateWords(5),
+      typeOfRoom: randomRoomType[Math.round(Math.random() * 5)],
+      headline: lorem.generateSentences(1),
       stars: generateRandomRating(),
       reviews: Math.round(Math.random() * 1000),
       superHost: Math.random() >= 0.8,
-      location: {
-        neighborhood: null,
-        city: randomCity[Math.round(Math.random() * 6)],
-        State: randomState[Math.round(Math.random() * 4)]
-      },
-      subHeadline: lorem.generateWords(5),
+      location: randomLocation[Math.round(Math.random() * 6)],
+      subHeadline: lorem.generateSentences(1),
       guestCapacity: generateRandomInteger(2, 9),
       totalBedrooms: generateRandomInteger(1, 4),
       totalBeds: generateRandomInteger(1, 4),
-      totalBaths: generateRandomInteger(1, 4),
+      totalBaths: generateRandomInteger(1, 3),
       topFeatures: {
         entireHome: Math.random() >= 0.6,
         selfCheckIn: Math.random() >= 0.6,

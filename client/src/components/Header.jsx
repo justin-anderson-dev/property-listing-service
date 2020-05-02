@@ -19,16 +19,15 @@ const Header = (props) => (
           {props.superHost === true ? 'Superhost •' : null}
         </div>
         <div className="location-info">
-          {props.neighborhood ? props.neighborhood + ', ' : null}
-          {props.city}, {props.state}
+          {props.location ? props.location : null}
         </div>
       </div>
       <div className="header-actions">
         <div className="share-button">
-          Share
+          <img className="share-icon" src="http://localhost:3005/assets/share.svg" />Share
         </div>
         <div className="save-button">
-          Save
+          <img className="save-icon" src="http://localhost:3005/assets/save.svg" />Save
         </div>
       </div>
     </div>

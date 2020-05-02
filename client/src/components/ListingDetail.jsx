@@ -15,9 +15,7 @@ const ListingDetail = (props) => (
       stars={props.listing.stars}
       reviews={props.listing.reviews}
       superHost={props.listing.superHost || false}
-      neighborhood={props.listing.location ? props.listing.location.neighborhood : null}
-      city={props.listing.location ? props.listing.location.city : null}
-      state={props.listing.location ? props.listing.location.State : null}
+      location={props.listing.location ? props.listing.location : null}
     />
 
     <Photos />

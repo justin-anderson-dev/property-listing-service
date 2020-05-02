@@ -4,17 +4,14 @@ const db = require('./index.js');
 const listingSchema = new mongoose.Schema({
   //TODO: define listing schema
   listingId: { type: Number, required: true, unique: true },
-  hostId: Number,
-  price: Number,
+  hostId: { type: Number, required: true},
+  price: { type: Number, required: true},
+  typeOfRoom: String,
   headline: { type: String, unique: true },
   stars: { type: Number },
   reviews: Number,
   superHost: Boolean,
-  location: {
-    neighborhood: { type: String, required: false },
-    city: { type: String, required: true },
-    State: { type: String, required: true }
-  },
+  location: { type: String, required: true },
   subHeadline: String,
   guestCapacity: Number,
   totalBedrooms: Number,
