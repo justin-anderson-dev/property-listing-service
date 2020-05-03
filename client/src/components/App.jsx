@@ -31,7 +31,7 @@ class App extends React.Component {
     // axios get request to /id
     return axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
-        console.log(`got listing data for listing ${id}: ${Object.keys(listing.data)}`);
+        console.log(`got listing data for listing ${id}`);
         self.setState({
           listingData: listing.data,
           topFeatures: self.filterFeatures(listing.data.topFeatures),
