@@ -1,20 +1,14 @@
-// write mock db listing generator here
-
-
 module.exports.sampleListings = [
   {
     listingId: 1001,
     hostId: 1,
     price: 50,
+    typeOfRoom: 'Entire apartment',
     headline: 'Bright & Airy in Highland Park',
     stars: 4.98,
     reviews: 43,
     superHost: true,
-    location: {
-      neighborhood: 'Cypress Hills',
-      city: 'Brooklyn',
-      State: 'New York'
-    },
+    location: 'Cypress Hills, Brooklyn, New York',
     subHeadline: 'Entire apartment hosted by Graziella',
     guestCapacity: 3,
     totalBedrooms: 2,
@@ -122,15 +116,12 @@ module.exports.sampleListings = [
     listingId: 1002,
     hostId: 2,
     price: 140,
+    typeOfRoom: 'Entire home',
     headline: 'The Kiva Cave Creek',
     stars: 4.96,
     reviews: 209,
     superHost: true,
-    location: {
-      neighborhood: null,
-      city: 'Cave Creek',
-      State: 'Arizona'
-    },
+    location: 'Cave Creek, Arizona',
     subHeadline: 'Earth house hosted by Sarah',
     guestCapacity: 4,
     totalBedrooms: 2,
@@ -221,15 +212,12 @@ module.exports.sampleListings = [
     listingId: 1003,
     hostId: 3,
     price: 229,
+    typeOfRoom: 'Entire apartment',
     headline: 'Brooklyn Heights 1 Bed Floorthru 950ft Garden Apt',
     stars: 4.97,
     reviews: 39,
     superHost: true,
-    location: {
-      neighborhood: null,
-      city: 'Brooklyn',
-      State: 'New York'
-    },
+    location: 'Brooklyn, New York',
     subHeadline: 'Entire apartment hosted by Alex',
     guestCapacity: 4,
     totalBedrooms: 1,
@@ -316,15 +304,12 @@ module.exports.sampleListings = [
     listingId: 1004,
     hostId: 4,
     price: 109,
+    typeOfRoom: 'Entire guesthouse',
     headline: 'The Beach Studio',
     stars: 4.77,
     reviews: 291,
     superHost: false,
-    location: {
-      neighborhood: null,
-      city: 'Long Beach',
-      State: 'California'
-    },
+    location: 'Long Beach, California',
     subHeadline: 'Entire house hosted by Dorothy',
     guestCapacity: 2,
     totalBedrooms: 0,
@@ -430,15 +415,12 @@ module.exports.sampleListings = [
     listingId: 1005,
     hostId: 5,
     price: 50,
+    typeOfRoom: 'Private room',
     headline: 'PRIVATE STUDIO on a budget, Pool, Laundry',
     stars: 4.81,
     reviews: 511,
     superHost: true,
-    location: {
-      neighborhood: null,
-      city: 'Los Angeles',
-      State: 'California'
-    },
+    location: 'Los Angeles, California',
     subHeadline: 'Private room in a house hosted by Janna',
     guestCapacity: 2,
     totalBedrooms: 1,

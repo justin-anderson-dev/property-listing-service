@@ -11,7 +11,7 @@ const Summary = (props) => (
           <h2>{props.subHead}</h2>
         </div>
         <div className="summary-head-stats">
-          {props.guestCapacity} guests • {props.totalBedrooms} bedrooms • {props.totalBeds} beds • {props.totalBaths} baths
+          {props.guestCapacity} guests • {props.totalBedrooms > 0 ? `${props.totalBedrooms} bedrooms • ` : null} {props.totalBeds} beds • {props.totalBaths} baths
         </div>
       </div>
       <div className="summary-head-avi">

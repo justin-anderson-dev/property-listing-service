@@ -5,7 +5,7 @@ import React from 'react';
 const Room = (props) => (
   <div className = "bedroom-info">
     <div className="bed-icons">
-      <img src="http://localhost:3005/assets/Bed-595b40b75ba036ed117d8820.svg"/>
+      <img src="http://localhost:3005/assets/queenBed.svg" />
     </div>
     <div className="bedroom-title">
       {

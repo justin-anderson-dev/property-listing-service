@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
@@ -48,6 +49,22 @@ app.get('/listings/:id', (req, res) => {
   // need to mongoose.connection.close() here?
 });
 
+// GET specific data for all listings (recommendation engine)
+app.get('/listings/metadata/all', (req, res) => {
+  Listings.find({}, {
+    "listingId": 1,
+    "location": 1,
+    "typeOfRoom": 1,
+    "totalBeds": 1,
+    "price": 1,
+    "stars": 1
+  })
+    .then( listings => {
+      res.json(listings);
+    })
+    .catch( err => new Error(err));
+});
+
 // GET features/[some] for that listing ??
 app.get('/features/all', (req, res) => {
   Features.find({})
@@ -59,6 +76,10 @@ app.get('/features/all', (req, res) => {
 
 app.get('/assets/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/assets/' + req.params.id));
+});
+
+app.get('/assets/icons/:id', (req, res) => {
+  res.sendFile(path.join(__dirname + '/assets/icons/' + req.params.id));
 });
 
 app.get('/test', (req, res) => {

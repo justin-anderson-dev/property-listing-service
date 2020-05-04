@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/App.jsx';
+import Header from './components/Header.jsx';
+import ListingDetail from './components/ListingDetail.jsx';
+import Photos from './components/Photos.jsx';
+import axios from 'axios';
+const Promise = require('bluebird');
+const API_URL = 'http://localhost:3005';
 
 const getIdFromUrl = () => {
   let url = window.location.href;
@@ -13,4 +18,8 @@ const getIdFromUrl = () => {
   return id;
 };
 
-ReactDom.render(<App id={getIdFromUrl()}/>, document.getElementById('property-service'));
+ReactDom.render(<Header id={getIdFromUrl()} />, document.getElementById('header-component'));
+
+ReactDom.render(<ListingDetail id={getIdFromUrl()} />, document.getElementById('listing-details'));
+
+// ReactDom.render(<Photos />, document.getElementById('listing-photos'));
