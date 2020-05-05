@@ -55,7 +55,7 @@ class Header extends React.Component {
               {this.state.superHost ?
                 <div>
                   <div className="superhost-badge">
-                    <img src="/assets/superHost.svg" />
+                    <img src="http://localhost:3005/assets/superHost.svg" />
                   </div>
                   <div className="superhost-status">
                     Superhost •
