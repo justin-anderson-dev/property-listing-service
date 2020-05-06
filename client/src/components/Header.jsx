@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from './header.css';
 
 const API_URL = 'http://localhost:3005';
 
@@ -42,7 +43,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="listing-header">
+      <div className={styles.listingHeader}>
         <div className="headline">
           <h1>{this.state.headline}</h1>
         </div>
@@ -54,7 +55,7 @@ class Header extends React.Component {
             <div className="superhost-info">
               {this.state.superHost ?
                 <div>
-                  <div className="superhost-badge">
+                  <div className={styles.superhostBadge}>
                     <img src="http://localhost:3005/assets/superHost.svg" />
                   </div>
                   <div className="superhost-status">
@@ -69,10 +70,10 @@ class Header extends React.Component {
           </div>
           <div className="header-actions">
             <div className="share-button">
-              <img className="share-icon" src="http://localhost:3005/assets/share.svg" />Share
+              <img className={styles.shareIcon} src="http://localhost:3005/assets/share.svg" />Share
             </div>
             <div className="save-button">
-              <img className="save-icon" src="http://localhost:3005/assets/save.svg" />Save
+              <img className={styles.saveIcon} src="http://localhost:3005/assets/save.svg" />Save
             </div>
           </div>
         </div>

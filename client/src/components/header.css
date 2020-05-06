@@ -1,0 +1,12 @@
+.listingHeader * {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.superhostBadge, .shareIcon, .saveIcon {
+  display: block;
+  height: 16px;
+  width: 16px;
+  fill: currentcolor;
+}
+
