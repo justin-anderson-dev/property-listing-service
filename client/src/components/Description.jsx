@@ -1,6 +1,5 @@
-// Description component includes host-provided description of property
-
 import React from 'react';
+import styles from '../styles/Description.css';
 
 const Description = (props) => (
   <div className = "listing-description">

@@ -1,10 +1,9 @@
-// Room component displays info and icons for sleeping arrangements for a given room in the listing
-
 import React from 'react';
+import styles from '../styles/Room.css';
 
 const Room = (props) => (
   <div className = "bedroom-info">
-    <div className="bed-icons">
+    <div className={styles.bedIcons}>
       <img src="http://localhost:3005/assets/queenBed.svg" />
     </div>
     <div className="bedroom-title">

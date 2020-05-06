@@ -5,6 +5,7 @@ import Description from './Description.jsx';
 import Amenities from './Amenities.jsx';
 import Beds from './Beds.jsx';
 import axios from 'axios';
+import styles from '../styles/ListingDetail.css';
 
 const API_URL = 'http://localhost:3005';
 
@@ -108,7 +109,7 @@ class ListingDetail extends React.Component {
 
   render () {
     return (
-      <div className = "full-listing">
+      <div className = {styles.fullListing}>
         <Summary
           subHead={this.state.listingData.subHeadline}
           guestCapacity={this.state.listingData.guestCapacity}

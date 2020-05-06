@@ -1,0 +1,4 @@
+.bedroomsList {
+  display: flex;
+  flex-flow: row wrap;
+}

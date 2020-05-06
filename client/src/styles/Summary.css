@@ -1,0 +1,23 @@
+
+.summaryHead {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.summaryHeadInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.infoAndAviContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

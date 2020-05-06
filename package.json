@@ -1,6 +1,6 @@
 {
   "name": "property-service",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "private": true,
   "author": "Justin Anderson",
@@ -9,25 +9,23 @@
     "node": ">=12.16.2"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack",
     "build:watch": "webpack --watch",
-    "dev:react": "webpack-dev-server --open",
     "start": "nodemon --inspect server/start.js",
     "db:setup": "node database/seed.js",
     "db:seedFeatures": "node database/feature-data.js",
-    "test": "node_modules/jest/bin/jest.js spec --runInBand"
+    "test": "node_modules/jest/bin/jest.js spec --runInBand",
+    "clean": "rm -rf client/dist",
+    "clean:build": "npm run clean && webpack"
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-prettify": "^0.1.1",
     "mongoose": "^5.9.9",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "styled-components": "^5.1.0"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -35,8 +33,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-jest": "^25.4.0",
     "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.5.2",
+    "css-loader": "^3.5.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
@@ -48,7 +45,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.3",
     "react-test-renderer": "^16.13.1",
-    "style-loader": "^1.1.4",
+    "style-loader": "^1.2.1",
     "supertest": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",

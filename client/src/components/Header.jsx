@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from '../styles/Header.css';
 
 const API_URL = 'http://localhost:3005';
 
@@ -8,11 +9,11 @@ class Header extends React.Component {
     super(props);
     this.state = {
       listingId: this.props.id,
-      headline: 'loading',
+      headline: 'loading...',
       stars: 0,
       reviews: 0,
       superHost: false,
-      location: 'loading'
+      location: 'loading...'
     };
   }
 
@@ -42,22 +43,22 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="listing-header">
+      <div className={styles.listingHeader}>
         <div className="headline">
           <h1>{this.state.headline}</h1>
         </div>
-        <div className="header-widgets">
-          <div className="header-info">
+        <div className={styles.headerWidgets}>
+          <div className={styles.headerInfo}>
             <div className="stars-info">
               {this.state.stars} ({this.state.reviews}) •
             </div>
-            <div className="superhost-info">
+            <div className={styles.superhostInfo}>
               {this.state.superHost ?
-                <div>
-                  <div className="superhost-badge">
+                <div className={styles.superhostInfo}>
+                  <div className={styles.superhostBadge}>
                     <img src="http://localhost:3005/assets/superHost.svg" />
                   </div>
-                  <div className="superhost-status">
+                  <div className={styles.superhostStatus}>
                     Superhost •
                   </div>
                 </div>
@@ -67,12 +68,12 @@ class Header extends React.Component {
               {this.state.location}
             </div>
           </div>
-          <div className="header-actions">
-            <div className="share-button">
-              <img className="share-icon" src="http://localhost:3005/assets/share.svg" />Share
+          <div className={styles.headerActions}>
+            <div className={styles.shareButton}>
+              <img className={styles.shareIcon} src="http://localhost:3005/assets/share.svg" />Share
             </div>
-            <div className="save-button">
-              <img className="save-icon" src="http://localhost:3005/assets/save.svg" />Save
+            <div className={styles.saveButton}>
+              <img className={styles.saveIcon} src="http://localhost:3005/assets/save.svg" />Save
             </div>
           </div>
         </div>
