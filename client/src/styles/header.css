@@ -1,6 +1,27 @@
+.listingHeader {
+  display: flex;
+  flex-direction: column;
+}
+
 .listingHeader * {
   background-color: white;
   font-family: 'Montserrat', sans-serif;
+}
+
+.headerWidgets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerInfo, .headerActions {
+  display: flex;
+  flex-direction: row;
+}
+
+.superhostInfo, .superhostStatus, .shareButton, .saveButton {
+  display: flex;
+  flex-direction: row;
 }
 
 .superhostBadge, .shareIcon, .saveIcon {

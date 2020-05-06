@@ -109,7 +109,7 @@ class ListingDetail extends React.Component {
 
   render () {
     return (
-      <div className = "full-listing">
+      <div className = {styles.fullListing}>
         <Summary
           subHead={this.state.listingData.subHeadline}
           guestCapacity={this.state.listingData.guestCapacity}

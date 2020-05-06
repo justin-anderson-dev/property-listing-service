@@ -23,7 +23,10 @@ app.use((req, res, next) => {
   );
   next();
 });
-
+//GET root
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/not_found.html'));
+});
 // GET listing page
 app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));

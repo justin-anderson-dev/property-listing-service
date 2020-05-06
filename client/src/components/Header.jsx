@@ -47,18 +47,18 @@ class Header extends React.Component {
         <div className="headline">
           <h1>{this.state.headline}</h1>
         </div>
-        <div className="header-widgets">
-          <div className="header-info">
+        <div className={styles.headerWidgets}>
+          <div className={styles.headerInfo}>
             <div className="stars-info">
               {this.state.stars} ({this.state.reviews}) •
             </div>
-            <div className="superhost-info">
+            <div className={styles.superhostInfo}>
               {this.state.superHost ?
-                <div>
+                <div className={styles.superhostInfo}>
                   <div className={styles.superhostBadge}>
                     <img src="http://localhost:3005/assets/superHost.svg" />
                   </div>
-                  <div className="superhost-status">
+                  <div className={styles.superhostStatus}>
                     Superhost •
                   </div>
                 </div>
@@ -68,11 +68,11 @@ class Header extends React.Component {
               {this.state.location}
             </div>
           </div>
-          <div className="header-actions">
-            <div className="share-button">
+          <div className={styles.headerActions}>
+            <div className={styles.shareButton}>
               <img className={styles.shareIcon} src="http://localhost:3005/assets/share.svg" />Share
             </div>
-            <div className="save-button">
+            <div className={styles.saveButton}>
               <img className={styles.saveIcon} src="http://localhost:3005/assets/save.svg" />Save
             </div>
           </div>
