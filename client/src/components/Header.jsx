@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import styles from './header.css';
+import styles from '../styles/header.css';
 
 const API_URL = 'http://localhost:3005';
 

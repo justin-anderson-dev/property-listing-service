@@ -1,5 +1,3 @@
-// top-line property info with location, host, key features
-
 import React from 'react';
 import Feature from './Feature.jsx';
 

@@ -1,0 +1,11 @@
+.fullListing * {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bedIcons, .amenityIcon, .featureIcon {
+  height: 24px;
+  width: 24px;
+  fill: currentcolor;
+}
+

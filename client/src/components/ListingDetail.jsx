@@ -5,6 +5,7 @@ import Description from './Description.jsx';
 import Amenities from './Amenities.jsx';
 import Beds from './Beds.jsx';
 import axios from 'axios';
+import styles from '../styles/listing-detail.css';
 
 const API_URL = 'http://localhost:3005';
 
