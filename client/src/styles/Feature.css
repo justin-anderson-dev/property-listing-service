@@ -1,0 +1,14 @@
+.featureIcon {
+  height: 24px;
+  width: 24px;
+  fill: currentcolor;
+}
+
+.featureBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+.featureTitle * {
+  font: bold;
+}

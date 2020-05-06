@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../styles/listing-detail.css';
+import styles from '../styles/AmenityPrev.css';
 
 const AmenityPrev = (props) => (
-  <div className="amenity-short">
+  <div className={styles.amenityShort}>
     <div className={styles.amenityIcon}>
       <img src={props.amenity.iconUrl}/>
     </div>

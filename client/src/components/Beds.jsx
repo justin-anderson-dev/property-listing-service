@@ -1,14 +1,13 @@
-// Beds component contains a Room component for each room with a bed
-
 import React from 'react';
 import Room from './Room.jsx';
+import styles from '../styles/Beds.css';
 
 const Beds = (props) => (
   <div className = "sleeping-info">
     <div className="bedrooms-header">
       <h2>Sleeping arrangements</h2>
     </div>
-    <div className="bedrooms-list">
+    <div className={styles.bedroomsList}>
       {props.bedrooms ? props.bedrooms.map((room, index) => (
         <Room
           name={room[0]}

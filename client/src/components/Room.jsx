@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/listing-detail.css';
+import styles from '../styles/Room.css';
 
 const Room = (props) => (
   <div className = "bedroom-info">

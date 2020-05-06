@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import styles from '../styles/header.css';
+import styles from '../styles/Header.css';
 
 const API_URL = 'http://localhost:3005';
 
@@ -9,11 +9,11 @@ class Header extends React.Component {
     super(props);
     this.state = {
       listingId: this.props.id,
-      headline: 'loading',
+      headline: 'loading...',
       stars: 0,
       reviews: 0,
       superHost: false,
-      location: 'loading'
+      location: 'loading...'
     };
   }
 

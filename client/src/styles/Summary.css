@@ -1,13 +1,3 @@
-.fullListing * {
-  background-color: white;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.bedIcons, .amenityIcon, .featureIcon {
-  height: 24px;
-  width: 24px;
-  fill: currentcolor;
-}
 
 .summaryHead {
   display: flex;
@@ -18,15 +8,6 @@
 .summaryHeadInfo {
   display: flex;
   flex-direction: column;
-}
-
-.featureBlock {
-  display: flex;
-  flex-direction: row;
-}
-
-.featureTitle * {
-  font: bold;
 }
 
 .summaryInfo {

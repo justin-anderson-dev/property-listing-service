@@ -1,14 +1,13 @@
-// Amenities component contains all amenities for the displayed property
-
 import React from 'react';
 import AmenityPrev from './AmenityPrev.jsx';
+import styles from '../styles/Amenities.css';
 
 const Amenities = (props) => (
   <div className = "amenities">
     <div className="amenities-header">
       <h2>Amenities</h2>
     </div>
-    <div className="amenities-list">
+    <div className={styles.amenitiesList}>
       {props.keyAmenities ? props.keyAmenities.map((amenity, index) => (
         <AmenityPrev
           idString={amenity}

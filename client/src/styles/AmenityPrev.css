@@ -1,0 +1,11 @@
+.amenityIcon {
+  height: 24px;
+  width: 24px;
+  fill: currentcolor;
+}
+
+.amenityShort {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}

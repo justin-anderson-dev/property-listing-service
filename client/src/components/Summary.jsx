@@ -1,6 +1,6 @@
 import React from 'react';
 import Feature from './Feature.jsx';
-import styles from '../styles/listing-detail.css';
+import styles from '../styles/Summary.css';
 
 const Summary = (props) => (
   <div className="listing-summary">
@@ -27,7 +27,7 @@ const Summary = (props) => (
         </div>
       </div>
       <div className="summary-head-avi">
-        <h2> host avatar goes here </h2>
+        <h2> avi goes here </h2>
       </div>
       <div className="reservation-service">
         <img src="http://localhost:3005/assets/reservation-mock.png"/>
