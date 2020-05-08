@@ -54,7 +54,7 @@ const featureData = [
     idString: 'cableTv',
     featureTitle: 'Cable TV',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/cableTv.svg'
   },
   {
     idString: 'fireplace',
@@ -66,43 +66,43 @@ const featureData = [
     idString: 'washer',
     featureTitle: 'Washer',
     featureDescr: 'In the building, free or for a fee',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/washer.svg'
   },
   {
     idString: 'dryer',
     featureTitle: 'Dryer',
     featureDescr: 'In the building, free or for a fee',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/dryer.svg'
   },
   {
     idString: 'iron',
     featureTitle: 'Iron',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/iron.svg'
   },
   {
     idString: 'laptopFriendlyWorkspace',
     featureTitle: 'Laptop-friendly workspace',
     featureDescr: 'A table or desk with space for a laptop and a chair that’s comfortable to work in',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/laptopFriendlyWorkspace.svg'
   },
   {
     idString: 'tv',
     featureTitle: 'TV',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/tv.svg'
   },
   {
     idString: 'essentials',
     featureTitle: 'Essentials',
     featureDescr: 'Towels, bed sheets, soap, and toilet pap',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/essentials.svg'
   },
   {
     idString: 'heating',
     featureTitle: 'Heating',
     featureDescr: 'Central heating or a heater in the listing',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/heating.svg'
   },
   {
     idString: 'ethernet',
@@ -114,7 +114,7 @@ const featureData = [
     idString: 'airCon',
     featureTitle: 'Air conditioning',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: 'http://localhost:3005/assets/aircon.svg'
   },
   {
     idString: 'hotWater',
@@ -170,6 +170,7 @@ const featureData = [
     idString: 'freeParkOnPrem',
     featureTitle: 'Free parking on premises',
     featureDescr: null,
+    iconUrl: 'http://localhost:3005/freeParkOnPrem.svg'
   },
   {
     idString: 'paidParkOnPrem',
@@ -185,11 +186,13 @@ const featureData = [
     idString: 'pool',
     featureTitle: 'Pool',
     featureDescr: 'Private or shared',
+    iconUrl: 'http://localhost:3005/assets/pool.svg'
   },
   {
     idString: 'gym',
     featureTitle: 'Gym',
     featureDescr: 'Free, in the building or nearby',
+    iconUrl: 'http://localhost:3005/assets/gym.svg'
   },
   {
     idString: 'hotTub',
@@ -286,6 +289,7 @@ const featureData = [
     idString: 'hairDryer',
     featureTitle: 'Hair dryer',
     featureDescr: null,
+    iconUrl: 'http://localhost.com/assets/hairDryer.svg'
   },
   {
     idString: 'shampoo',
@@ -331,7 +335,7 @@ const featureData = [
     idString: 'co2Alarm',
     featureTitle: 'Carbon monoxide alarm',
     featureDescr: null,
-
+    iconUrl: 'http://localhost:3005/assets/co2Alarm.svg'
   },
   {
     idString: 'smokeAlarm',
