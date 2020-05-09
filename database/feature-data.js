@@ -170,7 +170,7 @@ const featureData = [
     idString: 'freeParkOnPrem',
     featureTitle: 'Free parking on premises',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/freeParkOnPrem.svg'
+    iconUrl: 'http://localhost:3005/assets/freeParkOnPrem.svg'
   },
   {
     idString: 'paidParkOnPrem',
@@ -289,7 +289,7 @@ const featureData = [
     idString: 'hairDryer',
     featureTitle: 'Hair dryer',
     featureDescr: null,
-    iconUrl: 'http://localhost.com/assets/hairDryer.svg'
+    iconUrl: 'http://localhost:3005/assets/hairDryer.svg'
   },
   {
     idString: 'shampoo',
