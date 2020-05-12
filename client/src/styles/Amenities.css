@@ -1,3 +1,20 @@
+.amenitiesContainer {
+  grid-row: 4;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+}
+
+.amenities {
+  grid-row: 1;
+  grid-column: 1 / 2;
+}
+
+.amenitiesHeader {
+  margin-bottom: 16px;
+}
+
 .amenitiesList {
   display: flex;
   flex-flow: row wrap;

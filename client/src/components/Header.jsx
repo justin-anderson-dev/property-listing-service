@@ -44,8 +44,8 @@ class Header extends React.Component {
   render() {
     return (
       <div className={styles.listingHeader}>
-        <div className="headline">
-          <h1>{this.state.headline}</h1>
+        <div className={styles.headline}>
+          <h1 className={styles.headlineText}>{this.state.headline}</h1>
         </div>
         <div className={styles.headerWidgets}>
           <div className={styles.headerInfo}>

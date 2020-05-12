@@ -1,3 +1,9 @@
+.bedroomInfo {
+  border: 1px solid #EBEBEB !important;
+  border-radius: 4px !important;
+  height: 100% !important;
+  padding: 24px !important;
+}
 
 .bedIcons {
   height: 24px;
