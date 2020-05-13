@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/Room.css';
 
 const Room = (props) => (
-  <div className = "bedroom-info">
+  <div className = {styles.bedroomInfo}>
     <div className={styles.bedIcons}>
       <img src="http://localhost:3005/assets/queenBed.svg" />
     </div>
