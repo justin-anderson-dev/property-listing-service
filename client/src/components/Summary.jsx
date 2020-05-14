@@ -7,14 +7,14 @@ const Summary = (props) => (
     <div className={styles.infoAndAviContainer}>
       <div className={styles.summaryHeadInfo}>
         <div className={styles.summaryHeadHeadline}>
-          <h2>{props.subHead}</h2>
+          <h2>{`${props.typeOfRoom} hosted by ${props.hostName}`}</h2>
         </div>
         <div className="summary-head-stats">
           {props.guestCapacity} guests • {props.totalBedrooms > 0 ? `${props.totalBedrooms} bedrooms • ` : null} {props.totalBeds} beds • {props.totalBaths} baths
         </div>
       </div>
       <div className={styles.summaryHeadAvi}>
-        <img src="http://localhost:3005/assets/graziella.jpg"/>
+        <img src={props.avatarUrl}/>
       </div>
     </div>
     <div className={styles.summaryFeatures}>

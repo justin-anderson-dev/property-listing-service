@@ -8,6 +8,7 @@ import axios from 'axios';
 import styles from '../styles/ListingDetail.css';
 
 const API_URL = 'http://localhost:3005';
+const HOST_API_URL = 'http://localhost:3001';
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class ListingDetail extends React.Component {
     this.state = {
       listingId: this.props.id,
       listingData: {
-        subHeadline: 'loading...',
         guestCapacity: 0,
         totalBedrooms: 0,
         totalBeds: 0,
@@ -23,6 +23,10 @@ class ListingDetail extends React.Component {
         descriptionText: 'loading...',
         sleepArrangements: {}
       },
+      typeOfRoom: 'loading...',
+      hostId: 1,
+      hostName: 'VaporBnB Host',
+      avatarUrl: API_URL + '/assets/graziella.jpg',
       topFeatures: [],
       keyAmenities: [],
       allAmenities: {
@@ -60,7 +64,6 @@ class ListingDetail extends React.Component {
         console.log(`got listing data for listing ${listing.data.listingId}`);
         self.setState({
           listingData: {
-            subHeadline: listing.data.subHeadline,
             guestCapacity: listing.data.guestCapacity,
             totalBedrooms: listing.data.totalBedrooms,
             totalBeds: listing.data.totalBeds,
@@ -68,6 +71,8 @@ class ListingDetail extends React.Component {
             descriptionText: listing.data.descriptionText,
             sleepArrangements: listing.data.sleepArrangements
           },
+          typeOfRoom: listing.data.typeOfRoom,
+          hostId: listing.data.hostId,
           topFeatures: self.filterFeatures(listing.data.topFeatures),
           keyAmenities: self.filterFeatures(listing.data.keyAmenities),
           allAmenities: {
@@ -100,9 +105,25 @@ class ListingDetail extends React.Component {
       });
   }
 
+  fetchHostData() {
+    const self = this;
+    axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
+      .then((host) => {
+        console.log(`got host data for host ${host.data[0].name}`);
+        self.setState({
+          hostName: host.data[0].name,
+          avatarUrl: host.data[0].avatarUrl
+        });
+      })
+      .catch((error) => {
+        return new Error(`error getting host data: ${error}`);
+      });
+  }
+
   componentDidMount() {
     return this.fetchListingDetails(this.props.id)
       .then(() => this.fetchFeaturesData())
+      .then(() => this.fetchHostData(this.props.hostId))
       .then(() => console.log('ListingDetail component mounted'))
       .catch(err => new Error(err));
   }
@@ -111,7 +132,9 @@ class ListingDetail extends React.Component {
     return (
       <div className = {styles.fullListing}>
         <Summary
-          subHead={this.state.listingData.subHeadline}
+          typeOfRoom={this.state.typeOfRoom}
+          hostName={this.state.hostName}
+          avatarUrl={this.state.avatarUrl}
           guestCapacity={this.state.listingData.guestCapacity}
           totalBedrooms={this.state.listingData.totalBedrooms}
           totalBeds={this.state.listingData.totalBeds}
