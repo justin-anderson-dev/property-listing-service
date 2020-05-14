@@ -9,6 +9,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       listingId: this.props.id,
+      hostId: 1,
       headline: 'loading...',
       stars: 0,
       reviews: 0,
@@ -21,17 +22,17 @@ class Header extends React.Component {
     const self = this;
     return axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
-        console.log(`got listing data for listing ${id}`);
+        console.log(`got header data for listing ${id}`);
         self.setState({
           headline: listing.data.headline,
           stars: listing.data.stars,
           reviews: listing.data.reviews,
-          superHost: listing.data.superHost,
+          superHost: listing.data.superHost, // should get this from Anush's service?
           location: listing.data.location
         });
       })
       .catch((error) => {
-        return new Error(error);
+        return new Error(`error getting header data: ${error}`);
       });
   }
 

@@ -16,7 +16,6 @@ class ListingDetail extends React.Component {
     this.state = {
       listingId: this.props.id,
       listingData: {
-        subHeadline: 'loading...',
         guestCapacity: 0,
         totalBedrooms: 0,
         totalBeds: 0,
@@ -25,9 +24,9 @@ class ListingDetail extends React.Component {
         sleepArrangements: {}
       },
       typeOfRoom: 'loading...',
-      hostId: this.props.hostId,
+      hostId: 1,
       hostName: 'VaporBnB Host',
-      avatarUrl: 'http://localhost:3005/assets/graziella.jpg',
+      avatarUrl: API_URL + '/assets/graziella.jpg',
       topFeatures: [],
       keyAmenities: [],
       allAmenities: {
@@ -65,7 +64,6 @@ class ListingDetail extends React.Component {
         console.log(`got listing data for listing ${listing.data.listingId}`);
         self.setState({
           listingData: {
-            subHeadline: listing.data.subHeadline,
             guestCapacity: listing.data.guestCapacity,
             totalBedrooms: listing.data.totalBedrooms,
             totalBeds: listing.data.totalBeds,
@@ -74,6 +72,7 @@ class ListingDetail extends React.Component {
             sleepArrangements: listing.data.sleepArrangements
           },
           typeOfRoom: listing.data.typeOfRoom,
+          hostId: listing.data.hostId,
           topFeatures: self.filterFeatures(listing.data.topFeatures),
           keyAmenities: self.filterFeatures(listing.data.keyAmenities),
           allAmenities: {
@@ -106,9 +105,9 @@ class ListingDetail extends React.Component {
       });
   }
 
-  fetchHostData(hostNumber) {
+  fetchHostData() {
     const self = this;
-    axios.get(`${HOST_API_URL}/hosts/${hostNumber}`)
+    axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
       .then((host) => {
         console.log(`got host data for host ${host.data[0].name}`);
         self.setState({
