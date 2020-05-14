@@ -48,12 +48,14 @@ h1.headlineText {
   color: #484848 !important;
 }
 
-.superhostInfo, .superhostStatus, .shareButton, .saveButton {
+.superhostInfo, .superhostStatus, .shareButton, .saveButton, .starsInfo, .starsStatus {
   display: flex;
   flex-direction: row;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
-.superhostBadge, .shareIcon, .saveIcon {
+.superhostBadge, .starsBadge, .shareIcon, .saveIcon {
   display: block;
   height: 16px;
   width: 16px;

@@ -49,14 +49,19 @@ class Header extends React.Component {
         </div>
         <div className={styles.headerWidgets}>
           <div className={styles.headerInfo}>
-            <div className="stars-info">
-              {this.state.stars} ({this.state.reviews}) •
+            <div className={styles.starsInfo}>
+              <div className={styles.starsBadge}>
+                <img src="http://localhost:3005/assets/star.png" />
+              </div>
+              <div className={styles.starsStatus}>
+                {this.state.stars} ({this.state.reviews}) •
+              </div>
             </div>
             <div className={styles.superhostInfo}>
               {this.state.superHost ?
                 <div className={styles.superhostInfo}>
                   <div className={styles.superhostBadge}>
-                    <img src="http://localhost:3005/assets/superHost.svg" />
+                    <img src="http://localhost:3005/assets/superIcon.png" />
                   </div>
                   <div className={styles.superhostStatus}>
                     Superhost •

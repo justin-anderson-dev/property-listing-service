@@ -18,8 +18,16 @@ const getIdFromUrl = () => {
   return id;
 };
 
+const getHostId = () => {
+  var listId = getIdFromUrl();
+  var hostId = listId[1] !== 0 ? listId.slice(-3) :
+    listId[2] !== 0 ? listId.slice(-2) : listId.slice(-1);
+  console.log(`Host id is: ${hostId}`);
+  return hostId;
+};
+
 ReactDom.render(<Header id={getIdFromUrl()} />, document.getElementById('header-component'));
 
-ReactDom.render(<ListingDetail id={getIdFromUrl()} />, document.getElementById('listing-details'));
+ReactDom.render(<ListingDetail id={getIdFromUrl()} hostId={getHostId()} />, document.getElementById('listing-details'));
 
 // ReactDom.render(<Photos />, document.getElementById('listing-photos'));
