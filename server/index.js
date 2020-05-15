@@ -51,6 +51,7 @@ app.get('/listings/:id', (req, res) => {
 app.get('/listings/metadata/all', (req, res) => {
   Listings.find({}, {
     "listingId": 1,
+    "headline": 1,
     "location": 1,
     "typeOfRoom": 1,
     "totalBeds": 1,

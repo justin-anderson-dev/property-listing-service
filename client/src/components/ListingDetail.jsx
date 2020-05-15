@@ -7,8 +7,8 @@ import Beds from './Beds.jsx';
 import axios from 'axios';
 import styles from '../styles/ListingDetail.css';
 
-const API_URL = 'http://localhost:3005';
-const HOST_API_URL = 'http://localhost:3001';
+const API_URL = process.env.API_URL;
+const HOST_API_URL = process.env.HOST_API_URL;
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -107,6 +107,7 @@ class ListingDetail extends React.Component {
 
   fetchHostData() {
     const self = this;
+    console.log(`host service endpoint is: ${HOST_API_URL}`);
     axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
       .then((host) => {
         console.log(`got host data for host ${host.data[0].name}`);

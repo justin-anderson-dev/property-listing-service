@@ -68,3 +68,10 @@
   background-size: contain;
   margin-top: 16px;
 }
+
+/* .contain {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+} */
