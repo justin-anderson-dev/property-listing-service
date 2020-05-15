@@ -1,0 +1,13 @@
+.descriptionContainer {
+  grid-row: 2;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  margin-top: 32px;
+}
+
+.listingDescription {
+  grid-row: 1;
+  grid-column: 1 / 2;
+}

@@ -1,3 +1,9 @@
+.sleepingInfo {
+  grid-row: 3;
+  grid-column: 2 / 3;
+  margin-top: 32px;
+}
+
 .bedroomsList {
   display: flex;
   flex-flow: row wrap;

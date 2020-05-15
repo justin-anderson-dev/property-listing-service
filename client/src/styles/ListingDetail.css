@@ -1,4 +1,14 @@
 .fullListing * {
-  background-color: white;
+  background-color: #fff;
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+}
+
+.fullListing {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: auto auto auto auto;
 }

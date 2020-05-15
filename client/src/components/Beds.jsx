@@ -3,7 +3,7 @@ import Room from './Room.jsx';
 import styles from '../styles/Beds.css';
 
 const Beds = (props) => (
-  <div className = "sleeping-info">
+  <div className = {styles.sleepingInfo}>
     <div className="bedrooms-header">
       <h2>Sleeping arrangements</h2>
     </div>
