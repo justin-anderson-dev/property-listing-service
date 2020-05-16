@@ -56,7 +56,8 @@ app.get('/listings/metadata/all', (req, res) => {
     "typeOfRoom": 1,
     "totalBeds": 1,
     "price": 1,
-    "stars": 1
+    "stars": 1,
+    "reviews": 1
   })
     .then( listings => {
       res.json(listings);
