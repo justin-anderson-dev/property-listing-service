@@ -18,9 +18,8 @@ module.exports = {
   node: {
     fs: 'empty'
   },
-  mode: 'development',
   entry: [`${SRC_DIR}/index.jsx`],
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
