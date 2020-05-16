@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import styles from '../styles/Header.css';
+import styles from '../styles/header.css';
 
 const API_URL = process.env.API_URL;
 
