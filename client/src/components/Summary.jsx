@@ -2,6 +2,8 @@ import React from 'react';
 import Feature from './Feature.jsx';
 import styles from '../styles/Summary.css';
 
+const API_URL = process.env.API_URL;
+
 const Summary = (props) => (
   <div className={styles.listingSummary}>
     <div className={styles.infoAndAviContainer}>

@@ -1,11 +1,25 @@
+const webpack = require('webpack');
+const dotenv = require('dotenv');
+const fs = require('fs');
 const path = require('path');
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
 
+// call dotenv and it will return an Object with a parsed key
+const env = dotenv.config().parsed;
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
+
 module.exports = {
-  mode: 'development',
+  node: {
+    fs: 'empty'
+  },
   entry: [`${SRC_DIR}/index.jsx`],
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
@@ -51,5 +65,7 @@ module.exports = {
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new webpack.DefinePlugin(envKeys)
+  ]
 };

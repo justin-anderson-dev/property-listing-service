@@ -8,7 +8,7 @@ module.exports.sampleListings = [
     stars: 4.98,
     reviews: 43,
     superHost: true,
-    location: 'Cypress Hills, Brooklyn, New York',
+    location: 'Brooklyn, New York',
     subHeadline: 'Entire apartment hosted by Graziella',
     guestCapacity: 3,
     totalBedrooms: 2,

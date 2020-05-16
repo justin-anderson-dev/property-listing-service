@@ -1,54 +1,56 @@
+require('dotenv').config();
 const db = require('./index.js');
 const Feature = require('./Feature.js');
+const API_URL = process.env.API_URL;
 
 const featureData = [
   {
     idString: 'entireHome',
     featureTitle: 'Entire home',
     featureDescr: 'You’ll have the space to yourself.',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: API_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'selfCheckIn',
     featureTitle: 'Self check-in',
     featureDescr: 'Check yourself in with the lockbox.',
-    iconUrl: 'http://localhost:3005/assets/selfCheckIn.svg'
+    iconUrl: API_URL + '/assets/selfCheckIn.svg'
   },
   {
     idString: 'sparklingClean',
     featureTitle: 'Sparkling clean',
     featureDescr: '8 recent guests said this place was sparkling clean.',
-    iconUrl: 'http://localhost:3005/assets/sparklingClean.svg'
+    iconUrl: API_URL + '/assets/sparklingClean.svg'
   },
   {
     idString: 'freeCancel',
     featureTitle: 'Free cancellation for 48 hours',
     featureDescr: 'After that, cancel up to 24 hours before check-in and get a full refund, minus the service fee.',
-    iconUrl: 'http://localhost:3005/assets/freeCancel.svg'
+    iconUrl: API_URL + '/assets/freeCancel.svg'
   },
   {
     idString: 'superHost',
     featureTitle: 'HOSTNAME is a Superhost',
     featureDescr: 'Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.',
-    iconUrl: 'http://localhost:3005/assets/superHost.svg'
+    iconUrl: API_URL + '/assets/superHost.svg'
   },
   {
     idString: 'experiencedHost',
     featureTitle: 'Experienced host',
     featureDescr: 'HOSTNAME has 66 reviews for other places.',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: API_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'greatLocation',
     featureTitle: 'Great location',
     featureDescr: '95% of recent guests gave the location a 5-star rating.',
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: API_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'wifi',
     featureTitle: 'Wifi',
     featureDescr: 'Continuous access in the listing',
-    iconUrl: 'http://localhost:3005/assets/wifi.svg'
+    iconUrl: API_URL + '/assets/wifi.svg'
   },
   {
     idString: 'cableTv',
@@ -60,61 +62,61 @@ const featureData = [
     idString: 'fireplace',
     featureTitle: 'Indoor fireplace',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: API_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'washer',
     featureTitle: 'Washer',
     featureDescr: 'In the building, free or for a fee',
-    iconUrl: 'http://localhost:3005/assets/washer.svg'
+    iconUrl: API_URL + '/assets/washer.svg'
   },
   {
     idString: 'dryer',
     featureTitle: 'Dryer',
     featureDescr: 'In the building, free or for a fee',
-    iconUrl: 'http://localhost:3005/assets/dryer.svg'
+    iconUrl: API_URL + '/assets/dryer.svg'
   },
   {
     idString: 'iron',
     featureTitle: 'Iron',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/iron.svg'
+    iconUrl: API_URL + '/assets/iron.svg'
   },
   {
     idString: 'laptopFriendlyWorkspace',
     featureTitle: 'Laptop-friendly workspace',
     featureDescr: 'A table or desk with space for a laptop and a chair that’s comfortable to work in',
-    iconUrl: 'http://localhost:3005/assets/laptopFriendlyWorkspace.svg'
+    iconUrl: API_URL + '/assets/laptopFriendlyWorkspace.svg'
   },
   {
     idString: 'tv',
     featureTitle: 'TV',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/tv.svg'
+    iconUrl: API_URL + '/assets/tv.svg'
   },
   {
     idString: 'essentials',
     featureTitle: 'Essentials',
     featureDescr: 'Towels, bed sheets, soap, and toilet pap',
-    iconUrl: 'http://localhost:3005/assets/essentials.svg'
+    iconUrl: API_URL + '/assets/essentials.svg'
   },
   {
     idString: 'heating',
     featureTitle: 'Heating',
     featureDescr: 'Central heating or a heater in the listing',
-    iconUrl: 'http://localhost:3005/assets/heating.svg'
+    iconUrl: API_URL + '/assets/heating.svg'
   },
   {
     idString: 'ethernet',
     featureTitle: 'Ethernet connection',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/entireHome.svg'
+    iconUrl: API_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'airCon',
     featureTitle: 'Air conditioning',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/aircon.svg'
+    iconUrl: API_URL + '/assets/aircon.svg'
   },
   {
     idString: 'hotWater',
@@ -170,7 +172,7 @@ const featureData = [
     idString: 'freeParkOnPrem',
     featureTitle: 'Free parking on premises',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/freeParkOnPrem.svg'
+    iconUrl: API_URL + '/assets/freeParkOnPrem.svg'
   },
   {
     idString: 'paidParkOnPrem',
@@ -186,13 +188,13 @@ const featureData = [
     idString: 'pool',
     featureTitle: 'Pool',
     featureDescr: 'Private or shared',
-    iconUrl: 'http://localhost:3005/assets/pool.svg'
+    iconUrl: API_URL + '/assets/pool.svg'
   },
   {
     idString: 'gym',
     featureTitle: 'Gym',
     featureDescr: 'Free, in the building or nearby',
-    iconUrl: 'http://localhost:3005/assets/gym.svg'
+    iconUrl: API_URL + '/assets/gym.svg'
   },
   {
     idString: 'hotTub',
@@ -208,7 +210,7 @@ const featureData = [
     idString: 'kitchen',
     featureTitle: 'Kitchen',
     featureDescr: 'Space where guests can cook their own meals',
-    iconUrl: 'http://localhost:3005/assets/kitchen.svg'
+    iconUrl: API_URL + '/assets/kitchen.svg'
   },
   {
     idString: 'cookingBasics',
@@ -289,7 +291,7 @@ const featureData = [
     idString: 'hairDryer',
     featureTitle: 'Hair dryer',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/hairDryer.svg'
+    iconUrl: API_URL + '/assets/hairDryer.svg'
   },
   {
     idString: 'shampoo',
@@ -335,7 +337,7 @@ const featureData = [
     idString: 'co2Alarm',
     featureTitle: 'Carbon monoxide alarm',
     featureDescr: null,
-    iconUrl: 'http://localhost:3005/assets/co2Alarm.svg'
+    iconUrl: API_URL + '/assets/co2Alarm.svg'
   },
   {
     idString: 'smokeAlarm',
