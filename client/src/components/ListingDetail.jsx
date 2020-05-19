@@ -7,8 +7,8 @@ import Beds from './Beds.jsx';
 import axios from 'axios';
 import styles from '../styles/ListingDetail.css';
 
-const API_URL = process.env.API_URL;
 const SERVER_URL = process.env.SERVER_URL;
+const S3_URL = process.env.S3_URL;
 const HOST_API_URL = process.env.HOST_API_URL;
 
 class ListingDetail extends React.Component {
@@ -27,7 +27,7 @@ class ListingDetail extends React.Component {
       typeOfRoom: 'loading...',
       hostId: 1,
       hostName: 'VaporBnB Host',
-      avatarUrl: SERVER_URL + '/assets/graziella.jpg',
+      avatarUrl: S3_URL + '/assets/graziella.jpg',
       topFeatures: [],
       keyAmenities: [],
       allAmenities: {

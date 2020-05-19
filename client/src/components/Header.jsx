@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import styles from '../styles/header.css';
 
-const API_URL = process.env.API_URL;
 const SERVER_URL = process.env.SERVER_URL;
+const S3_URL = process.env.S3_URL;
 
 class Header extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class Header extends React.Component {
           <div className={styles.headerInfo}>
             <div className={styles.starsInfo}>
               <div className={styles.starsBadge}>
-                <img src={SERVER_URL + '/assets/star.png'} />
+                <img src={S3_URL + '/assets/star.png'} />
               </div>
               <div className={styles.starsStatus}>
                 {this.state.stars} ({this.state.reviews}) •
@@ -64,7 +64,7 @@ class Header extends React.Component {
               {this.state.superHost ?
                 <div className={styles.superhostInfo}>
                   <div className={styles.superhostBadge}>
-                    <img src={SERVER_URL + '/assets/superIcon.png'} />
+                    <img src={S3_URL + '/assets/superIcon.png'} />
                   </div>
                   <div className={styles.superhostStatus}>
                     Superhost •
@@ -78,10 +78,10 @@ class Header extends React.Component {
           </div>
           <div className={styles.headerActions}>
             <div className={styles.shareButton}>
-              <img className={styles.shareIcon} src={SERVER_URL + '/assets/share.svg'} />Share
+              <img className={styles.shareIcon} src={S3_URL + '/assets/share.svg'} />Share
             </div>
             <div className={styles.saveButton}>
-              <img className={styles.saveIcon} src={SERVER_URL + '/assets/save.svg'} />Save
+              <img className={styles.saveIcon} src={S3_URL + '/assets/save.svg'} />Save
             </div>
           </div>
         </div>
