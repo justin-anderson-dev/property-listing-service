@@ -4,6 +4,16 @@
   margin-top: 32px;
 }
 
+.sleepingInfo::before {
+  content: "" !important;
+  max-width: 660px;
+  display: block !important;
+  /* position: absolute !important; */
+  top: 0px !important;
+  /* width: 100% !important; */
+  border-bottom: 1px solid rgb(221, 221, 221) !important;
+}
+
 .bedroomsList {
   display: flex;
   flex-flow: row wrap;

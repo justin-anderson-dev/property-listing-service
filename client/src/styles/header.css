@@ -10,25 +10,28 @@
 
 
 .listingHeader {
+  max-width: 1280px;
   display: grid;
-  grid-template-columns: 1fr 4fr 2fr 1fr;
+  grid-template-columns: 60px 60% 30% 50px;
   grid-template-rows: auto auto;
 }
 
 .headline {
   grid-row: 1;
   grid-column: 2 / 3;
+  padding-top: 6px !important;
+  padding-bottom: 16px !important;
+  padding-left: 8px;
 }
 
 h1.headlineText {
   margin: 0px !important;
   word-wrap: break-word !important;
-  font-size: 32px !important;
-  font-weight: 800 !important;
-  line-height: 1.125em !important;
-  color: #484848 !important;
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  line-height: 30px !important;
+  color: #222222 !important;
+
 }
 
 .headerWidgets {
@@ -42,7 +45,8 @@ h1.headlineText {
 .headerInfo, .headerActions {
   display: flex;
   flex-direction: row;
-  margin: 0px !important;
+  margin: 0px;
+  margin-right: 4px;
   word-wrap: break-word !important;
   font-size: 16px !important;
   font-weight: 400 !important;
@@ -50,17 +54,57 @@ h1.headlineText {
   color: #484848 !important;
 }
 
-.superhostInfo, .superhostStatus, .shareButton, .saveButton, .starsInfo, .starsStatus {
+/* .superhostInfo, .superhostStatus, .shareButton, .saveButton, .starsInfo, .starsStatus {
   display: flex;
   flex-direction: row;
   padding-left: 8px;
   padding-right: 8px;
+  padding-top: 8px;
+} */
+
+.superhostInfo, .starsInfo {
+  display: flex;
+  flex-direction: row;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.shareButton, .saveButton, .locationInfo {
+  display: flex;
+  flex-direction: row;
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: rgb(34, 34, 34);
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+  border-width: initial !important;
+  border-style: none !important;
+  border-color: initial !important;
+  border-image: initial !important;
+  background: transparent !important;
+  text-decoration: underline !important;
+}
+
+.locationInfo {
+  font-weight: 500;
+  color: #484848 !important;
 }
 
 .superhostBadge, .starsBadge, .shareIcon, .saveIcon {
-  display: block;
+  display: box;
   height: 16px;
   width: 16px;
   fill: currentcolor;
+  margin-right: 6px;
+}
+
+.shareIcon, .saveIcon {
+  margin-top: 2px;
 }
 

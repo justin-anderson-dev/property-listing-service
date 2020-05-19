@@ -5,9 +5,21 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
   margin-top: 32px;
+  max-width: 660px;
+}
+
+
+.listingDescription::before {
+  content: "" !important;
+  max-width: 660px;
+  display: block !important;
+  /* position: absolute !important; */
+  top: 0px !important;
+  /* width: 100% !important; */
+  border-bottom: 1px solid rgb(221, 221, 221) !important;
 }
 
 .listingDescription {
   grid-row: 1;
-  grid-column: 1 / 2;
+  grid-column: 1 / 3;
 }
