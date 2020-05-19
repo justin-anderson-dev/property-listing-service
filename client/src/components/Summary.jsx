@@ -3,6 +3,7 @@ import Feature from './Feature.jsx';
 import styles from '../styles/Summary.css';
 
 const API_URL = process.env.API_URL;
+const SERVER_URL = process.env.SERVER_URL;
 
 const Summary = (props) => (
   <div className={styles.listingSummary}>

@@ -8,6 +8,7 @@ import axios from 'axios';
 import styles from '../styles/ListingDetail.css';
 
 const API_URL = process.env.API_URL;
+const SERVER_URL = process.env.SERVER_URL;
 const HOST_API_URL = process.env.HOST_API_URL;
 
 class ListingDetail extends React.Component {
@@ -26,7 +27,7 @@ class ListingDetail extends React.Component {
       typeOfRoom: 'loading...',
       hostId: 1,
       hostName: 'VaporBnB Host',
-      avatarUrl: API_URL + '/assets/graziella.jpg',
+      avatarUrl: SERVER_URL + '/assets/graziella.jpg',
       topFeatures: [],
       keyAmenities: [],
       allAmenities: {
@@ -59,7 +60,7 @@ class ListingDetail extends React.Component {
   fetchListingDetails(id) {
     const self = this;
     // axios get request to /id
-    return axios.get(`${API_URL}/listings/${id}`)
+    return axios.get(`${SERVER_URL}/listings/${id}`)
       .then((listing) => {
         console.log(`got listing data for listing ${listing.data.listingId}`);
         self.setState({
@@ -96,7 +97,7 @@ class ListingDetail extends React.Component {
 
   fetchFeaturesData() {
     const self = this;
-    axios.get(`${API_URL}/features/all`)
+    axios.get(`${SERVER_URL}/features/all`)
       .then((features) => {
         self.setState({featuresData: features.data});
       })

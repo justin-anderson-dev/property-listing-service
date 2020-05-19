@@ -63,7 +63,7 @@
   grid-row: 2;
   grid-column: 2 / 3;
   min-height: 100%;
-  background-image: url('http://localhost:3005/assets/reservation-mock.png');
+  background-image: url('http://204.236.167.174:80/assets/reservation-mock.png');
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 16px;

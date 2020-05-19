@@ -1,18 +1,22 @@
+
 import React from 'react';
 import styles from '../styles/Room.css';
+
+const API_URL = process.env.API_URL;
+const SERVER_URL = process.env.SERVER_URL;
 
 const Room = (props) => (
   <div className = {styles.bedroomInfo}>
     <div className={styles.bedIcons}>
       {
-        props.kingBeds === 2 ? <div><img src="http://localhost:3005/assets/kingBed.svg" /> <img src="http://localhost:3005/assets/kingBed.svg" /></div> :
-          props.kingBeds === 1 ? <img src="http://localhost:3005/assets/kingBed.svg" /> :
-            props.queenBeds + props.fullBeds === 2 ? <div><img src="http://localhost:3005/assets/queenBed.svg" /> <img src="http://localhost:3005/assets/queenBed.svg" /></div> :
-              props.queenBeds + props.fullBeds === 1 ? <img src="http://localhost:3005/assets/queenBed.svg" /> :
-                props.twinBeds === 2 ? <div><img src="http://localhost:3005/assets/twinBed.svg" /> <img src="http://localhost:3005/assets/twinBed.svg" /></div> :
-                  props.twinBeds === 1 ? <img src="http://localhost:3005/assets/twinBed.svg" /> :
-                    props.sofaBeds === 2 ? <div><img src="http://localhost:3005/assets/sofaBed.svg" /> <img src="http://localhost:3005/assets/sofaBed.svg" /></div> :
-                      props.sofaBeds === 1 ? <img src="http://localhost:3005/assets/sofaBed.svg" /> : null
+        props.kingBeds === 2 ? <div><img src={SERVER_URL + "/assets/kingBed.svg"} /> <img src={SERVER_URL + "/assets/kingBed.svg"} /></div> :
+          props.kingBeds === 1 ? <img src={SERVER_URL + "/assets/kingBed.svg"} /> :
+            props.queenBeds + props.fullBeds === 2 ? <div><img src={SERVER_URL + "/assets/queenBed.svg"} /> <img src={SERVER_URL + "/assets/queenBed.svg"} /></div> :
+              props.queenBeds + props.fullBeds === 1 ? <img src={SERVER_URL + "/assets/queenBed.svg"} /> :
+                props.twinBeds === 2 ? <div><img src={SERVER_URL + "/assets/twinBed.svg"} /> <img src={SERVER_URL + "/assets/twinBed.svg"} /></div> :
+                  props.twinBeds === 1 ? <img src={SERVER_URL + "/assets/twinBed.svg"} /> :
+                    props.sofaBeds === 2 ? <div><img src={SERVER_URL + "/assets/sofaBed.svg"} /> <img src={SERVER_URL + "/assets/sofaBed.svg"} /></div> :
+                      props.sofaBeds === 1 ? <img src={SERVER_URL + "/assets/sofaBed.svg"} /> : null
       }
     </div>
     <div className="bedroom-title">
