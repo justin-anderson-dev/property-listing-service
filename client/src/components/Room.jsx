@@ -8,7 +8,7 @@ const Room = (props) => (
   <div className = {styles.bedroomInfo}>
     <div className={styles.bedIcons}>
       {
-        props.kingBeds === 2 ? <div><img src={S3_URL + '/assets/kingBed.svg'} /> <img src={S3_URL + "/assets/kingBed.svg"} /></div> :
+        props.kingBeds === 2 ? <div><img src={S3_URL + '/assets/kingBed.svg'} /> <img src={S3_URL + '/assets/kingBed.svg'} /></div> :
           props.kingBeds === 1 ? <img src={S3_URL + '/assets/kingBed.svg'} /> :
             props.queenBeds + props.fullBeds === 2 ? <div><img src={S3_URL + '/assets/queenBed.svg'} /> <img src={S3_URL + '/assets/queenBed.svg'} /></div> :
               props.queenBeds + props.fullBeds === 1 ? <img src={S3_URL + '/assets/queenBed.svg'} /> :
