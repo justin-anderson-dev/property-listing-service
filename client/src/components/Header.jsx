@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from '../styles/header.css';
 
 const API_URL = process.env.API_URL;
+const SERVER_URL = process.env.SERVER_URL;
 
 class Header extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Header extends React.Component {
 
   fetchHeaderData(id) {
     const self = this;
-    console.log(`listing service endpoint is ${API_URL}`);
-    return axios.get(`${API_URL}/listings/${id}`)
+    console.log(`listing service endpoint is ${SERVER_URL}`);
+    return axios.get(`${SERVER_URL}/listings/${id}`)
       .then((listing) => {
         console.log(`got header data for listing ${id}`);
         self.setState({
@@ -53,7 +54,7 @@ class Header extends React.Component {
           <div className={styles.headerInfo}>
             <div className={styles.starsInfo}>
               <div className={styles.starsBadge}>
-                <img src={API_URL + '/assets/star.png'} />
+                <img src={SERVER_URL + '/assets/star.png'} />
               </div>
               <div className={styles.starsStatus}>
                 {this.state.stars} ({this.state.reviews}) •
@@ -63,7 +64,7 @@ class Header extends React.Component {
               {this.state.superHost ?
                 <div className={styles.superhostInfo}>
                   <div className={styles.superhostBadge}>
-                    <img src={API_URL + '/assets/superIcon.png'} />
+                    <img src={SERVER_URL + '/assets/superIcon.png'} />
                   </div>
                   <div className={styles.superhostStatus}>
                     Superhost •
@@ -77,10 +78,10 @@ class Header extends React.Component {
           </div>
           <div className={styles.headerActions}>
             <div className={styles.shareButton}>
-              <img className={styles.shareIcon} src={API_URL + '/assets/share.svg'} />Share
+              <img className={styles.shareIcon} src={SERVER_URL + '/assets/share.svg'} />Share
             </div>
             <div className={styles.saveButton}>
-              <img className={styles.saveIcon} src={API_URL + '/assets/save.svg'} />Save
+              <img className={styles.saveIcon} src={SERVER_URL + '/assets/save.svg'} />Save
             </div>
           </div>
         </div>
