@@ -11,7 +11,8 @@
   "scripts": {
     "build": "webpack --mode=production",
     "build:watch": "webpack --watch",
-    "start": "nodemon --inspect server/start.js",
+    "start": "node server/start.js",
+    "dev:start": "nodemon --inspect server/start.js",
     "db:setup": "node database/seed.js",
     "db:seedFeatures": "node database/feature-data.js",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
