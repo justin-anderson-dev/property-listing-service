@@ -4,12 +4,14 @@ import styles from '../styles/Description.css';
 const Description = (props) => (
   <div className={styles.descriptionContainer}>
     <div className = {styles.listingDescription}>
-      <div className="description-preview">
-        {props.description.slice(0, 220)}...<a href="#">read more</a>
+      <div className = {styles.descriptionSpacer}></div>
+      <div className={styles.descriptionPreview}>
+        {props.description.slice(0, 220)}...&nbsp; <a href="#">read more</a>
       </div>
-      <div className="contact-link">
-        <a href="#">Contact host</a>
-      </div>
+      <div className = {styles.descriptionSpacer}></div>
+      <button className={styles.contactButton}>
+        Contact host
+      </button>
     </div>
   </div>
 );

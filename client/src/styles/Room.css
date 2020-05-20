@@ -1,13 +1,32 @@
 .bedroomInfo {
-  border: 1px solid #EBEBEB !important;
-  border-radius: 4px !important;
-  height: 100% !important;
-  padding: 24px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(221, 221, 221) !important;
+  border-image: initial !important;
+  border-radius: 12px !important;
+  padding: 24px 72px 24px 24px !important;
+  margin-right: 18px;
 }
 
 .bedIcons {
   height: 24px;
   width: 24px;
   fill: currentcolor;
+  margin-bottom: 16px;
+  padding-left: 4px;
 }
 
+.bedroomTitle {
+  color: rgb(34, 34, 34) !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  padding-bottom: 8px;
+}
+
+.bedroomBeds {
+  color: #222222 !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+}
