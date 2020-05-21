@@ -37,8 +37,10 @@
 .contactButton {
   cursor: pointer;
   font-size: 16px !important;
-  font-weight: 500;
+  font-weight: 400;
   transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
   border-style: none !important;
   text-decoration: underline !important;
+  margin-bottom: 12px;
+  padding: 0 !important;
 }

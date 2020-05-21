@@ -18,7 +18,7 @@ module.exports.sampleListings = [
       entireHome: true,
       selfCheckIn: true,
       sparklingClean: true,
-      superHost: true
+      freeCancel: true
     },
     keyAmenities: {
       kitchen: true,

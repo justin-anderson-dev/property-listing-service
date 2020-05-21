@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "webpack --mode=production",
-    "build:watch": "webpack --watch",
+    "build:watch": "webpack --mode=development --watch",
     "dev:start": "nodemon --inspect server/start.js",
     "start": "node server/start.js",
     "db:setup": "node database/seed.js",

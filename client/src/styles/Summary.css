@@ -5,6 +5,7 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto 320px;
   margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .infoAndAviContainer {
@@ -71,11 +72,6 @@
   top: 0px !important;
   /* width: 100% !important; */
   border-bottom: 1px solid rgb(221, 221, 221) !important;
-}
-
-.summarySpacer {
-  /* display: block;
-  margin-top: 32px; */
 }
 
 .reserveModule {

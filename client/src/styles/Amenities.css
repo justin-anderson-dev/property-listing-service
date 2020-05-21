@@ -10,10 +10,11 @@
 .amenities {
   grid-row: 1;
   grid-column: 1 / 2;
+  margin-bottom: 32px;
+  max-width: 660px;
 }
 
-
-.amenities::before {
+.amenities::before, .amenities::after {
   content: "" !important;
   max-width: 660px;
   display: block !important;
@@ -24,10 +25,28 @@
 }
 
 .amenitiesHeader {
-  margin-bottom: 16px;
+  color: rgb(34, 34, 34) !important;
+  font-weight: 500 !important;
+  font-size: 22px !important;
+  line-height: 26px !important;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-top: 16px;
 }
 
 .amenitiesList {
   display: flex;
   flex-flow: row wrap;
+  padding-bottom: 32px;
+}
+
+.allAmenitiesButton {
+  cursor: pointer;
+  font-size: 16px !important;
+  font-weight: 400;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+  border-style: none !important;
+  text-decoration: none !important;
+  margin-bottom: 48px;
+  padding: 8px 24px 8px 24px;
 }

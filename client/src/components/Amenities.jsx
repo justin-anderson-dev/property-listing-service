@@ -6,7 +6,7 @@ const Amenities = (props) => (
   <div className={styles.amenitiesContainer}>
     <div className = {styles.amenities}>
       <div className={styles.amenitiesHeader}>
-        <h2>Amenities</h2>
+        Amenities
       </div>
       <div className={styles.amenitiesList}>
         {props.keyAmenities ? props.keyAmenities.map((amenity, index) => (
@@ -17,8 +17,8 @@ const Amenities = (props) => (
           />
         )) : null }
       </div>
-      <div className="show-all-amenities-link">
-        <a href="#">Show all <strong>{ props.amenitiesList ? (
+      <button className={styles.allAmenitiesButton}>
+        Show all <strong>{ props.amenitiesList ? (
           props.amenitiesList.basic.length +
           props.amenitiesList.bedAndBath.length +
           props.amenitiesList.dining.length +
@@ -29,8 +29,8 @@ const Amenities = (props) => (
           props.amenitiesList.outdoor.length +
           props.amenitiesList.safetyFeatures.length
         ) : 'X'
-        }</strong> amenities</a>
-      </div>
+        }</strong> amenities
+      </button>
     </div>
   </div>
 );
