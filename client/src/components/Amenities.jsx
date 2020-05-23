@@ -9,6 +9,7 @@ class Amenities extends React.Component {
     this.state = {
       showAll: false
     };
+    this.setState = this.setState.bind(this);
   }
 
   showModal() {
@@ -29,7 +30,7 @@ class Amenities extends React.Component {
         <div>
           <AmenitiesModal
             show={this.state.showAll}
-            handleClose={this.hideModal}
+            handleClose={this.hideModal.bind(this)}
             amenitiesList={this.props.amenitiesList}
             myAmenities={this.props.myAmenities}
           />
@@ -49,7 +50,7 @@ class Amenities extends React.Component {
           </div>
           <button
             className={styles.allAmenitiesButton}
-            onClick={this.showModal}
+            onClick={this.showModal.bind(this)}
           >
             Show all <strong>{ this.props.amenitiesList ? (
               this.props.amenitiesList.basic.length +
