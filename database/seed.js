@@ -54,6 +54,7 @@ const createMockListings = function() {
         sparklingClean: Math.random() >= 0.3,
         freeCancel: Math.random() >= 0.3,
         experiencedHost: false,
+        superHost: Math.random() >= 0.8,
         greatLocation: Math.random() >= 0.6
       },
       keyAmenities: {

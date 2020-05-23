@@ -5,6 +5,7 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto 320px;
   margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .infoAndAviContainer {
@@ -15,28 +16,31 @@
   margin-bottom: 24px;
   grid-row: 1;
   grid-column: 1 / 2;
+  padding-right: 60px;
+  max-width: 720px;
 }
 
 .summaryHeadInfo {
   display: flex;
   flex-direction: column;
+  color: #222222 !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
 }
 
 .summaryHeadHeadline * {
-  display: block;
-  margin-block-start: 0px;
-  margin-block-end: 0px;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  margin: 0px !important;
-  word-wrap: break-word !important;
-  font-size: 24px !important;
-  font-weight: 800 !important;
-  line-height: 1.125em !important;
-  color: #484848 !important;
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
+  color: rgb(34, 34, 34) !important;
+  font-weight: 500 !important;
+  font-size: 22px !important;
+  line-height: 26px !important;
+}
+
+.summaryHeadStats {
+  color: #222222 !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
 }
 
 .summaryHeadAvi * {
@@ -56,7 +60,18 @@
   justify-content: start;
   grid-row: 2;
   grid-column: 1 / 2;
-  margin-top: 16px;
+  padding-right: 80px;
+  max-width: 720px;
+}
+
+.summaryFeatures::before {
+  content: "" !important;
+  max-width: 660px;
+  display: block !important;
+  /* position: absolute !important; */
+  top: 0px !important;
+  /* width: 100% !important; */
+  border-bottom: 1px solid rgb(221, 221, 221) !important;
 }
 
 .reserveModule {
@@ -65,8 +80,8 @@
   min-height: 100%;
   background-image: url('http://localhost:3005/assets/reservation-mock.png');
   background-repeat: no-repeat;
-  background-size: contain;
-  margin-top: 16px;
+  background-size: cover;
+  margin-top: -24px;
 }
 
 /* .contain {

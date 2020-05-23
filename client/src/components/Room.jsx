@@ -15,7 +15,7 @@ const Room = (props) => (
                       props.sofaBeds === 1 ? <img src="http://localhost:3005/assets/sofaBed.svg" /> : null
       }
     </div>
-    <div className="bedroom-title">
+    <div className={styles.bedroomTitle}>
       {
         props.name === 'bedroom1' ? 'Bedroom 1' :
           props.name === 'bedroom2' ? 'Bedroom 2' :
@@ -24,7 +24,7 @@ const Room = (props) => (
                 props.name === 'commonRooms' ? 'Shared spaces' : 'Room'
       }
     </div>
-    <div className="bedroom-beds">
+    <div className={styles.bedroomBeds}>
       {
         props.kingBeds > 1 ? props.kingBeds + ' king beds' :
           props.kingBeds === 1 ? '1 king bed' :

@@ -6,7 +6,7 @@ const AmenityPrev = (props) => (
     <div className={styles.amenityIcon}>
       <img src={props.amenity.iconUrl}/>
     </div>
-    <div className="amenity-title">
+    <div className={styles.amenityTitle}>
       {props.amenity.featureTitle}
     </div>
   </div>

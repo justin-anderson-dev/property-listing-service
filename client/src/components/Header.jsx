@@ -56,7 +56,7 @@ class Header extends React.Component {
                 <img src={API_URL + '/assets/star.png'} />
               </div>
               <div className={styles.starsStatus}>
-                {this.state.stars} ({this.state.reviews}) •
+                {this.state.stars} ({this.state.reviews})
               </div>
             </div>
             <div className={styles.superhostInfo}>
@@ -66,19 +66,19 @@ class Header extends React.Component {
                     <img src={API_URL + '/assets/superIcon.png'} />
                   </div>
                   <div className={styles.superhostStatus}>
-                    Superhost •
+                    Superhost
                   </div>
                 </div>
                 : null}
             </div>
-            <div className="location-info">
+            <div className={styles.locationInfo}>
               {this.state.location}
             </div>
           </div>
           <div className={styles.headerActions}>
-            <div className={styles.shareButton}>
+            <button className={styles.shareButton}>
               <img className={styles.shareIcon} src={API_URL + '/assets/share.svg'} />Share
-            </div>
+            </button>
             <div className={styles.saveButton}>
               <img className={styles.saveIcon} src={API_URL + '/assets/save.svg'} />Save
             </div>

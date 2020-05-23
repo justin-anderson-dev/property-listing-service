@@ -2,9 +2,31 @@
   grid-row: 3;
   grid-column: 2 / 3;
   margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.sleepingInfo::before {
+  content: "" !important;
+  max-width: 660px;
+  display: block !important;
+  /* position: absolute !important; */
+  top: 0px !important;
+  /* width: 100% !important; */
+  border-bottom: 1px solid rgb(221, 221, 221) !important;
+}
+
+.bedroomsHeader {
+  color: rgb(34, 34, 34) !important;
+  font-weight: 500 !important;
+  font-size: 22px !important;
+  line-height: 26px !important;
+  margin-top: 32px;
+  padding-top: 8px;
+  padding-bottom: 16px;
 }
 
 .bedroomsList {
+  padding-top: 16px;
   display: flex;
   flex-flow: row wrap;
 }

@@ -22,6 +22,7 @@ const listingSchema = new mongoose.Schema({
     selfCheckIn: { type: Boolean, default: false },
     sparklingClean: { type: Boolean, default: false },
     freeCancel: { type: Boolean, default: false },
+    superHost: { type: Boolean, default: false},
     experiencedHost: { type: Boolean, default: false },
     greatLocation: { type: Boolean, default: false }
   },
