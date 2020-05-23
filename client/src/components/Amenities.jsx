@@ -52,7 +52,7 @@ class Amenities extends React.Component {
             className={styles.allAmenitiesButton}
             onClick={this.showModal.bind(this)}
           >
-            Show all <strong>{ this.props.amenitiesList ? (
+            Show all { this.props.amenitiesList ? (
               this.props.amenitiesList.basic.length +
               this.props.amenitiesList.bedAndBath.length +
               this.props.amenitiesList.dining.length +
@@ -63,7 +63,7 @@ class Amenities extends React.Component {
               this.props.amenitiesList.outdoor.length +
               this.props.amenitiesList.safetyFeatures.length
             ) : 'X'
-            }</strong> amenities
+            } amenities
           </button>
         </div>
       </div>

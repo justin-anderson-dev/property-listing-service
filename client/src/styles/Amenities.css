@@ -43,10 +43,19 @@
 .allAmenitiesButton {
   cursor: pointer;
   font-size: 16px !important;
-  font-weight: 400;
+  font-weight: 600;
   transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
-  border-style: none !important;
   text-decoration: none !important;
   margin-bottom: 48px;
-  padding: 8px 24px 8px 24px;
+  padding: 16px 24px 16px 24px;
+  border-radius: 8px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  outline: none !important;
+  border-color: rgb(34, 34, 34) !important;
+  background: rgb(255, 255, 255) !important;
+}
+
+.allAmenitiesButton:hover {
+  background-color: rgba(236, 236, 236, 0.6) !important;
 }
