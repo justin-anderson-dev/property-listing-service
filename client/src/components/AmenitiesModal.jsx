@@ -1,18 +1,20 @@
 import React from 'react';
+import styles from '../styles/AmenitiesModal.css';
 
-class AmenitiesModal extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const AmenitiesModal = (props) => {
+  const toggleClassName = props.show ? 'modal displayBlock' : 'modal displayNone';
 
-  render() {
-    if (!this.props.show) {
-      return null;
-    }
-    return (
-      <div> <h1>This is the 'All Amenities' modal</h1> </div>
-    );
-  }
-}
+  return (
+    <div className={styles.toggleClassName}>
+      <section className={styles.modalMain}>
+        <h1>Here is where we will render the list components</h1>
+        <p>`${props.amenitiesList}`</p>
+        <button onClick={this.props.handleClose}>
+          Close X
+        </button>
+      </section>
+    </div>
+  );
+};
 
 export default AmenitiesModal;
