@@ -9,7 +9,7 @@ const Summary = (props) => (
         <div className={styles.summaryHeadHeadline}>
           <h2>{`${props.typeOfRoom} hosted by ${props.hostName}`}</h2>
         </div>
-        <div className="summary-head-stats">
+        <div className={styles.summaryHeadStats}>
           {props.guestCapacity} guests • {props.totalBedrooms > 0 ? `${props.totalBedrooms} bedrooms • ` : null} {props.totalBeds} beds • {props.totalBaths} baths
         </div>
       </div>
@@ -25,6 +25,7 @@ const Summary = (props) => (
           feature={props.myFeatures[0] ? props.myFeatures.find(element => element.idString === feature) : 'not found' }
         />
       )) : null}
+      <div className={styles.summarySpacer}></div>
     </div>
     <div className={styles.reserveModule}>
       {/* <img className={styles.contain} src="http://localhost:3005/assets/reservation-mock.png"/> */}

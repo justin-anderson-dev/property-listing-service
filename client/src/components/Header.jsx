@@ -57,7 +57,7 @@ class Header extends React.Component {
                 <img src={S3_URL + '/assets/star.png'} />
               </div>
               <div className={styles.starsStatus}>
-                {this.state.stars} ({this.state.reviews}) •
+                {this.state.stars} ({this.state.reviews})
               </div>
             </div>
             <div className={styles.superhostInfo}>
@@ -67,12 +67,12 @@ class Header extends React.Component {
                     <img src={S3_URL + '/assets/superIcon.png'} />
                   </div>
                   <div className={styles.superhostStatus}>
-                    Superhost •
+                    Superhost
                   </div>
                 </div>
                 : null}
             </div>
-            <div className="location-info">
+            <div className={styles.locationInfo}>
               {this.state.location}
             </div>
           </div>

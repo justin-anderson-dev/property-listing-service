@@ -4,8 +4,8 @@ import styles from '../styles/Beds.css';
 
 const Beds = (props) => (
   <div className = {styles.sleepingInfo}>
-    <div className="bedrooms-header">
-      <h2>Sleeping arrangements</h2>
+    <div className={styles.bedroomsHeader}>
+      Sleeping arrangements
     </div>
     <div className={styles.bedroomsList}>
       {props.bedrooms ? props.bedrooms.map((room, index) => (

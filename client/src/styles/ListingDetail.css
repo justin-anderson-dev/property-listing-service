@@ -9,6 +9,7 @@
 
 .fullListing {
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: 60px 90% 60px;
   grid-template-rows: auto auto auto auto;
+  padding-left: 8px;
 }
