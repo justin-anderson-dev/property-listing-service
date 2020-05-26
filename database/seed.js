@@ -31,7 +31,7 @@ const generateRandomRating = function() {
 
 const createMockListings = function() {
   var storage;
-  for (var i = 6; i < 120; i++) {
+  for (var i = 7; i < 120; i++) {
     storage = {
     // listing model goes here
       listingId: 1000 + i,

@@ -535,5 +535,122 @@ module.exports.sampleListings = [
         queenBed: 1
       }
     }
+  },
+  {
+    listingId: 1006,
+    hostId: 6,
+    price: 109,
+    typeOfRoom: 'Entire house',
+    headline: 'The Beach Retreat',
+    stars: 4.77,
+    reviews: 291,
+    superHost: false,
+    location: 'Los Angeles, California',
+    guestCapacity: 6,
+    totalBedrooms: 3,
+    totalBeds: 4,
+    totalBaths: 2,
+    topFeatures: {
+      entireHome: true,
+      selfCheckIn: true,
+      sparklingClean: true,
+      freeCancel: true
+    },
+    keyAmenities: {
+      kitchen: true,
+      wifi: true,
+      laptopFriendlyWorkspace: true,
+      iron: true,
+      hangers: true,
+      hairDryer: true,
+      tv: true,
+      airCon: true,
+      essentials: true
+    },
+    allAmenities: {
+      basic: {
+        wifi: true,
+        laptopFriendlyWorkspace: true,
+        iron: true,
+        tv: true,
+        airCon: true,
+        essentials: true,
+        heating: true,
+        hotWater: true
+      },
+      facilities: {
+        pool: false,
+        freeStreetPark: true,
+        singleLevel: true
+      },
+      dining: {
+        kitchen: true,
+        dishes: true,
+        coffeeMaker: true,
+        cookingBasics: true,
+        stove: true,
+        refrigerator: true,
+        microwave: true
+      },
+      guestAccess: {
+        keypad: true,
+        privateEntrance: true
+      },
+      bedAndBath: {
+        hangers: true,
+        hairDryer: true,
+        shampoo: true,
+        bedLinens: true
+      },
+      outdoor: {
+        gardenYard: true,
+        patioBalcony: true
+      },
+      safetyFeatures: {
+        co2Alarm: true,
+        fireExting: true,
+        firstAidKit: true,
+        smokeAlarm: true
+      }
+    },
+    descriptionText: `
+      The Beach Retreat is a beautifully renovated guest house, with an oversized modern tiled shower and fully functional kitchenette. There is a gorgeous shared larger outdoor courtyard, with Spanish architecture and splash pool. There is a commissioned mural, succulent wall, and a fire pit. Light-filled, with plants, and lots of funky art work. There is one queen sized bed, and one full-size couch.
+
+      Please NO EXTRA GUESTS (MAXIMUM IS 6), NO PHOTO SHOOTS, NO PARTIES/EVENTS.
+
+      The space
+      This space is a classic Spanish style house built in 1932, but has been completely renovated with all new everything. We are nestled in the heart of the historic Wrigley neighborhood in Long Beach. A minibar with fridge, microwave, and coffee maker, crisp linens (hypoallergenic), towels, games, and Netflix await you. You'll find coffee, tea, water, and some rotating treats floating around. You'll also love the 48 inch Smart LED television. There is one queen bed. Get to downtown, the beach, Bixby Knolls, Cal Heights or Belmont Shore within minutes. Several culturally diverse restaurants with fantastic food, and amazing coffee shops, sprinkled around the neighborhood just a short drive away.
+
+      Guest access
+      -The Beach Studio is a guest house detached from a front main house, and also shares use of the main large backyard as well.
+      -The pool and fire pit are common areas, and you can use them at any time.
+      -You will be given a temporary access code for the door prior to your arrival.
+      -There is plenty of street parking available right outside.
+
+      Other things to note
+      1) There is an airbnb called "The Spanish House" which is on the front of the house. This is totally separate with it's own entrance.
+      3) The main backyard is a common area, for all guests to share and use the pool, and fire pit.
+      4) The pool guy comes early Friday mornings for 15 minute maintenance.
+      5) The gardeners come Wednesdays for 1 hour maintenance.
+      9) PARKING: STREET PARKING ONLY! There is plenty of street parking available in the front of the house.
+    `,
+    sleepArrangements: {
+      bedroom1: {
+        exists: true,
+        queenBed: 1
+      },
+      bedroom2: {
+        exists: true,
+        queenbed: 1
+      },
+      bedroom3: {
+        exists: true,
+        fullBed: 1
+      },
+      commonRooms: {
+        exists: true,
+        sofaBed: 1
+      }
+    }
   }
 ];
