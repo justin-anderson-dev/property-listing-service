@@ -17,7 +17,7 @@ class Description extends React.Component {
   // TODO: Method to handle scrolling down to Host module
   handleContactHost(e) {
     e.preventDefault();
-    const host = document.getElementById("host");
+    const host = document.getElementById('host');
     host.scrollIntoView();
   }
 
