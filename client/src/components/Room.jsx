@@ -8,14 +8,14 @@ const Room = (props) => (
   <div className = {styles.bedroomInfo}>
     <div className={styles.bedIcons}>
       {
-        props.kingBeds === 2 ? <div><img src={S3_URL + '/assets/kingBed.svg'} /> <img src={S3_URL + '/assets/kingBed.svg'} /></div> :
-          props.kingBeds === 1 ? <img src={S3_URL + '/assets/kingBed.svg'} /> :
-            props.queenBeds + props.fullBeds === 2 ? <div><img src={S3_URL + '/assets/queenBed.svg'} /> <img src={S3_URL + '/assets/queenBed.svg'} /></div> :
-              props.queenBeds + props.fullBeds === 1 ? <img src={S3_URL + '/assets/queenBed.svg'} /> :
-                props.twinBeds === 2 ? <div><img src={S3_URL + '/assets/twinBed.svg'} /> <img src={S3_URL + '/assets/twinBed.svg'} /></div> :
-                  props.twinBeds === 1 ? <img src={S3_URL + '/assets/twinBed.svg'} /> :
-                    props.sofaBeds === 2 ? <div><img src={S3_URL + '/assets/sofaBed.svg'} /> <img src={S3_URL + '/assets/sofaBed.svg'} /></div> :
-                      props.sofaBeds === 1 ? <img src={S3_URL + '/assets/sofaBed.svg'} /> : null
+        props.kingBeds === 2 ? <div><img src={S3_URL + '/assets/kingBed.png'} /> <img src={S3_URL + '/assets/kingBed.png'} /></div> :
+          props.kingBeds === 1 ? <img src={S3_URL + '/assets/kingBed.png'} /> :
+            props.queenBeds + props.fullBeds === 2 ? <div><img src={S3_URL + '/assets/queenBed.png'} /> <img src={S3_URL + '/assets/queenBed.png'} /></div> :
+              props.queenBeds + props.fullBeds === 1 ? <img src={S3_URL + '/assets/queenBed.png'} /> :
+                props.twinBeds === 2 ? <div><img src={S3_URL + '/assets/twinBed.png'} /> <img src={S3_URL + '/assets/twinBed.png'} /></div> :
+                  props.twinBeds === 1 ? <img src={S3_URL + '/assets/twinBed.png'} /> :
+                    props.sofaBeds === 2 ? <div><img src={S3_URL + '/assets/sofaBed.png'} /> <img src={S3_URL + '/assets/sofaBed.png'} /></div> :
+                      props.sofaBeds === 1 ? <img src={S3_URL + '/assets/sofaBed.png'} /> : null
       }
     </div>
     <div className={styles.bedroomTitle}>
