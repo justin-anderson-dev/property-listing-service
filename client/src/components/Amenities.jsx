@@ -10,7 +10,6 @@ class Amenities extends React.Component {
       showAll: false
     };
     this.setState = this.setState.bind(this);
-    this.hideModal = this.hideModal.bind(this);
   }
 
   showModal() {
@@ -24,6 +23,9 @@ class Amenities extends React.Component {
   }
 
   hideModal() {
+    const body = document.body;
+    body.style.height = 'auto';
+    body.style.overflowY = 'auto';
     this.setState({
       showAll: false
     });
@@ -35,7 +37,7 @@ class Amenities extends React.Component {
         <div>
           <AmenitiesModal
             show={this.state.showAll}
-            handleClose={this.hideModal}
+            handleClose={this.hideModal.bind(this)}
             amenitiesList={this.props.amenitiesList}
             myAmenities={this.props.myAmenities}
           />

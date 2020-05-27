@@ -4,6 +4,7 @@
   grid-template-columns: 66% 34%;
   grid-template-rows: auto auto auto auto;
   padding-left: 8px;
+  margin-top: 24px;
   margin-left: 80px;
   margin-right: 80px;
 }
