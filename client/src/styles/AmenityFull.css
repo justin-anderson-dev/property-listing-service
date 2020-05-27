@@ -2,21 +2,35 @@
 .amenityShort {
   display: flex;
   flex-direction: column;
-  padding-bottom: 8px;
+}
+
+.amenityShort::after {
+  content: "" !important;
+  max-width: 100%;
+  display: block !important;
+  top: 0px !important;
+  border-bottom: 1px solid rgb(221, 221, 221) !important;
+}
+
+.wrapper {
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .amenityTitle {
   color: #222222 !important;
-  font-weight: 500 !important;
-  font-size: 16px !important;
-  line-height: 20px !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
   padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .amenityDescr {
-  color: #222222 !important;
-  font-weight: 400 !important;
+  color:  rgb(116, 116, 116) !important;
+  font-weight: 300 !important;
   font-size: 14px !important;
-  line-height: 20px !important;
-  padding-top: 2px;
+  line-height: 16px !important;
+  padding-top: 4px;
+  padding-left: 2px;
 }

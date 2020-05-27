@@ -108,7 +108,7 @@ class ListingDetail extends React.Component {
 
   fetchHostData() {
     const self = this;
-    console.log(`host service endpoint is: ${HOST_API_URL}`);
+    console.log(`host service url is: ${HOST_API_URL}`);
     axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
       .then((host) => {
         console.log(`got host data for host ${host.data[0].name}`);
