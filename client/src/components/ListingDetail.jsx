@@ -130,7 +130,7 @@ class ListingDetail extends React.Component {
       .catch(err => new Error(err));
   }
 
-  render () {
+  render() {
     return (
       <div className = {styles.fullListing}>
         <Summary
