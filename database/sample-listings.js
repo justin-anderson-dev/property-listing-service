@@ -643,10 +643,6 @@ module.exports.sampleListings = [
         exists: true,
         queenbed: 1
       },
-      bedroom3: {
-        exists: true,
-        fullBed: 1
-      },
       commonRooms: {
         exists: true,
         sofaBed: 1
