@@ -641,7 +641,7 @@ module.exports.sampleListings = [
       },
       bedroom2: {
         exists: true,
-        queenbed: 1
+        fullBed: 1
       },
       commonRooms: {
         exists: true,

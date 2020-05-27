@@ -15,8 +15,7 @@
   margin-bottom: 24px;
   grid-row: 1;
   grid-column: 1;
-  padding-right: 60px;
-  max-width: 720px;
+  max-width: 700px;
 }
 
 .summaryHeadInfo {
@@ -64,13 +63,12 @@
   justify-content: start;
   grid-row: 2;
   grid-column: 1;
-  padding-right: 80px;
-  max-width: 720px;
+  max-width: 700px;
 }
 
 .summaryFeatures::before {
   content: "" !important;
-  max-width: 660px;
+  max-width: 700px;
   display: block !important;
   /* position: absolute !important; */
   top: 0px !important;

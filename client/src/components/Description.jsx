@@ -33,7 +33,7 @@ class Description extends React.Component {
             this.state.showFullDescr ? `${styles.descriptionFull} ${styles.displayGridArea}` : `${styles.descriptionFull} ${styles.displayNone}`
           }>
             {this.props.description.split(`\n`).map(paragraph => (
-              <p>{paragraph}</p>
+              <p className={styles.descriptionGraf}>{paragraph}</p>
             ))} &nbsp;
             <span>
               <button
