@@ -9,7 +9,7 @@ class Description extends React.Component {
     };
     this.setState = this.setState.bind(this);
   }
-  // TODO: Method to handle expanding description text
+
   toggleDescription() {
     this.setState({showFullDescr: !this.state.showFullDescr});
   }
@@ -24,11 +24,24 @@ class Description extends React.Component {
       <div className={styles.descriptionContainer}>
         <div className = {styles.listingDescription}>
           <div className = {styles.descriptionSpacer}></div>
-          <div className={!this.state.showFullDescr ? `${styles.descriptionPreview} ${styles.displayGridArea}` : `${styles.descriptionPreview} ${styles.displayNone}` }>
+          <div className={
+            !this.state.showFullDescr ? `${styles.descriptionPreview} ${styles.displayGridArea}` : `${styles.descriptionPreview} ${styles.displayNone}`
+          }>
             {this.props.description.slice(0, 220)}...&nbsp; <span><button onClick={this.toggleDescription.bind(this)} className={styles.textButton}>read more</button></span>
           </div>
-          <div className={this.state.showFullDescr ? `${styles.descriptionFull} ${styles.displayGridArea}` : `${styles.descriptionFull} ${styles.displayNone}` }>
-            {this.props.description}&nbsp; <span><button onClick={this.toggleDescription.bind(this)} className={styles.textButton}>read less</button></span>
+          <div className={
+            this.state.showFullDescr ? `${styles.descriptionFull} ${styles.displayGridArea}` : `${styles.descriptionFull} ${styles.displayNone}`
+          }>
+            {this.props.description.split(`\n`).map(paragraph => (
+              <p>{paragraph}</p>
+            ))} &nbsp;
+            <span>
+              <button
+                onClick={this.toggleDescription.bind(this)}
+                className={styles.textButton}
+              >read less
+              </button>
+            </span>
           </div>
           <div className = {styles.descriptionSpacer}></div>
           <button className={styles.contactButton}>
