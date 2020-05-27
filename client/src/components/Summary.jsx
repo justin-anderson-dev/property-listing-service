@@ -25,10 +25,9 @@ const Summary = (props) => (
           feature={props.myFeatures[0] ? props.myFeatures.find(element => element.idString === feature) : 'not found' }
         />
       )) : null}
-      <div className={styles.summarySpacer}></div>
     </div>
     <div className={styles.reserveModule}>
-      {/* <img className={styles.contain} src="http://localhost:3005/assets/reservation-mock.png"/> */}
+      <img className={styles.cover} src='https://listing-service-images.s3-us-west-1.amazonaws.com/assets/reservation-mock.png'/>
     </div>
   </div>
 );
