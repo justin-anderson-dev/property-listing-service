@@ -27,7 +27,7 @@
   line-height: 20px !important;
 }
 
-.summaryHeadHeadline * {
+.summaryHeadHeadline *{
   color: rgb(34, 34, 34) !important;
   font-weight: 500 !important;
   font-size: 22px !important;
@@ -45,17 +45,39 @@
   padding-top: 16px;
 }
 
-.summaryHeadAvi * {
-  height: 60px;
-  width: 60px;
-  display: block;
-  color: #767676 !important;
-  text-align: center !important;
+.aviWrapper {
+  position: relative;
+  min-height: auto;
+}
+
+.avi * {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 70px;
   border-radius: 50% !important;
   border-style: solid;
   border-color: #ffffff;
   object-fit: cover;
 }
+
+.superhostOverlay {
+  background-color: initial !important;
+  background: none;
+  position: absolute;
+  top: 45px;
+  left: 50px;
+}
+
+.superhostOverlay * {
+  object-fit: contain;
+  background-color: initial !important;
+  background: none;
+  height: 25px;
+  width: 20px;
+}
+
 
 .summaryFeatures {
   display: flex;
@@ -88,7 +110,8 @@
 
 .cover {
   object-fit: contain;
-  margin-top: 24px;
+  /* margin-top: 24px; */
   padding-top: 16px;
+  align-self: start;
   justify-self: flex-start;
 }

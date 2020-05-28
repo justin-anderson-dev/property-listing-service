@@ -11,6 +11,10 @@ const SERVER_URL = process.env.SERVER_URL;
 const S3_URL = process.env.S3_URL;
 const HOST_API_URL = process.env.HOST_API_URL;
 
+// TODO:
+// Add superHost to state, pass down to Summary
+// Make rendering of superHost overlay conditional on props.superHost
+
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
