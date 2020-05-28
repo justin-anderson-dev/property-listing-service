@@ -45,6 +45,15 @@
   padding-top: 16px;
 }
 
+.invisibleButton {
+  cursor: pointer;
+  border-radius: none;
+  padding: 0;
+  border-style: none !important;
+  outline: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+  background: transparent !important;
+}
 .aviWrapper {
   position: relative;
   min-height: auto;

@@ -31,6 +31,7 @@ class ListingDetail extends React.Component {
       typeOfRoom: 'loading...',
       hostId: 1,
       hostName: 'VaporBnB Host',
+      superHost: false,
       avatarUrl: S3_URL + '/assets/graziella.jpg',
       topFeatures: [],
       keyAmenities: [],
@@ -78,6 +79,7 @@ class ListingDetail extends React.Component {
           },
           typeOfRoom: listing.data.typeOfRoom,
           hostId: listing.data.hostId,
+          superHost: listing.data.superHost,
           topFeatures: self.filterFeatures(listing.data.topFeatures),
           keyAmenities: self.filterFeatures(listing.data.keyAmenities),
           allAmenities: {
@@ -113,6 +115,7 @@ class ListingDetail extends React.Component {
   fetchHostData() {
     const self = this;
     console.log(`host service url is: ${HOST_API_URL}`);
+    // if time: refactor this to get host data by listingId
     axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
       .then((host) => {
         console.log(`got host data for host ${host.data[0].name}`);
@@ -140,6 +143,7 @@ class ListingDetail extends React.Component {
         <Summary
           typeOfRoom={this.state.typeOfRoom}
           hostName={this.state.hostName}
+          superHost={this.state.superHost}
           avatarUrl={this.state.avatarUrl}
           guestCapacity={this.state.listingData.guestCapacity}
           totalBedrooms={this.state.listingData.totalBedrooms}
