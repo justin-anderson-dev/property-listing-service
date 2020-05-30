@@ -7,8 +7,13 @@ import Beds from './Beds.jsx';
 import axios from 'axios';
 import styles from '../styles/ListingDetail.css';
 
-const API_URL = process.env.API_URL;
+const SERVER_URL = process.env.SERVER_URL;
+const S3_URL = process.env.S3_URL;
 const HOST_API_URL = process.env.HOST_API_URL;
+
+// TODO:
+// Add superHost to state, pass down to Summary
+// Make rendering of superHost overlay conditional on props.superHost
 
 class ListingDetail extends React.Component {
   constructor(props) {
@@ -26,7 +31,8 @@ class ListingDetail extends React.Component {
       typeOfRoom: 'loading...',
       hostId: 1,
       hostName: 'VaporBnB Host',
-      avatarUrl: API_URL + '/assets/graziella.jpg',
+      superHost: false,
+      avatarUrl: S3_URL + '/assets/graziella.jpg',
       topFeatures: [],
       keyAmenities: [],
       allAmenities: {
@@ -59,7 +65,7 @@ class ListingDetail extends React.Component {
   fetchListingDetails(id) {
     const self = this;
     // axios get request to /id
-    return axios.get(`${API_URL}/listings/${id}`)
+    return axios.get(`${SERVER_URL}/listings/${id}`)
       .then((listing) => {
         console.log(`got listing data for listing ${listing.data.listingId}`);
         self.setState({
@@ -73,6 +79,7 @@ class ListingDetail extends React.Component {
           },
           typeOfRoom: listing.data.typeOfRoom,
           hostId: listing.data.hostId,
+          superHost: listing.data.superHost,
           topFeatures: self.filterFeatures(listing.data.topFeatures),
           keyAmenities: self.filterFeatures(listing.data.keyAmenities),
           allAmenities: {
@@ -96,7 +103,7 @@ class ListingDetail extends React.Component {
 
   fetchFeaturesData() {
     const self = this;
-    axios.get(`${API_URL}/features/all`)
+    axios.get(`${SERVER_URL}/features/all`)
       .then((features) => {
         self.setState({featuresData: features.data});
       })
@@ -107,7 +114,8 @@ class ListingDetail extends React.Component {
 
   fetchHostData() {
     const self = this;
-    console.log(`host service endpoint is: ${HOST_API_URL}`);
+    console.log(`host service url is: ${HOST_API_URL}`);
+    // if time: refactor this to get host data by listingId
     axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
       .then((host) => {
         console.log(`got host data for host ${host.data[0].name}`);
@@ -129,12 +137,13 @@ class ListingDetail extends React.Component {
       .catch(err => new Error(err));
   }
 
-  render () {
+  render() {
     return (
       <div className = {styles.fullListing}>
         <Summary
           typeOfRoom={this.state.typeOfRoom}
           hostName={this.state.hostName}
+          superHost={this.state.superHost}
           avatarUrl={this.state.avatarUrl}
           guestCapacity={this.state.listingData.guestCapacity}
           totalBedrooms={this.state.listingData.totalBedrooms}

@@ -75,12 +75,12 @@ app.get('/features/all', (req, res) => {
 });
 
 app.get('/assets/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/assets/' + req.params.id));
+  res.sendFile('listing-service-images.s3-us-west-1.amazonaws.com/assets/' + req.params.id);
 });
 
-app.get('/assets/icons/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/assets/icons/' + req.params.id));
-});
+// app.get('/assets/icons/:id', (req, res) => {
+//   res.sendFile(path.join(__dirname + '/assets/icons/' + req.params.id));
+// });
 
 app.get('/test', (req, res) => {
   res.json({ message: 'pass!' });

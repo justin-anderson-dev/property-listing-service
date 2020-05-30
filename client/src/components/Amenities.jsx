@@ -16,9 +16,16 @@ class Amenities extends React.Component {
     this.setState({
       showAll: true
     });
+    const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+    const body = document.body;
+    body.style.height = '100vh';
+    body.style.overflowY = 'hidden';
   }
 
   hideModal() {
+    const body = document.body;
+    body.style.height = 'auto';
+    body.style.overflowY = 'auto';
     this.setState({
       showAll: false
     });

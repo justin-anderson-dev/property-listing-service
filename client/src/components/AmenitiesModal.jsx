@@ -23,38 +23,39 @@ const AmenitiesModal = (props) => {
         <div className={styles.fullAmenitiesList}>
           Amenities
           {props.amenitiesList.basic.length ?
-            <BasicAmenities list={props.amenitiesList.basic} /> : null
+            <BasicAmenities
+              list={props.amenitiesList.basic}
+              myAmenities={props.myAmenities}
+            /> : null
           }
           {props.amenitiesList.familyFeatures.length ?
-            <FamilyFeatures list={props.amenitiesList.familyFeatures} /> : null
+            <FamilyFeatures list={props.amenitiesList.familyFeatures} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.facilities.length ?
-            <Facilities list={props.amenitiesList.facilities} /> : null
+            <Facilities list={props.amenitiesList.facilities} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.dining.length ?
-            <Dining list={props.amenitiesList.dining} /> : null
+            <Dining list={props.amenitiesList.dining} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.guestAccess.length ?
-            <GuestAccess list={props.amenitiesList.guestAccess} /> : null
+            <GuestAccess list={props.amenitiesList.guestAccess} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.logistics.length ?
-            <Logistics list={props.amenitiesList.logistics} /> : null
+            <Logistics list={props.amenitiesList.logistics} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.bedAndBath.length ?
-            <BedAndBath list={props.amenitiesList.bedAndBath} /> : null
+            <BedAndBath list={props.amenitiesList.bedAndBath} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.outdoor.length ?
-            <Outdoor list={props.amenitiesList.outdoor} /> : null
+            <Outdoor list={props.amenitiesList.outdoor} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.safetyFeatures.length ?
-            <SafetyFeatures list={props.amenitiesList.safetyFeatures} /> : null
+            <SafetyFeatures list={props.amenitiesList.safetyFeatures} myAmenities={props.myAmenities} /> : null
           }
           {props.amenitiesList.notIncluded.length ?
-            <NotIncluded list={props.amenitiesList.notIncluded} /> : null
+            <NotIncluded list={props.amenitiesList.notIncluded} myAmenities={props.myAmenities} /> : null
           }
         </div>
-        {/*
-        notIncluded: [] */}
       </section>
     </div>
   );
