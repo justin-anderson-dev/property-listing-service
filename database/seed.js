@@ -41,7 +41,7 @@ const createMockListings = function() {
       headline: lorem.generateSentences(1),
       stars: generateRandomRating(),
       reviews: Math.round(Math.random() * 1000),
-      superHost: Math.random() >= 0.8,
+      superHost: Math.random() >= 0.5,
       location: randomLocation[Math.round(Math.random() * 6)],
       subHeadline: lorem.generateSentences(1),
       guestCapacity: generateRandomInteger(2, 9),
@@ -54,7 +54,7 @@ const createMockListings = function() {
         sparklingClean: Math.random() >= 0.3,
         freeCancel: Math.random() >= 0.3,
         experiencedHost: false,
-        superHost: Math.random() >= 0.8,
+        superHost: false,
         greatLocation: Math.random() >= 0.6
       },
       keyAmenities: {

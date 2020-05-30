@@ -544,7 +544,7 @@ module.exports.sampleListings = [
     headline: 'The Beach Retreat',
     stars: 4.77,
     reviews: 291,
-    superHost: false,
+    superHost: true,
     location: 'Los Angeles, California',
     guestCapacity: 6,
     totalBedrooms: 3,

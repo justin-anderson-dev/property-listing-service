@@ -2,9 +2,8 @@ import React from 'react';
 import Feature from './Feature.jsx';
 import styles from '../styles/Summary.css';
 
-// TODO: add link to host div to host avatar
-
 const Summary = (props) => {
+
   function handleContactHost(e) {
     e.preventDefault();
     const host = document.getElementById('host');
