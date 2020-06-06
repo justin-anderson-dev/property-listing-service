@@ -1,6 +1,5 @@
-# Project Name
+# NotReallyAirBnB Property Listing Service
 
-> NotReallyAirBnB Property Listing Service
 
 ## Related Projects
 
@@ -18,24 +17,25 @@
 ## Usage
 
 > API Endpoints:
-GET /:id
+
+`GET /:id`
 - Responds with an HTML page displaying listing details for the property with matching `listingId: ${id}` or `headline: ${id}`
 
-POST /listings/new
+`POST /listings/new`
 - Adds a single new property listing or multiple new listings. Data payload should be in the request body.
 - Throws error if listing with matching `listingId` or `headline` property already exists in table
 
-GET /listings/:id
+`GET /listings/:id`
 - Responds with JSON object containing listing data for the single listing matching `listingId: ${id}` or `headline: ${id}`
 - Ex: `GET listings/1001` or `GET listings/Bright%20and%20Airy%20in%20Highland%20Park`
 
-GET /listings/all
+`GET /listings/all`
 - Actually this is a pretty bad idea for a DB with 10M records, isn't it?
 
-PUT /listings/:id
+`PUT /listings/:id`
 - Updates a single property listing matching `listingId: ${id}` or `headline: ${id}`. Data payload should be in request body.
 
-DELETE /listings/:id
+`DELETE /listings/:id`
 - Deletes a single property listing matching `listingId: ${id}` or `headline: ${id}`
 
 
