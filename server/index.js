@@ -64,6 +64,18 @@ app.post('/listings/add/new', (req, res) => {
     .catch(err => new Error(err));
 });
 
+// PUT changes to an existing listing
+app.put('/listings/:id/update', (req, res) => {
+  // TODO: define route
+  res.send('Received a PUT request');
+});
+
+// DELETE an existing listing
+app.delete('/listings/:id/delete', (req, res) => {
+  // TODO: define route
+  res.send('Received a DELETE request');
+})
+
 // GET specific set of data for all listings (recommendation service)
 app.get('/listings/metadata/all', (req, res) => {
   Listings.find({}, {
