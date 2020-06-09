@@ -35,7 +35,7 @@ app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-// GET listing data
+// GET all listing data
 app.get('/listings/all', (req, res) => {
   Listings.find( {} )
     .then( listings => {
@@ -44,12 +44,11 @@ app.get('/listings/all', (req, res) => {
     .catch( err => new Error(err));
 });
 
-// GET single listing data
-// TODO: rewrite to check if id is number or text string, then find by appropriate db field
+// GET single listing data by listingId or headline
 app.get('/listings/:id', (req, res) => {
   const parsed = Number.parseInt(req.params.id, 10)
-  console.log(parsed);
-  console.log(req.params.id);
+  // console.log(parsed);
+  // console.log(req.params.id);
   Listings.findOne( Number.isNaN(parsed) ? {headline: req.params.id} : {listingId: req.params.id} )
     .then( listing => res.json(listing))
     .catch( err => new Error(err));
@@ -60,8 +59,24 @@ app.post('/listings/add/new', (req, res) => {
   console.log(Object.values(req.body));
   var newListing = new Listings(req.body);
   return newListing.save()
-    .then(() => res.status(200).send('OK'))
+    .then((listing) => res.status(200).send('OK'))
     .catch(err => new Error(err));
+});
+
+// PUT / update one existing listing
+app.put('/listings/:id/update', (req, res) => {
+  const parsed = Number.parseInt(req.params.id, 10)
+  return Listings.update(Number.isNaN(parsed) ? {headline: req.params.id} : {listingId: req.params.id}, req.body)
+    .then((updateResult) => res.status(200).send(`Property Listing ${req.params.id} updated: ${JSON.stringify(updateResult)}`))
+});
+
+// DELETE one existing listing
+app.delete('/listings/:id/delete', (req, res) => {
+  // TODO: write DELETE route
+  const parsed = Number.parseInt(req.params.id, 10)
+  Listings.deleteOne( Number.isNaN(parsed) ? {headline: req.params.id} : {listingId: req.params.id} )
+    .then( () => res.status(200).send(`Property Listing ${req.params.id} deleted`))
+    .catch( err => new Error(err));
 });
 
 // GET specific set of data for all listings (recommendation service)

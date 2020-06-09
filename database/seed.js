@@ -33,7 +33,6 @@ const createMockListings = function() {
   var storage;
   for (var i = 7; i < 120; i++) {
     storage = {
-    // listing model goes here
       listingId: 1000 + i,
       hostId: i,
       price: generateRandomInteger(50, 299),
