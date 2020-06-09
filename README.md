@@ -32,10 +32,10 @@ GET /listings/:id
 GET /listings/all
 - Actually this is a pretty bad idea for a DB with 10M records, isn't it?
 
-PUT /listings/:id
+PUT /listings/:id/update
 - Updates a single property listing matching `listingId: ${id}` or `headline: ${id}`. Data payload should be in request body.
 
-DELETE /listings/:id
+DELETE /listings/:id/delete
 - Deletes a single property listing matching `listingId: ${id}` or `headline: ${id}`
 
 
