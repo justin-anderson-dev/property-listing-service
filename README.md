@@ -21,7 +21,7 @@
 GET /:id
 - Responds with an HTML page displaying listing details for the property with matching `listingId: ${id}` or `headline: ${id}`
 
-POST /listings/new
+POST /listings/add/new
 - Adds a single new property listing or multiple new listings. Data payload should be in the request body.
 - Throws error if listing with matching `listingId` or `headline` property already exists in table
 
