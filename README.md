@@ -21,7 +21,7 @@
 `GET /:id`
 - Responds with an HTML page displaying listing details for the property with matching `listingId: ${id}` or `headline: ${id}`
 
-POST /listings/add/new
+`POST /listings/add/new`
 - Adds a single new property listing or multiple new listings. Data payload should be in the request body.
 - Throws error if listing with matching `listingId` or `headline` property already exists in table
 
@@ -32,10 +32,10 @@ POST /listings/add/new
 `GET /listings/all`
 - Actually this is a pretty bad idea for a DB with 10M records, isn't it?
 
-`PUT /listings/:id`
+`PUT /listings/:id/update`
 - Updates a single property listing matching `listingId: ${id}` or `headline: ${id}`. Data payload should be in request body.
 
-`DELETE /listings/:id`
+`DELETE /listings/:id/delete`
 - Deletes a single property listing matching `listingId: ${id}` or `headline: ${id}`
 
 
