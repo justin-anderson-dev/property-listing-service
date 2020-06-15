@@ -1,5 +1,5 @@
 // this file connects to the SQL database and inserts the records created by mockMaker.js
-const sql = require('./db.js');
+// const sql = require('./db.js');
 const mockFile = require('./mock-listings.js');
 const fs = require('fs');
 

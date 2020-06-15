@@ -3,8 +3,8 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
-const Listings = require('../database/Listing.js');
-const Features = require('../database/Feature.js');
+// const Listings = require('../database/Listing.js');
+// const Features = require('../database/Feature.js');
 const db = require('../database/index.js');
 
 const pretty = require('express-prettify');

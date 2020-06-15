@@ -14,7 +14,7 @@ const lorem = new LoremIpsum({
     min: 2
   },
   wordsPerSentence: {
-    max: 16,
+    max: 12,
     min: 4
   }
 });
