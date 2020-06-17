@@ -1,5 +1,5 @@
 // this file connects to an existing PostgresQL instance and creates the database 'property_service' with tables 'listings' and 'features' as defined below
-const sql = require('./db.js');
+// const sql = require('./db.js');
 
 /**
  * 'features' table definition:
@@ -18,7 +18,7 @@ const sql = require('./db.js');
  * "price" int NOT NULL,
  * "typeOfRoom" varchar(50) NOT NULL,
  * "headline" varchar(255) UNIQUE,
- * "stars" int,
+ * "stars" float,
  * "reviews" int,
  * "superHost" boolean,
  * "location" varchar(80) NOT NULL,

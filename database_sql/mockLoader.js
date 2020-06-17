@@ -1,17 +1,31 @@
 // this file connects to the SQL database and inserts the records created by mockMaker.js
 // const sql = require('./db.js');
-const mockFile = require('./mock-listings.js');
-const fs = require('fs');
+const mockFile1 = require('./sample-data/samples-1-10000.json');
+const path = __dirname + `/sample-data/samples-1-1000.json`;
+const fs = require('fs').promises;
+const pool = require('./index');
 
+const queryText = `
+INSERT INTO listings
+('listingId', 'hostId', 'headline', 'price', 'typeOfRoom', )
+`;
 
-// initialize db connection
+const loadMocks = () => {
 
-// read contents of mockFile
+  // read contents of mockFile
+  Promise.resolve(fs.readFile(path))
+  .then(fileData => {
+    const values = [];
+    fileData.forEach(listing => values.push(Object.values(listing)));
+    pool.query(queryText, values)
+    // use pool.query to insert fileData into listings table
+  })
+  .catch(err => new Error(err));
+  // psql property_service `
+  //   insert into listings ETC.
 
-// psql property_service `
-//   insert into listings ETC.
-
-// close db connection
+  // close db connection
+};
 
 
 /**

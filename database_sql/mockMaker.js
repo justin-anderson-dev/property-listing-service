@@ -3,7 +3,7 @@
 // const fs = require('fs');
 const mockListings = require('./mock-listings');
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;
-const fs = require('fs');
+const fs = require('fs').promises;
 
 // assign supplied args to constants
 const myArgs = process.argv.slice(2);
@@ -200,13 +200,17 @@ const makeMocks = (rangeStart, rangeEnd) => {
   }
   console.log(`mockListings array contains ${mockListings.length} objects`);
   console.log(`first Listing object has these values: ${JSON.stringify(Object.values(mockListings[0]))}`);
+
   const data = JSON.stringify(mockListings, null, 2);
   const path = __dirname + `/sample-data/samples-${rangeStart}-${rangeEnd}.json`;
 
-  fs.writeFile(path, data, (err) => {
-  if (err) throw err;
-  console.log('The file has been saved!');
-  });
+  Promise.resolve(fs.writeFile(path, data))
+    .then(() => console.log('The file has been saved!'))
+    .catch( err => new Error(err));
+  //   ), (err) => {
+  // if (err) throw err;
+  // console.log('The file has been saved!');
+  // });
 };
 
 // invoke function with supplied args
