@@ -7,8 +7,18 @@ const pool = require('./index');
 
 const queryText = `
 INSERT INTO listings
-('listingId', 'hostId', 'headline', 'price', 'typeOfRoom', )
+('listingId', 'hostId', 'headline', 'price', 'typeOfRoom', 'stars', 'reviews', 'superHost', 'sleepArrangements', 'location', 'totalBeds', 'guestCapacity', 'totalBedrooms', 'totalBaths', 'descriptionText', 'topFeatures', 'keyAmenities', 'allAmenities')
 `;
+
+const values = `
+(
+  1,
+  1,
+  "Elit do Lorem fugiat do.",
+  193,
+
+)
+`
 
 const loadMocks = () => {
 

@@ -1,9 +1,6 @@
-// this file generates a range of mock listings and saves them to the array defined in ./mock-listings
-// const mockFile = require('./mock-listings');
-// const fs = require('fs');
-const mockListings = require('./mock-listings');
+// this file generates a range of mock listings and saves them to a new file in sample-data
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;
-const fs = require('fs').promises;
+const fs = require('fs');
 
 // assign supplied args to constants
 const myArgs = process.argv.slice(2);
@@ -188,31 +185,19 @@ class Listing {
 
 // define function that instantiates new Listings with a defined ranged of listingId's
 const makeMocks = (rangeStart, rangeEnd) => {
-  var mockListings = [];
-
   if (!rangeStart || !rangeEnd) {
     return new Error(`Please invoke this script with starting and ending ids, e.g. 'npm run db:mocks 1 1000' `);
   }
   for (let i = rangeStart; i <= rangeEnd; i++) {
     let newListing = new Listing(i);
-    debugger;
-    mockListings.push(newListing);
+    const queryString = `INSERT INTO listings (listing_id, host_id, price, type_of_room, headline, stars, reviews, superhost, sleep_arrangements, location, guest_capacity, total_bedrooms, total_beds, total_baths, description_text, top_features, key_amenities, all_amenities) VALUES (${newListing.listingId}, ${newListing.hostId}, ${newListing.price}, '${newListing.typeOfRoom}', '${newListing.headline}', ${newListing.stars}, ${newListing.reviews}, ${newListing.superHost}, '${JSON.stringify(newListing.sleepArrangements)}', '${newListing.location}', ${newListing.totalBeds}, ${newListing.guestCapacity}, ${newListing.totalBedrooms}, ${newListing.totalBaths}, '${newListing.descriptionText}', '${JSON.stringify(newListing.topFeatures)}', '${JSON.stringify(newListing.keyAmenities)}', '${JSON.stringify(newListing.allAmenities)}');`;
+    const path = __dirname + `/sample-data/samples_${rangeStart}_${rangeEnd}.sql`;
+
+    fs.appendFile(path, queryString, (err) => {
+      if (err) throw err;
+    });
   }
-  console.log(`mockListings array contains ${mockListings.length} objects`);
-  console.log(`first Listing object has these values: ${JSON.stringify(Object.values(mockListings[0]))}`);
-
-  const data = JSON.stringify(mockListings, null, 2);
-  const path = __dirname + `/sample-data/samples-${rangeStart}-${rangeEnd}.json`;
-
-  Promise.resolve(fs.writeFile(path, data))
-    .then(() => console.log('The file has been saved!'))
-    .catch( err => new Error(err));
-  //   ), (err) => {
-  // if (err) throw err;
-  // console.log('The file has been saved!');
-  // });
 };
 
 // invoke function with supplied args
 makeMocks(start, end);
-

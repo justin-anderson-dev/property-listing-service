@@ -1,35 +1,34 @@
 // this file connects to an existing PostgresQL instance and creates the database 'property_service' with tables 'listings' and 'features' as defined below
 // const sql = require('./db.js');
 
-/**
- * 'features' table definition:
- * CREATE TABLE features (
- * "idString" varchar(50) PRIMARY KEY,
- * "featureTitle" varchar(50) NOT NULL,
- * "featureDescr" varchar(80) NULL,
- * "iconUrl" varchar(140) NOT NULL
- * );
- */
 
-/**
- * CREATE TABLE listings (
- * "listingId" int PRIMARY KEY,
- * "hostId" int NOT NULL,
- * "price" int NOT NULL,
- * "typeOfRoom" varchar(50) NOT NULL,
- * "headline" varchar(255) UNIQUE,
- * "stars" float,
- * "reviews" int,
- * "superHost" boolean,
- * "location" varchar(80) NOT NULL,
- * "guestCapacity" int,
- * "totalBedrooms" int,
- * "totalBeds" int,
- * "totalBaths" int,
- * "descriptionText" text,
- * "topFeatures" jsonb,
- * "keyAmenities" jsonb,
- * "allAmenities" jsonb,
- * "sleepArrangements" jsonb
- * );
- */
+'features' table definition:
+CREATE TABLE features (
+id_string varchar(50) PRIMARY KEY,
+feature_title varchar(50) NOT NULL,
+feature_descr varchar(80) NULL,
+icon_url varchar(255) NOT NULL
+);
+
+
+
+CREATE TABLE listings (
+listing_id int PRIMARY KEY,
+host_id int NOT NULL,
+price int NOT NULL,
+type_of_room varchar(50) NOT NULL,
+headline varchar(255) UNIQUE,
+stars float,
+reviews int,
+superhost boolean,
+sleep_arrangements jsonb,
+location varchar(80) NOT NULL,
+guest_capacity int,
+total_bedrooms int,
+total_beds int,
+total_baths int,
+description_text text,
+top_features jsonb,
+key_amenities jsonb,
+all_amenities jsonb
+);

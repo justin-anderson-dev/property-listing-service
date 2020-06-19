@@ -15,7 +15,7 @@
     "start": "node server/start.js",
     "db:mocks": "node database_sql/mockMaker.js",
     "db:load": "node database_sql/mockLoader.js",
-    "db:seedFeatures": "node database_sql/feature-data.js",
+    "db:seedFeatures": "node database_sql/featureSeed.js",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
     "clean": "rm -rf client/dist",
     "clean:build": "npm run clean && npm run build",
