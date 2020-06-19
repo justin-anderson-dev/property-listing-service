@@ -36,15 +36,15 @@ const generateRandomRating = function() {
 // define Listing class
 class Listing {
   constructor(id) {
-    this.listingId = id;
-    this.hostId = id;
+    this.listing_id = id;
+    this.host_id = id;
     this.headline = lorem.generateSentences(1);
     this.price = generateRandomInteger(50, 299);
-    this.typeOfRoom = randomRoomType[Math.round(Math.random() * (randomRoomType.length - 1))];
+    this.type_of_room = randomRoomType[Math.round(Math.random() * (randomRoomType.length - 1))];
     this.stars = generateRandomRating();
     this.reviews = Math.round(Math.random() * 1000);
-    this.superHost = Math.random() >= 0.5;
-    this.sleepArrangements = {
+    this.superhost = Math.random() >= 0.5;
+    this.sleep_arrangements = {
       "bedroom1": {
           "exists": true,
           "queenBed": 1
@@ -63,19 +63,19 @@ class Listing {
         }
     };
     this.location = randomLocation[Math.round(Math.random() * (randomLocation.length - 1))];
-    this.totalBeds = generateRandomInteger(1, 4);
-    this.guestCapacity = this.totalBeds + 2;
-    this.totalBedrooms = generateRandomInteger(1, 3);
-    this.totalBaths = generateRandomInteger(1, 3);
-    this.descriptionText = lorem.generateParagraphs(3);
-    this.topFeatures = {
+    this.total_beds = generateRandomInteger(1, 4);
+    this.guest_capacity = this.totalBeds + 2;
+    this.total_bedrooms = generateRandomInteger(1, 3);
+    this.total_baths = generateRandomInteger(1, 3);
+    this.description_text = lorem.generateParagraphs(3);
+    this.top_features = {
         "entireHome": Math.random() >= 0.6,
         "selfCheckIn": Math.random() >= 0.6,
         "sparklingClean": Math.random() >= 0.3,
         "freeCancel": Math.random() >= 0.3,
         "greatLocation": Math.random() >= 0.6
     };
-    this.keyAmenities = {
+    this.key_amenities = {
       "kitchen": Math.random() >= 0.6,
       "wifi": Math.random() >= 0.3,
       "cableTv": Math.random() >= 0.6,
@@ -96,7 +96,7 @@ class Listing {
       "hotTub": Math.random() >= 0.8,
       "pool": Math.random() >= 0.8
     };
-    this.allAmenities = {
+    this.all_amenities = {
       "basic": {
         "wifi": Math.random() >= 0.6,
         "cableTv": Math.random() >= 0.6,
@@ -183,7 +183,7 @@ class Listing {
   }
 }
 
-// define function that instantiates new Listings with a defined ranged of listingId's
+// instantiate new Listings with a defined ranged of listingId's
 const makeMocks = (rangeStart, rangeEnd) => {
   if (!rangeStart || !rangeEnd) {
     return new Error(`Please invoke this script with starting and ending ids, e.g. 'npm run db:mocks 1 1000' `);

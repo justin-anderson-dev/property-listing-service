@@ -1,1 +1,1 @@
-psql property_service -f database_sql/sample-data/samples_1_10000.sql
+psql property_service -f database_sql/sample-data/samples_1_5000.sql

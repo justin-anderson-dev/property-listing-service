@@ -38,6 +38,7 @@
     "babel-jest": "^25.4.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
+    "csv-write-stream": "^2.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
