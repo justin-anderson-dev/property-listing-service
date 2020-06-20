@@ -18,7 +18,7 @@ const lorem = new LoremIpsum({
   },
   wordsPerSentence: {
     max: 12,
-    min: 4
+    min: 6
   }
 });
 
@@ -41,7 +41,7 @@ class Listing {
   constructor(id) {
     this.listing_id = id;
     this.host_id = id;
-    this.headline = lorem.generateSentences(1);
+    this.headline = lorem.generateSentences(1) + id.toString();
     this.price = generateRandomInteger(50, 299);
     this.type_of_room = randomRoomType[Math.round(Math.random() * (randomRoomType.length - 1))];
     this.stars = generateRandomRating();
@@ -191,7 +191,7 @@ const makeMocks = (rangeStart, rangeEnd) => {
   if (!rangeStart || !rangeEnd) {
     return new Error(`Please invoke this script with starting and ending ids, e.g. 'npm run db:mocks 1 1000' `);
   }
-  writer.pipe(fs.createWriteStream('database_sql/sample-data/data1.csv'));
+  writer.pipe(fs.createWriteStream(`database_sql/sample-data/data-${rangeStart}-${rangeEnd}.csv`));
   for (let i = rangeStart; i <= rangeEnd; i++) {
     let newListing = new Listing(i);
     writer.write(newListing);
