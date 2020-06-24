@@ -29,3 +29,9 @@ dist/
 
 # Generated sample data
 sample-data/
+
+# Keys, tokens, and other secrets
+_secrets/
+
+# Server access
+.yaml

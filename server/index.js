@@ -4,6 +4,10 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+/* UN-COMMENT BELOW IF USING NoSQL db */
+// const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_nosql/queries');
+
+/* UN-COMMENT BELOW IF USING SQL db */
 const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_sql/queries');
 
 const pretty = require('express-prettify');

@@ -13,14 +13,15 @@
     "build:watch": "webpack --mode=development --watch",
     "dev:start": "nodemon --inspect server/start.js",
     "start": "node server/start.js",
-    "db:mocks": "bash database_sql/seedScripts/make_10M_mocks.sh",
-    "db:load": "bash database_sql/seedScripts/load_all_mocks.sh",
+    "db:mocks": "node database_nosql/mockMaker.js",
+    "db:load": "node database_nosql/mockLoader.js",
     "db:seedFeatures": "node database_sql/featureSeed.js",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
     "clean": "rm -rf client/dist",
     "clean:build": "npm run clean && npm run build"
   },
   "dependencies": {
+    "aws-sdk": "^2.703.0",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
