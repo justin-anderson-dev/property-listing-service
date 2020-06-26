@@ -13,12 +13,14 @@
     "build:watch": "webpack --mode=development --watch",
     "dev:start": "nodemon --inspect server/start.js",
     "start": "node server/start.js",
-    "db:mocks": "node --max-old-space-size=8192 database_nosql/mockMaker.js",
-    "db:load": "node database_nosql/mockLoader.js",
-    "db:seedFeatures": "node database_sql/featureSeed.js",
+    "db:createTables": "node database_nosql/featuresSetup.js && node database_nosql/listingsSetup.js",
+    "db:mockListings": "node --max-old-space-size=8192 database_nosql/mockMaker.js",
+    "db:loadListings": "node database_nosql/mockLoader.js",
+    "db:loadFeatures": "node --max-old-space-size=4096 database_nosql/featuresLoader.js",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
     "clean": "rm -rf client/dist",
     "clean:build": "npm run clean && npm run build"
+
   },
   "dependencies": {
     "aws-sdk": "^2.703.0",
