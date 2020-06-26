@@ -2,58 +2,92 @@
 const AWS = require('aws-sdk');
 
 // NOTE: Change endpoint value below for deployment
-const dynamodb = new AWS.DynamoDB({
-  endpoint: 'http://localhost:8000',
-  apiVersion: '2012-08-10',
-  region: 'us-west-1'
-});
+const ddbParams = { endpoint: 'http://localhost:8000', apiVersion: '2012-08-10', region: 'us-west-1' };
+
+// Create Service interface and Document Client interface for DynamoDB
+const dynamodb = new AWS.DynamoDB(ddbParams);
+const ddbDocumentClient = new AWS.DynamoDB.DocumentClient(ddbParams);
 
 // TODO: Refactor all functions below for aws-sdk equivalents
+
 const getListing = function(id, callback) {
   const parsed = Number.parseInt(id, 10);
-  const queryText = Number.isNaN(parsed) ? `SELECT * FROM listings WHERE headline='${id}'` : `SELECT * FROM listings WHERE listing_id=${id}`;
+  const stringParams = {
+    TableName: "listings",
+    IndexName: "headline_index",
+    KeyConditionExpression: "headline = :headline",
+    ExpressionAttributeValues:  {":headline":{"S": `${id}`}}
+  };
+  const numParams = {
+    TableName: "listings",
+    KeyConditionExpression: "listing_id = :listing_id",
+    ExpressionAttributeValues:  {":listing_id":{"N": `${id}`}}
+  };
+  const queryParams = Number.isNaN(parsed) ? stringParams : numParams;
 
-  pool
-    .query(queryText)
-    .then(listing => callback(listing.rows[0]))
+  return dynamodb.query(queryParams).promise()
+    .then(listing => callback(listing.Items[0]))
     .catch(err =>  console.error(err));
 };
 
 const getFeatures = function(callback) {
-  pool
-    .query('SELECT * FROM features')
-    .then(data => callback(data.rows))
+  const queryParams = {TableName: "features"};
+
+  return dynamodb.scan(queryParams).promise()
+    .then(features => callback(features))
     .catch(err => console.error(err));
 };
 
 const addListing = function(data, callback) {
-  const cols = Object.keys(data).map(key => `${key}`);
-  const values = Object.values(data).map(value => `${value}`);
-  pool
-    .query(`INSERT INTO listings (${cols}) VALUES (${values}) RETURNING *`)
-    .then(response => callback(response.rows[0]))
+  const queryParams = {
+    TableName: "listings",
+    Item: JSON.stringify(data, null, 2)
+  }
+  return ddbDocumentClient.put(queryParams).promise()
+    .then(response => callback(response))
     .catch(err => console.error(err));
 };
 
+// TODO: Fix update function to handle any combination of key/value pairs in the request body
 const updateListing = function(id, data, callback) {
-  const cols = Object.keys(data).map(key => `${key}`);
-  const values = Object.values(data).map(value => `${value}`);
-  const parsed = Number.parseInt(id, 10);
-  const queryText = Number.isNaN(parsed) ? `UPDATE listings SET (${cols}) = ROW(${values}) WHERE headline = '${id}' RETURNING *` : `UPDATE listings SET (${cols}) = ROW(${values}) WHERE listing_id = ${id} RETURNING *`;
+  console.log(`request body --> ${JSON.stringify(data, null, 2)}`);
+  const keys = Object.keys(data);
+  const values = Object.values(data);
+  const queryParams = {
+    TableName: "listings",
+    Key: {
+      listing_id: Number.parseInt(id, 10)
+    },
+    UpdateExpression: "set headline = :headline",
+    // "set " + `${keys.forEach(key => key +" = :" + key + ", ")}`,
+    ExpressionAttributeValues: {
+      ":headline": data.headline
+    },
+    // `{
+    //   ${keys.forEach((key, index) => {
+    //     JSON.stringify(":" + key) + ": " + JSON.stringify(values[index] + ",")
+    //   })}
+    // }`,
+    ReturnValues: "ALL_NEW"
+  };
+  console.log(queryParams.UpdateExpression, queryParams.ExpressionAttributeValues);
 
-  pool
-    .query(queryText)
-    .then(response => callback(response.rows[0]))
+  return ddbDocumentClient.update(queryParams).promise()
+    .then(response => callback(response))
     .catch(err => console.error(err));
 };
 
 const deleteListing = function(id, callback) {
-  const parsed = Number.parseInt(id, 10);
-  const queryText = Number.isNaN(parsed) ? `DELETE FROM listings WHERE headline = '${id}' RETURNING *` : `DELETE FROM listings WHERE listing_id = ${id} RETURNING *`; //WRITE DELETE QUERY
+  const queryParams = {
+    TableName: "listings",
+    Key: {
+      "listing_id": Number.parseInt(id, 10)
+    },
+    ReturnValues: "ALL_OLD"
+  };
 
-  pool
-    .query(queryText)
-    .then(response => callback(response.rows[0]))
+  return ddbDocumentClient.delete(queryParams).promise()
+    .then(response => callback(response))
     .catch(err => console.error(err));
 }
 

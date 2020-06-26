@@ -5,17 +5,15 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 /* UN-COMMENT BELOW IF USING NoSQL db */
-// const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_nosql/queries');
+const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_nosql/queries');
 
 /* UN-COMMENT BELOW IF USING SQL db */
-const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_sql/queries');
+// const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_sql/queries');
 
-const pretty = require('express-prettify');
 const app = express();
 
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
-app.use(pretty({ query: 'pretty' }));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

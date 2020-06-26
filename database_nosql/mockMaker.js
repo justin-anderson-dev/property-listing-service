@@ -189,16 +189,29 @@ const makeMocks = (rangeStart, rangeEnd) => {
   if (!rangeStart || !rangeEnd) {
     return new Error(`Please invoke this script with starting and ending ids, e.g. 'npm run db:mocks 1 25' `);
   }
-  let listingsToAdd = [];
-  for (let i = rangeStart; i <= rangeEnd; i++) {
-    let newListing = new Listing(i);
-    let JSONListing = JSON.stringify(newListing, null, 2);
-    listingsToAdd.push(JSONListing);
-  }
-  fs.writeFile(`database_nosql/sample_data/data-${rangeStart}-${rangeEnd}.json`, listingsToAdd, function (err) {
+
+  // var fileCount = 0;
+  // for 1 to rangeEnd / 25
+  var fileStart = Math.ceil((rangeStart - 1) / 25) + 1;
+  var fileEnd = Math.ceil(rangeEnd / 25);
+  for (var f = fileStart; f <= fileEnd; f++) {
+    var listingsToAdd = [];
+    var idStart = (f * 25) + 1; // 1
+    var idEnd = (f * 25) + 25; // 25
+    for (let i = idStart; i <= idEnd; i++) {
+      if (i > rangeEnd) {
+        break;
+      }
+      let newListing = new Listing(i); // 1
+      // let JSONListing = JSON.stringify(newListing);
+      listingsToAdd.push(newListing);
+    }
+    fs.writeFile(`database_nosql/sample_data/data-${f}.json`, JSON.stringify(listingsToAdd), function (err) {
       if (err) console.error(err);
     });
-  console.log(`wrote array of ${rangeEnd - rangeStart + 1} objects to json file`);
+
+    console.log(`${f} json files written so far`);
+  }
 };
 
 // invoke function with supplied args from shell script
