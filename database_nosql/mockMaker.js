@@ -8,6 +8,13 @@ const myArgs = process.argv.slice(2);
 const start = parseInt(myArgs[0]) || 1;
 const end = parseInt(myArgs[1]) || 1000;
 
+// Create document client interface for DynamoDB
+const documentClient = new AWS.DynamoDB.DocumentClient({
+  endpoint: 'http://localhost:8000',
+  apiVersion: '2012-08-10',
+  region: 'us-west-1'
+});
+
 // Utility functions and constants for mocking Listing class
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -184,34 +191,45 @@ class Listing {
   }
 }
 
-// Instantiate new Listings with a defined ranged of listing_id's, and write to .json file
-const makeMocks = (rangeStart, rangeEnd) => {
-  if (!rangeStart || !rangeEnd) {
-    return new Error(`Please invoke this script with starting and ending ids, e.g. 'npm run db:mocks 1 25' `);
-  }
-
-  // var fileCount = 0;
-  // for 1 to rangeEnd / 25
-  var fileStart = Math.ceil((rangeStart - 1) / 25) + 1;
-  var fileEnd = Math.ceil(rangeEnd / 25);
-  for (var f = fileStart; f <= fileEnd; f++) {
-    var listingsToAdd = [];
-    var idStart = (f * 25) + 1; // 1
-    var idEnd = (f * 25) + 25; // 25
+// Instantiate new Listings with a defined range of listing_id's and load to listings table, 25 at a time
+const makeMocks = function(rangeStart, rangeEnd) {
+  // total number of mocks is rangeEnd - rangeStart + 1
+  // total number / 25 = number of batches needed
+  const listingsNeeded = rangeEnd - rangeStart + 1;
+  const batchesNeeded = Math.ceil(listingsNeeded / 25);
+  // loop (number of batches) times. Each iteration should:
+    // Create 25 new listings and push to array
+    // Pop those listings off the array and add to request object
+    // batchWrite request object to listings table
+  for (let b = 0; b < batchesNeeded; b++) {
+    const batch = [];
+    const idStart = rangeStart + (b * 25); // 1
+    const idEnd = rangeStart + (b * 25) + 24; // 25
     for (let i = idStart; i <= idEnd; i++) {
-      if (i > rangeEnd) {
-        break;
-      }
-      let newListing = new Listing(i); // 1
-      // let JSONListing = JSON.stringify(newListing);
-      listingsToAdd.push(newListing);
+      const newListing = new Listing(i);
+      const putRequest = {
+        PutRequest: {
+        Item: newListing
+        }
+      };
+      batch.push(putRequest);
     }
-    fs.writeFile(`database_nosql/sample_data/data-${f}.json`, JSON.stringify(listingsToAdd), function (err) {
-      if (err) console.error(err);
+    const params = {
+      RequestItems: {
+        'listings': batch
+      }
+    };
+    // batchWrite the contents of batch to features table
+    documentClient.batchWrite(params, function(err, data) {
+      if (err) {
+        console.error(err);
+      }
+        // else {
+        //   console.log('Added ' + batch.length + ' items to Listings table');
+        // }
     });
-
-    console.log(`${f} json files written so far`);
   }
+
 };
 
 // invoke function with supplied args from shell script

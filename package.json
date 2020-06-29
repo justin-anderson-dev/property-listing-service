@@ -14,7 +14,7 @@
     "dev:start": "nodemon --inspect server/start.js",
     "start": "node server/start.js",
     "db:createTables": "node database_nosql/featuresSetup.js && node database_nosql/listingsSetup.js",
-    "db:mockListings": "node --max-old-space-size=8192 database_nosql/mockMaker.js",
+    "db:mockListings": "node --max-old-space-size=4096 database_nosql/mockMaker.js",
     "db:loadListings": "node database_nosql/mockLoader.js",
     "db:loadFeatures": "node --max-old-space-size=4096 database_nosql/featuresLoader.js",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",

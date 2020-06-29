@@ -39,15 +39,15 @@ var params = {
         ProjectionType: "ALL"
       },
       ProvisionedThroughput: {
-        ReadCapacityUnits: 5,
-        WriteCapacityUnits: 5
+        ReadCapacityUnits: 5000,
+        WriteCapacityUnits: 5000
       }
     }
   ],
   BillingMode: 'PROVISIONED',
   ProvisionedThroughput: {
-    ReadCapacityUnits: 5,
-    WriteCapacityUnits: 5
+    ReadCapacityUnits: 5000,
+    WriteCapacityUnits: 5000
   },
   TableName: "listings"
 };
