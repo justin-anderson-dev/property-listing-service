@@ -258,7 +258,7 @@ const featureData = [
   {
     id_string: 'lockbox',
     feature_title: 'Lockbox',
-    feature_descr: '',
+    feature_descr: null,
   },
   {
     id_string: 'privateEntrance',

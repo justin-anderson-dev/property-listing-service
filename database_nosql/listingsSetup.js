@@ -7,7 +7,7 @@ const dynamodb = new AWS.DynamoDB({
   region: 'us-west-1'
 });
 
-// console.log('DynamoDB config properties: ', JSON.stringify(dynamodb.config, null, 2));
+console.log('DynamoDB config properties: ', JSON.stringify(dynamodb.config, null, 2));
 
 var params = {
   AttributeDefinitions: [
@@ -39,15 +39,15 @@ var params = {
         ProjectionType: "ALL"
       },
       ProvisionedThroughput: {
-        ReadCapacityUnits: 5000,
-        WriteCapacityUnits: 5000
+        ReadCapacityUnits: 100,
+        WriteCapacityUnits: 1000
       }
     }
   ],
   BillingMode: 'PROVISIONED',
   ProvisionedThroughput: {
-    ReadCapacityUnits: 5000,
-    WriteCapacityUnits: 5000
+    ReadCapacityUnits: 100,
+    WriteCapacityUnits: 1000
   },
   TableName: "listings"
 };

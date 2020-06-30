@@ -7,7 +7,7 @@ const dynamodb = new AWS.DynamoDB({
   region: 'us-west-1'
 });
 
-// console.log('DynamoDB config properties: ', JSON.stringify(dynamodb.config, null, 2));
+console.log('DynamoDB config properties: ', JSON.stringify(dynamodb.config, null, 2));
 
 var params = {
   AttributeDefinitions: [

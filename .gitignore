@@ -30,6 +30,7 @@ dist/
 # Generated sample data
 sample-data/
 sample_data/
+local/
 
 # Keys, tokens, and other secrets
 _secrets/
