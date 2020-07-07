@@ -3,9 +3,8 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
-const Listings = require('../database/Listing.js');
-const Features = require('../database/Feature.js');
-const db = require('../database/index.js');
+
+const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_sql/queries');
 
 const pretty = require('express-prettify');
 const app = express();
@@ -24,7 +23,7 @@ app.use((req, res, next) => {
 });
 //GET root
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/not_found.html'));
+  res.sendFile(path.join(__dirname + '/staticPages/not_found.html'));
 });
 
 app.use(express.static(__dirname + '/../client/dist'));
@@ -32,78 +31,47 @@ app.use(express.static(__dirname + '/../client/dist'));
 // GET listing page
 // TODO: Rewrite axios API call in client to check whether id is number or text string
 app.get('/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/staticPages/index.html'));
 });
 
 // GET all listing data
 app.get('/listings/all', (req, res) => {
-  Listings.find( {} )
-    .then( listings => {
-      res.json(listings);
-    })
-    .catch( err => new Error(err));
+  res.send('If you think I\'m sending all 10M listings down, you\'re dreaming.');
 });
 
 // GET single listing data by listingId or headline
 app.get('/listings/:id', (req, res) => {
-  const parsed = Number.parseInt(req.params.id, 10)
-  // console.log(parsed);
-  // console.log(req.params.id);
-  Listings.findOne( Number.isNaN(parsed) ? {headline: req.params.id} : {listingId: req.params.id} )
-    .then( listing => res.json(listing))
-    .catch( err => new Error(err));
+  getListing(req.params.id, (listing) => {
+    res.status(200).json(listing);
+  })
 });
 
 // POST one new listing
 app.post('/listings/add/new', (req, res) => {
-  console.log(Object.values(req.body));
-  var newListing = new Listings(req.body);
-  return newListing.save()
-    .then((listing) => res.status(200).send('OK'))
-    .catch(err => new Error(err));
+  addListing(req.body, (result) => {
+    res.status(200).json(result);
+  })
 });
 
 // PUT / update one existing listing
 app.put('/listings/:id/update', (req, res) => {
-  const parsed = Number.parseInt(req.params.id, 10)
-  return Listings.update(Number.isNaN(parsed) ? {headline: req.params.id} : {listingId: req.params.id}, req.body)
-    .then((updateResult) => res.status(200).send(`Property Listing ${req.params.id} updated: ${JSON.stringify(updateResult)}`))
+  updateListing(req.params.id, req.body, (result) => {
+    res.status(200).json(result);
+  })
 });
 
 // DELETE one existing listing
 app.delete('/listings/:id/delete', (req, res) => {
-  // TODO: write DELETE route
-  const parsed = Number.parseInt(req.params.id, 10)
-  Listings.deleteOne( Number.isNaN(parsed) ? {headline: req.params.id} : {listingId: req.params.id} )
-    .then( () => res.status(200).send(`Property Listing ${req.params.id} deleted`))
-    .catch( err => new Error(err));
-});
-
-// GET specific set of data for all listings (recommendation service)
-app.get('/listings/metadata/all', (req, res) => {
-  Listings.find({}, {
-    "listingId": 1,
-    "headline": 1,
-    "location": 1,
-    "typeOfRoom": 1,
-    "totalBeds": 1,
-    "price": 1,
-    "stars": 1,
-    "reviews": 1
+  deleteListing(req.params.id, (result) => {
+    res.status(200).json(result);
   })
-    .then( listings => {
-      res.json(listings);
-    })
-    .catch( err => new Error(err));
 });
 
 // GET features data
 app.get('/features/all', (req, res) => {
-  Features.find({})
-    .then(featureData => {
-      res.json(featureData);
-    })
-    .catch(err => new Error(err));
+  getFeatures( (features) => {
+    res.status(200).json(features);
+  });
 });
 
 // GET file from '/assets'

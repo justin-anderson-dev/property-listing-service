@@ -26,3 +26,9 @@ dist/
 
 # Environment variables, tokens, etc.
 .env
+
+# Generated sample data
+sample-data/
+
+# Keys and tokens, etc.
+_secrets/

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const db = require('./index.js');
+const db = require('../index.js');
 
 const listingSchema = new mongoose.Schema({
   //TODO: define listing schema

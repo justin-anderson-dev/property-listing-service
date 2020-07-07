@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
-const db = require('./index.js');
-const Listing = require('./Listing.js');
-const sampleListings = require('./sample-listings').sampleListings;
+const db = require('../index.js');
+const Listing = require('../models/Listing.js');
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;
+let mockListings = require('./mock-listings.js').mockListings;
+
+var myArgs = process.argv.slice(2);
+var start = parseInt(myArgs[0]); // || 1
+var end = parseInt(myArgs[1]); // || 1000
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -10,7 +14,7 @@ const lorem = new LoremIpsum({
     min: 2
   },
   wordsPerSentence: {
-    max: 16,
+    max: 12,
     min: 4
   }
 });
@@ -29,11 +33,13 @@ const generateRandomRating = function() {
   return randomNum;
 };
 
-const createMockListings = function() {
+// var mockData = [];
+
+const createMockListings = function(rangeStart, rangeEnd) {
   var storage;
-  for (var i = 7; i < 120; i++) {
+  for (var i = rangeStart; i <= rangeEnd; i++) {
     storage = {
-      listingId: 1000 + i,
+      listingId: i,
       hostId: i,
       price: generateRandomInteger(50, 299),
       typeOfRoom: randomRoomType[Math.round(Math.random() * 5)],
@@ -52,8 +58,6 @@ const createMockListings = function() {
         selfCheckIn: Math.random() >= 0.6,
         sparklingClean: Math.random() >= 0.3,
         freeCancel: Math.random() >= 0.3,
-        experiencedHost: false,
-        superHost: false,
         greatLocation: Math.random() >= 0.6
       },
       keyAmenities: {
@@ -181,15 +185,20 @@ const createMockListings = function() {
         }
       }
     };
-    sampleListings.push(storage);
+    mockListings.push(storage);
   }
 };
 
-const insertSampleListings = function() {
-  createMockListings();
-  Listing.create(sampleListings)
-    .then(() => db.close())
-    .catch( (err) => new Error(err));
-};
+console.log(`Creating mock listings for listingId ${start} - ${end}`);
+// createMockListings(start, end);
+// console.log(`Created ${mockListings.length} new listings`);
 
-insertSampleListings();
+const insertMockListings = function() {
+  createMockListings(start, end);
+  console.log(`Created ${mockListings.length} new listings`);
+  Listing.insertMany(mockListings) // TODO: refactor this to set options in case this listing already exists
+    .then((docs) => db.close())
+    .catch((err) => new Error(err));
+}
+
+insertMockListings();
