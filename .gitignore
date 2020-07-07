@@ -31,9 +31,13 @@ dist/
 sample-data/
 sample_data/
 local/
+dynamodb_local_latest/
 
 # Keys, tokens, and other secrets
 _secrets/
+_unused/
+_extras/
+.vscode/
 
 # Server access
 .yaml

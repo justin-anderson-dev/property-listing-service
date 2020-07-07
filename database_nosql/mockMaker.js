@@ -224,9 +224,6 @@ const makeMocks = function(rangeStart, rangeEnd) {
       if (err) {
         console.error(err);
       }
-        // else {
-        //   console.log('Added ' + batch.length + ' items to Listings table');
-        // }
     });
   }
 

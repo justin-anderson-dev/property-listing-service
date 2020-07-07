@@ -10,14 +10,14 @@
   },
   "scripts": {
     "build": "webpack --mode=production",
-    "build:watch": "webpack --mode=development --watch",
+    "dev:build": "webpack --mode=development --watch",
     "dev:start": "nodemon --inspect server/start.js",
     "start": "node server/start.js",
+    "db:startLocal": "cd dynamodb_local_latest && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb",
     "db:createTables": "node database_nosql/featuresSetup.js && node database_nosql/listingsSetup.js",
-    "db:mockListings": "node --max-old-space-size=4096 database_nosql/mockMaker.js",
-    "db:loadListings": "node database_nosql/mockLoader.js",
     "db:loadFeatures": "node --max-old-space-size=4096 database_nosql/featuresLoader.js",
-    "db:container": "docker run -p 8000:8000 -v $(pwd)/local/dynamodb:/data/ amazon/dynamodb-local -jar DynamoDBLocal.jar -dbPath /data",
+    "db:mockListings": "node --max-old-space-size=2048 database_nosql/mockMaker.js",
+    "db:loadListings": "bash database_nosql/shellScripts/M1/make_1M_mocks1.sh",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
     "clean": "rm -rf client/dist",
     "clean:build": "npm run clean && npm run build"
