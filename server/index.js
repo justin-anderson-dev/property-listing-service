@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 /* UN-COMMENT BELOW IF USING NoSQL db */
-const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_nosql/queries');
+const { getListing, getFeatures, addListing, updateListing, deleteListing, describeListingsTable} = require('../database_nosql/queries');
 
 /* UN-COMMENT BELOW IF USING SQL db */
 // const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_sql/queries');
 
 const app = express();
 
-app.use(bodyParser.urlencoded( {extended: true}));
+app.use(bodyParser.urlencoded( {extended: false}));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -50,6 +50,7 @@ app.get('/listings/:id', (req, res) => {
 
 // POST one new listing
 app.post('/listings/add/new', (req, res) => {
+  // console.log(req.body);
   addListing(req.body, (result) => {
     res.status(200).json(result);
   })
@@ -83,6 +84,14 @@ app.get('/assets/:id', (req, res) => {
 
 app.get('/test', (req, res) => {
   res.json({ message: 'pass!' });
+});
+
+// describe listings table
+app.get('/tables/listings/describe', (req, res) => {
+  console.log(req);
+  describeListingsTable( result => {
+    res.status(200).json(result);
+  });
 });
 
 module.exports = app;

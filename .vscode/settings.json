@@ -1,6 +1,6 @@
 {
   "editor.lightbulb.enabled": false,
-  "editor.parameterHints.enabled": true,
+  "editor.parameterHints.enabled": false,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",

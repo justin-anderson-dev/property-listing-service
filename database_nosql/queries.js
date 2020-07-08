@@ -40,12 +40,31 @@ const getFeatures = function(callback) {
 
 const addListing = function(data, callback) {
   const queryParams = {
-    TableName: "listings",
-    Item: JSON.stringify(data, null, 2)
+    TableName: 'listings',
+    Item: data
   }
+  // console.log(queryParams.Item);
   return ddbDocumentClient.put(queryParams).promise()
     .then(response => callback(response))
     .catch(err => console.error(err));
+};
+
+const addListingAlt = function(data, callback) {
+  const queryParams = {
+    RequestItems: {
+      'listings': [
+        {
+          PutRequest: {
+          Item: data
+          },
+        }
+      ]
+    }
+  }
+  console.log(queryParams.RequestItems['listings'][0].PutRequest.Item);
+  return ddbDocumentClient.batchWrite(queryParams).promise()
+  .then(response => callback(response))
+  .catch(err => console.error(err));
 };
 
 // TODO: Fix update function to handle any combination of key/value pairs in the request body
@@ -54,11 +73,11 @@ const updateListing = function(id, data, callback) {
   const keys = Object.keys(data);
   const values = Object.values(data);
   const queryParams = {
-    TableName: "listings",
+    TableName: 'listings',
     Key: {
       listing_id: Number.parseInt(id, 10)
     },
-    UpdateExpression: "set headline = :headline",
+    UpdateExpression: 'set headline = :headline',
     // "set " + `${keys.forEach(key => key +" = :" + key + ", ")}`,
     ExpressionAttributeValues: {
       ":headline": data.headline
@@ -91,4 +110,10 @@ const deleteListing = function(id, callback) {
     .catch(err => console.error(err));
 }
 
-module.exports = { getListing, getFeatures, addListing, updateListing, deleteListing };
+const describeListingsTable = function(callback) {
+  return dynamodb.describeTable({TableName: 'listings'}).promise()
+    .then(response => callback(response))
+    .catch(err => console.error(err));
+}
+
+module.exports = { getListing, getFeatures, addListing, updateListing, deleteListing, addListingAlt, describeListingsTable };
