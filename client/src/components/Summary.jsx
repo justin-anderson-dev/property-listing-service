@@ -42,7 +42,7 @@ const Summary = (props) => {
           <Feature
             idString={feature}
             key={`topFeatures_${index}`}
-            feature={props.myFeatures[0] ? props.myFeatures.find(element => element.idString === feature) : 'not found' }
+            feature={props.myFeatures[0] ? props.myFeatures.find(element => element["id_string"] === feature) : 'not found' }
           />
         )) : null}
       </div>

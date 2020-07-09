@@ -51,7 +51,7 @@ class Amenities extends React.Component {
               <AmenityPrev
                 idString={amenity}
                 key={`keyAmenities_${index}`}
-                amenity={this.props.myAmenities.length ? this.props.myAmenities.find(element => element.idString === amenity) : 'not found' }
+                data={this.props.myAmenities.length ? this.props.myAmenities.find(element => element.id_string === amenity) : 'not found' }
               />
             )) : null }
           </div>

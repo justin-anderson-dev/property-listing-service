@@ -14,7 +14,7 @@ const BasicAmenities = (props) => {
           <AmenityFull
             idString={amenity}
             key={`basicAmenities_${index}`}
-            amenity={props.myAmenities.length ? props.myAmenities.find(element => element.idString === amenity) : 'not found' }
+            amenity={props.myAmenities.length ? props.myAmenities.find(element => element.id_string === amenity) : 'not found' }
           />
         )) : null }
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styles from '../styles/header.css';
 
+const API_URL = process.env.API_URL;
 const SERVER_URL = process.env.SERVER_URL;
 const S3_URL = process.env.S3_URL;
 
@@ -21,15 +22,22 @@ class Header extends React.Component {
 
   fetchHeaderData(id) {
     const self = this;
-    console.log(`listing service endpoint is ${SERVER_URL}`);
-    return axios.get(`${SERVER_URL}/listings/${id}`)
+    // uncomment the line below for local mode
+    console.log(`listing service endpoint is ${API_URL}`);
+    // uncomment the line below for deployment mode
+    // console.log(`listing service endpoint is ${SERVER_URL}`);
+
+    // uncomment the line below for deployment mode
+    // return axios.get(`${SERVER_URL}/listings/${id}`)
+    // uncomment the line below for local mode
+    return axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
         console.log(`got header data for listing ${id}`);
         self.setState({
           headline: listing.data.headline,
           stars: listing.data.stars,
           reviews: listing.data.reviews,
-          superHost: listing.data.superHost, // should get this from Anush's service?
+          superHost: listing.data.superhost,
           location: listing.data.location
         });
       })
