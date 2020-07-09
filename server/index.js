@@ -1,4 +1,4 @@
-/* eslint-disable quotes */
+const nr = require('newrelic');
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
