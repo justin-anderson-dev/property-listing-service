@@ -120,51 +120,61 @@ const featureData = [
     idString: 'hotWater',
     featureTitle: 'Hot water',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'outletCovers',
     featureTitle: 'Outlet covers',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'bathtub',
     featureTitle: 'Bathtub',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'childDishes',
     featureTitle: 'Children’s dinnerware',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'packAndPlay',
     featureTitle: 'Pack ’n Play\/travel crib',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'highChair',
     featureTitle: 'High chair',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'crib',
     featureTitle: 'Crib',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'booksAndToys',
     featureTitle: 'Children’s books and toys',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'roomDark',
     featureTitle: 'Room-darkening shades',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'freeStreetPark',
     featureTitle: 'Free street parking',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'freeParkOnPrem',
@@ -176,11 +186,13 @@ const featureData = [
     idString: 'paidParkOnPrem',
     featureTitle: 'Paid parking on premises',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'paidParkOffPrem',
     featureTitle: 'Paid parking off premises',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'pool',
@@ -198,11 +210,13 @@ const featureData = [
     idString: 'hotTub',
     featureTitle: 'Hot tub',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'singleLevel',
     featureTitle: 'Single level home',
     featureDescr: 'No stairs in home',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'kitchen',
@@ -214,76 +228,91 @@ const featureData = [
     idString: 'cookingBasics',
     featureTitle: 'Cooking basics',
     featureDescr: 'Pots and pans, oil, salt and pepper',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'oven',
     featureTitle: 'Oven',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'refrigerator',
     featureTitle: 'Refrigerator',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'microwave',
     featureTitle: 'Microwave',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'dishwasher',
     featureTitle: 'Dishwashe',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'dishes',
     featureTitle: 'Dishes and silverware',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'coffeeMaker',
     featureTitle: 'Coffee maker',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'stove',
     featureTitle: 'Stove',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'hostGreets',
     featureTitle: 'Host greets you',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'lockbox',
     featureTitle: 'Lockbox',
-    featureDescr: '',
+    featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'privateEntrance',
     featureTitle: 'Private entrance',
     featureDescr: 'Separate street or building entrance',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'keypad',
     featureTitle: 'Keypad',
     featureDescr: 'Check yourself into the home with a door code',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'longtermAllowed',
     featureTitle: 'Long term stays allowed',
     featureDescr: 'Allow stay for 28 days or more',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'luggageDropoff',
     featureTitle: 'Luggage dropoff allowed',
     featureDescr: 'For guests’ convenience when they have early arrival or late departure',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'hangers',
     featureTitle: 'Hangers',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'hairDryer',
@@ -295,41 +324,49 @@ const featureData = [
     idString: 'shampoo',
     featureTitle: 'Shampoo',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'bedLinens',
     featureTitle: 'Bed linens',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'extraBedding',
     featureTitle: 'Extra pillows and blankets',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'bedroomLock',
     featureTitle: 'Lock on bedroom door',
     featureDescr: 'Private room can be locked for safety and privacy',
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'bbqGrill',
     featureTitle: 'BBQ grill',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'gardenYard',
     featureTitle: 'Garden or backyard',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'patioBalcony',
     featureTitle: 'Patio or balcony',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'fireExting',
     featureTitle: 'Fire extinguisher',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'co2Alarm',
@@ -341,11 +378,13 @@ const featureData = [
     idString: 'smokeAlarm',
     featureTitle: 'Smoke alarm',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   },
   {
     idString: 'firstAidKit',
     featureTitle: 'First aid kit',
     featureDescr: null,
+    iconUrl: S3_URL + '/assets/entireHome.svg'
   }
 ];
 

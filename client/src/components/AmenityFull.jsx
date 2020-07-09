@@ -8,7 +8,7 @@ const AmenityFull = (props) => (
         {props.amenity.feature_title}
       </div>
       <div className={styles.amenityDescr}>
-        {props.amenity.feature_descr ? props.amenity.feature_descr : null}
+        {props.amenity.feature_descr !== 'null' ? props.amenity.feature_descr : null}
       </div>
     </div>
   </div>

@@ -13,9 +13,10 @@
     "dev:build": "webpack --mode=development --watch",
     "dev:start": "nodemon --inspect server/start.js",
     "start": "node server/start.js",
-    "db:mocks": "bash database_sql/seedScripts/make_10M_mocks.sh",
-    "db:load": "bash database_sql/seedScripts/load_all_mocks.sh",
-    "db:seedFeatures": "node database_sql/featureSeed.js",
+    "db:makeMocks": "bash database_sql/seedScripts/make_10M_mocks.sh",
+    "db:loadMocks": "bash database_sql/seedScripts/load_all_mocks.sh",
+    "db:makeFeatures": "node database_sql/featureSeed.js",
+    "db:loadFeatures": "psql property_service -f database_sql/seedScripts/features.sql",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
     "clean": "rm -rf client/dist",
     "clean:build": "npm run clean && npm run build"

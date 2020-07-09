@@ -10,8 +10,8 @@ const Room = (props) => (
       {
         props.kingBeds === 2 ? <div><img src={S3_URL + '/assets/kingBed.png'} /> <img src={S3_URL + '/assets/kingBed.png'} /></div> :
           props.kingBeds === 1 ? <img src={S3_URL + '/assets/kingBed.png'} /> :
-            props.queenBeds + props.fullBeds === 2 ? <div><img src={S3_URL + '/assets/queenBed.png'} /> <img src={S3_URL + '/assets/queenBed.png'} /></div> :
-              props.queenBeds + props.fullBeds === 1 ? <img src={S3_URL + '/assets/queenBed.png'} /> :
+            props.queenBeds === 2 || props.fullBeds === 2 ? <div><img src={S3_URL + '/assets/queenBed.png'} /> <img src={S3_URL + '/assets/queenBed.png'} /></div> :
+              props.queenBeds === 1 || props.fullBeds === 1 ? <img src={S3_URL + '/assets/queenBed.png'} /> :
                 props.twinBeds === 2 ? <div><img src={S3_URL + '/assets/twinBed.png'} /> <img src={S3_URL + '/assets/twinBed.png'} /></div> :
                   props.twinBeds === 1 ? <img src={S3_URL + '/assets/twinBed.png'} /> :
                     props.sofaBeds === 2 ? <div><img src={S3_URL + '/assets/sofaBed.png'} /> <img src={S3_URL + '/assets/sofaBed.png'} /></div> :
