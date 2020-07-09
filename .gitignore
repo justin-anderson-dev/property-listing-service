@@ -1,5 +1,6 @@
 ## MAC files ##
 .DS_Store
+.vscode/
 
 ## NPM ##
 npm
@@ -29,6 +30,7 @@ dist/
 
 # Generated sample data
 sample-data/
+dynamodb_local_latest/
 
 # Keys and tokens, etc.
 _secrets/

@@ -4,7 +4,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const { getListing, getFeatures, addListing, updateListing, deleteListing} = require('../database_sql/queries');
+const { getListing, getFeatures, addListing, updateListing, deleteListing } = require('../database_sql/queries');
 
 const pretty = require('express-prettify');
 const app = express();

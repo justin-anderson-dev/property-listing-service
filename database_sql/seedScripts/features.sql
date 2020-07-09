@@ -11,7 +11,7 @@
       'You’ll have the space to yourself.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/entireHome.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -24,7 +24,7 @@
       'Check yourself in with the lockbox.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/selfCheckIn.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -37,7 +37,7 @@
       '8 recent guests said this place was sparkling clean.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/sparklingClean.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -50,7 +50,7 @@
       'After that, cancel up to 24 hours before check-in and get a full refund, minus the service fee.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/freeCancel.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -63,7 +63,7 @@
       'HOSTNAME has 66 reviews for other places.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/entireHome.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -76,7 +76,7 @@
       '95% of recent guests gave the location a 5-star rating.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/entireHome.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -89,7 +89,7 @@
       'Continuous access in the listing',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/wifi.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -102,7 +102,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/cableTv.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -115,7 +115,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/entireHome.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -128,7 +128,7 @@
       'In the building, free or for a fee',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/washer.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -141,7 +141,7 @@
       'In the building, free or for a fee',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/dryer.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -154,7 +154,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/iron.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -167,7 +167,7 @@
       'A table or desk with space for a laptop and a chair that’s comfortable to work in',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/laptopFriendlyWorkspace.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -180,7 +180,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/tv.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -193,7 +193,7 @@
       'Central heating or a heater in the listing',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/heating.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -206,7 +206,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/entireHome.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -219,7 +219,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/aircon.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -232,7 +232,7 @@
       'Towels, bed sheets, soap, and toilet pap',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/essentials.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -245,7 +245,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -258,7 +258,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -271,7 +271,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -284,7 +284,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -297,7 +297,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -310,7 +310,7 @@
       'Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/superHost.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -323,7 +323,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -336,7 +336,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -349,7 +349,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -362,7 +362,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -375,7 +375,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -388,7 +388,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/freeParkOnPrem.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -401,7 +401,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -414,7 +414,7 @@
       'Private or shared',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/pool.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -427,7 +427,7 @@
       'Free, in the building or nearby',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/gym.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -440,7 +440,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -453,7 +453,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -466,7 +466,7 @@
       'No stairs in home',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -479,7 +479,7 @@
       'Pots and pans, oil, salt and pepper',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -492,7 +492,7 @@
       'Space where guests can cook their own meals',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/kitchen.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -505,7 +505,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -518,7 +518,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -531,7 +531,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -544,7 +544,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -557,7 +557,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -570,7 +570,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -583,7 +583,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -596,7 +596,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -609,7 +609,7 @@
       '',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -622,7 +622,7 @@
       'Separate street or building entrance',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -635,7 +635,7 @@
       'Check yourself into the home with a door code',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -648,7 +648,7 @@
       'Allow stay for 28 days or more',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -661,7 +661,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -674,7 +674,7 @@
       'For guests’ convenience when they have early arrival or late departure',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -687,7 +687,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/hairDryer.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -700,7 +700,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -713,7 +713,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -726,7 +726,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -739,7 +739,7 @@
       'Private room can be locked for safety and privacy',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -752,7 +752,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -765,7 +765,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -778,7 +778,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -791,7 +791,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -804,7 +804,7 @@
       'null',
       'https://listing-service-images.s3-us-west-1.amazonaws.com/assets/co2Alarm.svg'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -817,7 +817,7 @@
       'null',
       'undefined'
     );
-    
+
     INSERT INTO features (
       id_string,
       feature_title,
@@ -830,4 +830,3 @@
       'null',
       'undefined'
     );
-    

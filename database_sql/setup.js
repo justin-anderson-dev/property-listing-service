@@ -6,7 +6,7 @@
 CREATE TABLE features (
 id_string varchar(50) PRIMARY KEY,
 feature_title varchar(50) NOT NULL,
-feature_descr varchar(80) NULL,
+feature_descr varchar(120) NULL,
 icon_url varchar(255) NOT NULL
 );
 
