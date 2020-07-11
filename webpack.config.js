@@ -25,16 +25,6 @@ module.exports = {
     path: DIST_DIR,
     publicPath: '/'
   },
-  devServer: {
-    host: 'localhost',
-    https: true,
-    port: 8080,
-    hot: true,
-    contentBase: DIST_DIR,
-    inline: true,
-    disableHostCheck: true,
-    historyApiFallback: true
-  },
   module: {
     rules: [
       {

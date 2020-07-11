@@ -1,0 +1,41 @@
+config:
+  target: 'http://localhost:3005'
+  phases:
+    - duration: 10
+      arrivalRate: 5
+      name: 'Warm up app - 5 RPS'
+    - duration: 10
+      arrivalRate: 5
+      rampTo: 100
+      name: 'Ramp up to 100'
+    - duration: 10
+      arrivalRate: 100
+      name: 'Sustain 100 RPS for 10 secs'
+    - duration: 10
+      arrivalRate: 100
+      rampTo: 200
+      name: 'Ramp up to 200'
+    - duration: 10
+      arrivalRate: 200
+      name: 'Sustain 200 RPS for 10 secs'
+    - duration: 10
+      arrivalRate: 200
+      rampTo: 500
+      name: 'ramp up to 500'
+    - duration: 10
+      arrivalRate: 500
+      name: 'Sustain 500 RPS for 10 secs'
+    - duration: 10
+      arrivalRate: 500
+      rampTo: 1000
+      name: 'Ramp up to 1000'
+    - duration: 10
+      arrivalRate: 1000
+      name: 'Sustain 1000 RPS for 10 secs'
+
+scenarios:
+  - name: 'Load test - get page by listing id'
+    flow:
+    - get:
+        url: '/9357642'
+
