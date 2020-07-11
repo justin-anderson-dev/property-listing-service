@@ -1,17 +1,17 @@
 const nr = require('newrelic');
 const express = require('express');
+const compression = require('compression');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
 
 const { getListing, getFeatures, addListing, updateListing, deleteListing } = require('../database_sql/queries');
 
-const pretty = require('express-prettify');
 const app = express();
 
+app.use(compression());
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
-app.use(pretty({ query: 'pretty' }));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

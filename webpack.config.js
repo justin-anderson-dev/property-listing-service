@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // call dotenv and it will return an Object with a parsed key
 const env = dotenv.config().parsed;
@@ -15,6 +16,10 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 }, {});
 
 module.exports = {
+  mode: 'production',
+  optimization: {
+    minimizer: [new TerserPlugin({ /* additional options here */ })],
+  },
   node: {
     fs: 'empty'
   },

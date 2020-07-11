@@ -37,5 +37,5 @@ scenarios:
   - name: 'Load test - get page by listing id'
     flow:
     - get:
-        url: '/9357642'
+        url: '/9468623'
 

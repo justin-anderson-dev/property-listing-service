@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "dev:build": "webpack --mode=development --watch",
-    "dev:start": "nodemon --inspect server/start.js",
+    "dev:start": "nodemon --trace-sync-io server/start.js",
     "start": "node server/start.js",
     "db:makeMocks": "bash database_sql/seedScripts/make_10M_mocks.sh",
     "db:loadMocks": "bash database_sql/seedScripts/load_all_mocks.sh",
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-prettify": "^0.1.1",

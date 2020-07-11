@@ -23,7 +23,7 @@ class Header extends React.Component {
   fetchHeaderData(id) {
     const self = this;
     // uncomment the line below for local mode
-    console.log(`listing service endpoint is ${API_URL}`);
+    // console.log(`listing service endpoint is ${API_URL}`);
     // uncomment the line below for deployment mode
     // console.log(`listing service endpoint is ${SERVER_URL}`);
 
@@ -32,7 +32,7 @@ class Header extends React.Component {
     // uncomment the line below for local mode
     return axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
-        console.log(`got header data for listing ${id}`);
+        // console.log(`got header data for listing ${id}`);
         self.setState({
           headline: listing.data.headline,
           stars: listing.data.stars,
@@ -48,7 +48,7 @@ class Header extends React.Component {
 
   componentDidMount() {
     return this.fetchHeaderData(this.props.id)
-      .then(() => console.log('Header component mounted'))
+      // .then(() => console.log('Header component mounted'))
       .catch(err => new Error(err));
   }
 

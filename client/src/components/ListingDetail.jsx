@@ -68,7 +68,7 @@ class ListingDetail extends React.Component {
     // update ENV variable below for deploy mode
     return axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
-        console.log(`got listing data for listing ${listing.data.listing_id}`);
+        // console.log(`got listing data for listing ${listing.data.listing_id}`);
         self.setState({
           listingData: {
             guestCapacity: listing.data.guest_capacity,
@@ -116,26 +116,26 @@ class ListingDetail extends React.Component {
 
   fetchHostData() {
     const self = this;
-    console.log(`host service url is: ${HOST_API_URL}`);
-    // if time: refactor this to get host data by listingId
-    axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
-      .then((host) => {
-        console.log(`got host data for host ${host.data[0].name}`);
-        self.setState({
-          hostName: host.data[0].name,
-          avatarUrl: host.data[0].avatar_url
-        });
-      })
-      .catch((error) => {
-        return new Error(`error getting host data: ${error}`);
-      });
+    // console.log(`host service url is: ${HOST_API_URL}`);
+    // UNCOMMENT code below once Host service is connected
+    // axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
+    //   .then((host) => {
+    //     console.log(`got host data for host ${host.data[0].name}`);
+    //     self.setState({
+    //       hostName: host.data[0].name,
+    //       avatarUrl: host.data[0].avatar_url
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     return new Error(`error getting host data: ${error}`);
+    //   });
   }
 
   componentDidMount() {
     return this.fetchListingDetails(this.props.id)
       .then(() => this.fetchFeaturesData())
       .then(() => this.fetchHostData(this.props.hostId))
-      .then(() => console.log('ListingDetail component mounted'))
+      // .then(() => console.log('ListingDetail component mounted'))
       .catch(err => new Error(err));
   }
 

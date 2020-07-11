@@ -35,5 +35,5 @@ scenarios:
   - name: 'Load test - get page by listing id'
     flow:
     - get:
-        url: "/9901234"
+        url: "/{{ id }}"
 
