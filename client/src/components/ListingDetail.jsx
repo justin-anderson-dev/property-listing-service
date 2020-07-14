@@ -7,6 +7,7 @@ import Beds from './Beds.jsx';
 import axios from 'axios';
 import styles from '../styles/ListingDetail.css';
 
+const API_URL = process.env.API_URL;
 const SERVER_URL = process.env.SERVER_URL;
 const S3_URL = process.env.S3_URL;
 const HOST_API_URL = process.env.HOST_API_URL;
@@ -64,35 +65,35 @@ class ListingDetail extends React.Component {
 
   fetchListingDetails(id) {
     const self = this;
-    // axios get request to /id
-    return axios.get(`${SERVER_URL}/listings/${id}`)
+    // update ENV variable below for deploy mode
+    return axios.get(`${API_URL}/listings/${id}`)
       .then((listing) => {
-        console.log(`got listing data for listing ${listing.data.listingId}`);
+        // console.log(`got listing data for listing ${listing.data.listing_id}`);
         self.setState({
           listingData: {
-            guestCapacity: listing.data.guestCapacity,
-            totalBedrooms: listing.data.totalBedrooms,
-            totalBeds: listing.data.totalBeds,
-            totalBaths: listing.data.totalBaths,
-            descriptionText: listing.data.descriptionText,
-            sleepArrangements: listing.data.sleepArrangements
+            guestCapacity: listing.data.guest_capacity,
+            totalBedrooms: listing.data.total_bedrooms,
+            totalBeds: listing.data.total_beds,
+            totalBaths: listing.data.total_baths,
+            descriptionText: listing.data.description_text,
+            sleepArrangements: listing.data.sleep_arrangements
           },
-          typeOfRoom: listing.data.typeOfRoom,
-          hostId: listing.data.hostId,
-          superHost: listing.data.superHost,
-          topFeatures: self.filterFeatures(listing.data.topFeatures),
-          keyAmenities: self.filterFeatures(listing.data.keyAmenities),
+          typeOfRoom: listing.data.type_of_room,
+          hostId: listing.data.host_id,
+          superHost: listing.data.superhost,
+          topFeatures: self.filterFeatures(listing.data.top_features),
+          keyAmenities: self.filterFeatures(listing.data.key_amenities),
           allAmenities: {
-            basic: self.filterFeatures(listing.data.allAmenities.basic),
-            familyFeatures: self.filterFeatures(listing.data.allAmenities.familyFeatures),
-            facilities: self.filterFeatures(listing.data.allAmenities.facilities),
-            dining: self.filterFeatures(listing.data.allAmenities.dining),
-            guestAccess: self.filterFeatures(listing.data.allAmenities.guestAccess),
-            logistics: self.filterFeatures(listing.data.allAmenities.logistics),
-            bedAndBath: self.filterFeatures(listing.data.allAmenities.bedAndBath),
-            outdoor: self.filterFeatures(listing.data.allAmenities.outdoor),
-            safetyFeatures: self.filterFeatures(listing.data.allAmenities.safetyFeatures),
-            notIncluded: self.filterFeatures(listing.data.allAmenities.notIncluded)
+            basic: self.filterFeatures(listing.data.all_amenities.basic),
+            familyFeatures: self.filterFeatures(listing.data.all_amenities.familyFeatures),
+            facilities: self.filterFeatures(listing.data.all_amenities.facilities),
+            dining: self.filterFeatures(listing.data.all_amenities.dining),
+            guestAccess: self.filterFeatures(listing.data.all_amenities.guestAccess),
+            logistics: self.filterFeatures(listing.data.all_amenities.logistics),
+            bedAndBath: self.filterFeatures(listing.data.all_amenities.bedAndBath),
+            outdoor: self.filterFeatures(listing.data.all_amenities.outdoor),
+            safetyFeatures: self.filterFeatures(listing.data.all_amenities.safetyFeatures),
+            notIncluded: self.filterFeatures(listing.data.all_amenities.notIncluded)
           }
         });
       })
@@ -103,7 +104,8 @@ class ListingDetail extends React.Component {
 
   fetchFeaturesData() {
     const self = this;
-    axios.get(`${SERVER_URL}/features/all`)
+    // update ENV variable below for deploy mode
+    axios.get(`${API_URL}/features/all`)
       .then((features) => {
         self.setState({featuresData: features.data});
       })
@@ -114,26 +116,26 @@ class ListingDetail extends React.Component {
 
   fetchHostData() {
     const self = this;
-    console.log(`host service url is: ${HOST_API_URL}`);
-    // if time: refactor this to get host data by listingId
-    axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
-      .then((host) => {
-        console.log(`got host data for host ${host.data[0].name}`);
-        self.setState({
-          hostName: host.data[0].name,
-          avatarUrl: host.data[0].avatarUrl
-        });
-      })
-      .catch((error) => {
-        return new Error(`error getting host data: ${error}`);
-      });
+    // console.log(`host service url is: ${HOST_API_URL}`);
+    // UNCOMMENT code below once Host service is connected
+    // axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
+    //   .then((host) => {
+    //     console.log(`got host data for host ${host.data[0].name}`);
+    //     self.setState({
+    //       hostName: host.data[0].name,
+    //       avatarUrl: host.data[0].avatar_url
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     return new Error(`error getting host data: ${error}`);
+    //   });
   }
 
   componentDidMount() {
     return this.fetchListingDetails(this.props.id)
       .then(() => this.fetchFeaturesData())
       .then(() => this.fetchHostData(this.props.hostId))
-      .then(() => console.log('ListingDetail component mounted'))
+      // .then(() => console.log('ListingDetail component mounted'))
       .catch(err => new Error(err));
   }
 
@@ -153,7 +155,7 @@ class ListingDetail extends React.Component {
           myFeatures={this.state.featuresData}
         />
         <Description description={this.state.listingData.descriptionText}/>
-        <Beds bedrooms={Object.entries(this.state.listingData.sleepArrangements).filter(element => element[1].exists)}/>
+        <Beds bedrooms={Object.entries(this.state.listingData.sleepArrangements).filter(element => element[1]["exists"])}/>
         <Amenities
           amenitiesList={this.state.allAmenities}
           myAmenities={this.state.featuresData}

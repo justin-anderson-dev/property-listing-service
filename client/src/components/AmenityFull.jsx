@@ -5,10 +5,10 @@ const AmenityFull = (props) => (
   <div className={styles.amenityShort}>
     <div className={styles.wrapper}>
       <div className={styles.amenityTitle}>
-        {props.amenity.featureTitle}
+        {props.amenity.feature_title}
       </div>
       <div className={styles.amenityDescr}>
-        {props.amenity.featureDescr ? props.amenity.featureDescr : null}
+        {props.amenity.feature_descr !== 'null' ? props.amenity.feature_descr : null}
       </div>
     </div>
   </div>

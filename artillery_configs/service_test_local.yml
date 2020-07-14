@@ -1,0 +1,39 @@
+config:
+  target: 'http://localhost:3005'
+  phases:
+    - duration: 10
+      arrivalRate: 5
+      name: 'Warm up app - 5 RPS'
+    - duration: 10
+      arrivalRate: 5
+      rampTo: 100
+      name: 'Ramp up to 100'
+    - duration: 60
+      arrivalRate: 100
+      name: 'Sustain 100 RPS for 60 secs'
+  variables:
+    id:
+      - "9123456"
+      - "9234567"
+      - "9345678"
+      - "9456789"
+      - "9567890"
+      - "9678901"
+      - "9789012"
+      - "9890123"
+      - "9901234"
+      - "9012345"
+      - "9876543"
+      - "9765432"
+      - "9654231"
+      - "9543210"
+      - "9432109"
+      - "9321098"
+      - "9210987"
+      - "9109876"
+scenarios:
+  - name: 'Load test - get page by listing id'
+    flow:
+    - get:
+        url: "/{{ id }}"
+

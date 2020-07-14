@@ -34,3 +34,6 @@ dynamodb_local_latest/
 
 # Keys and tokens, etc.
 _secrets/
+
+#New Relic account keys, etc.
+newrelic.js

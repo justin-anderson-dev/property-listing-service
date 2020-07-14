@@ -4,14 +4,14 @@ import styles from '../styles/Feature.css';
 const Feature = (props) => (
   <div className={styles.featureBlock}>
     <div className={styles.featureIcon}>
-      <img src={props.feature.iconUrl}/>
+      <img src={props.feature.icon_url}/>
     </div>
     <div className="feature-text">
       <div className={styles.featureTitle}>
-        {props.feature.featureTitle}
+        {props.feature.feature_title}
       </div>
       <div className={styles.featureDescription}>
-        {props.feature.featureDescr}
+        {props.feature.feature_descr}
       </div>
     </div>
   </div>
