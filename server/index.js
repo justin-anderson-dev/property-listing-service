@@ -43,28 +43,28 @@ app.get('/listings/all', (req, res) => {
 app.get('/listings/:id', (req, res) => {
   getListing(req.params.id, (listing) => {
     res.status(200).json(listing);
-  })
+  });
 });
 
 // POST one new listing
 app.post('/listings/add/new', (req, res) => {
   addListing(req.body, (result) => {
     res.status(200).json(result);
-  })
+  });
 });
 
 // PUT / update one existing listing
 app.put('/listings/:id/update', (req, res) => {
   updateListing(req.params.id, req.body, (result) => {
     res.status(200).json(result);
-  })
+  });
 });
 
 // DELETE one existing listing
 app.delete('/listings/:id/delete', (req, res) => {
   deleteListing(req.params.id, (result) => {
     res.status(200).json(result);
-  })
+  });
 });
 
 // GET features data

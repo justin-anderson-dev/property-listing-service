@@ -10,7 +10,6 @@ const options = {
   user: USER,
   host: HOST,
   database: DATABASE,
-  password: '',
   port: PORT,
 };
 

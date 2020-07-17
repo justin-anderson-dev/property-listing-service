@@ -8,7 +8,7 @@ const getListing = function(id, callback) {
   pool
     .query(queryText)
     .then(listing => callback(listing.rows[0]))
-    .catch(err =>  console.error(err));
+    .catch(err => console.error(err));
 };
 
 const getFeatures = function(callback) {
