@@ -25,9 +25,6 @@ coverage
 build/
 dist/
 
-# Environment variables, tokens, etc.
-.env
-
 # Generated sample data
 sample-data/
 dynamodb_local_latest/
@@ -35,5 +32,3 @@ dynamodb_local_latest/
 # Keys and tokens, etc.
 _secrets/
 
-#New Relic account keys, etc.
-newrelic.js

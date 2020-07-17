@@ -47,6 +47,6 @@ const deleteListing = function(id, callback) {
     .query(queryText)
     .then(response => callback(response.rows[0]))
     .catch(err => console.error(err));
-}
+};
 
 module.exports = { getListing, getFeatures, addListing, updateListing, deleteListing };
