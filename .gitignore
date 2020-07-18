@@ -23,11 +23,11 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-dist/
+bundle.js
+bundle.js.map
 
 # Generated sample data
 sample-data/
-dynamodb_local_latest/
 
 # Keys and tokens, etc.
 _secrets/
