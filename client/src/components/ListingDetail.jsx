@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 // main app component
 import React from 'react';
 import Summary from './Summary.jsx';
@@ -117,18 +118,18 @@ class ListingDetail extends React.Component {
   fetchHostData() {
     const self = this;
     // console.log(`host service url is: ${HOST_API_URL}`);
-    // UNCOMMENT code below once Host service is connected
-    // axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
-    //   .then((host) => {
-    //     console.log(`got host data for host ${host.data[0].name}`);
-    //     self.setState({
-    //       hostName: host.data[0].name,
-    //       avatarUrl: host.data[0].avatar_url
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     return new Error(`error getting host data: ${error}`);
-    //   });
+    axios.get(`${HOST_API_URL}/hosts/${self.state.hostId}`)
+      .then((host) => {
+        // console.log(`got host data for host ${host.data[0].name}`);
+        self.setState({
+          hostName: host.data[0].name,
+          avatarUrl: host.data[0].avatarurl,
+          superHost: host.data[0].superhost
+        });
+      })
+      .catch((error) => {
+        return new Error(`error getting host data: ${error}`);
+      });
   }
 
   componentDidMount() {
