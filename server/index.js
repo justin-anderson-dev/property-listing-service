@@ -1,4 +1,4 @@
-const nr = require('newrelic');
+// const nr = require('newrelic');
 const express = require('express');
 const compression = require('compression');
 const fs = require('fs');

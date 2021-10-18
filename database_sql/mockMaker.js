@@ -1,4 +1,4 @@
-// this file generates a range of mock listings and saves them to a new file in sample-data
+// this file generates a range of mock listings and saves them to a new file in sample-data/
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
