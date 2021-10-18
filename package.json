@@ -14,10 +14,11 @@
     "dev:start": "nodemon --trace-sync-io server/start.js",
     "start": "node server/start.js",
     "db:setup": "psql property_service -f database_sql/seedScripts/setup.sql",
-    "db:makeMocks": "bash database_sql/seedScripts/make_10M_mocks.sh",
-    "db:loadMocks": "psql property_service -f database_sql/seedScripts/copy.sql",
+    "db:makeMocks": "bash database_sql/seedScripts/make_1M_mocks.sh",
+    "db:loadMocks": "psql property_service -f database_sql/seedScripts/copy1M.sql",
     "db:makeFeatures": "node database_sql/featureSeed.js",
     "db:loadFeatures": "psql property_service -f database_sql/seedScripts/features.sql",
+    "db:mockRange": "node database_sql/mockMaker",
     "test": "node_modules/jest/bin/jest.js spec --runInBand",
     "clean": "rm -rf client/dist",
     "clean:build": "npm run clean && npm run build"

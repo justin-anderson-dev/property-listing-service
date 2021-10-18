@@ -2,6 +2,7 @@
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
+const path = require('path');
 
 var writer = csvWriter();
 
@@ -191,7 +192,9 @@ const makeMocks = (rangeStart, rangeEnd) => {
   if (!rangeStart || !rangeEnd) {
     return new Error(`Please invoke this script with starting and ending ids, e.g. 'npm run db:mocks 1 1000' `);
   }
-  writer.pipe(fs.createWriteStream(`database_sql/sample-data/data-${rangeStart}-${rangeEnd}.csv`));
+  const dataDirName = path.join(__dirname, '/seedScripts/sample-data');
+
+  writer.pipe(fs.createWriteStream(`${dataDirName}/${rangeStart}-${rangeEnd}.csv`));
   for (let i = rangeStart; i <= rangeEnd; i++) {
     let newListing = new Listing(i);
     writer.write(newListing);

@@ -30,8 +30,7 @@ dist/
 .env
 
 # Generated sample data
-sample-data/
-dynamodb_local_latest/
+*.csv
 
 # Keys and tokens, etc.
 _secrets/
