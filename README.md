@@ -21,26 +21,30 @@ _This repo is one-fourth of a team full-stack system design project. The project
 
 I began by breaking down the AirBnB listing details UI and creating a React component tree to match it. I used the information in sample listings to create database schema to store TK unique pieces of information about each property listing. I styled the Listing Details module to match the actual AirBnB UI.
  
-IMAGE TK
- 
- 
+ ![SDC-frontend-lorem](https://user-images.githubusercontent.com/42009003/138357146-4e4cfdba-2df0-4b34-baa3-b01d4dcee0bc.png)
+
+ <img width="1455" alt="modal" src="https://user-images.githubusercontent.com/42009003/138357218-9db468b7-468d-4987-b2e2-f1392d6e1820.png">
+
 ### Database Seeding
 
 To simulate the demands of an enterprise-scale production app, I created a script to seed my database with **10 million realistic mock records**. I tested both relational and non-relational databases for performance with my schema before ultimately selecting PostgresQL.
- 
-IMAGE TK?
- 
+
 ### Proxy Server
 
 After getting the backend API up and running, I built a proxy server to bring all four of the team's microservices together into a single browser view, as depicted below. 
  
-MORE TK - image of sequence diagram
+![AirBnB Clone - Property Service](https://user-images.githubusercontent.com/42009003/138357692-a8c7fd54-1fb8-4f06-9daa-1147b0b1b2a4.png)
+
  
 ### Testing and Tuning
 
 Once all aspects of the system -- frontend, API, database, and proxy -- were working and connected, I began the process of performance tuning, with the goal of being able to respond to 1000 requests per second in less than 1 second each, with an error rate below 5%. 
 
-MORE TK about performance optimization and outcomes with IMAGES TK
+My biggest initial performance gains came from implementing Lighthouse recommendations on the frontend client build.
+
+<img width="1221" alt="Screen Shot 2021-10-13 at 12 52 19 PM" src="https://user-images.githubusercontent.com/42009003/138357915-b7969788-9c8a-4a1d-b435-8a2933938275.png">
+
+To achieve my 1000rps goal, I created an Nginx load-balanced cluster of three servers for the Property Listing Details service. This cut down my **average response time under 1000rps load by 98%**.
  
 <br>
 
