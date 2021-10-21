@@ -45,6 +45,9 @@ My biggest initial performance gains came from implementing Lighthouse recommend
 <img width="1221" alt="Screen Shot 2021-10-13 at 12 52 19 PM" src="https://user-images.githubusercontent.com/42009003/138357915-b7969788-9c8a-4a1d-b435-8a2933938275.png">
 
 To achieve my 1000rps goal, I created an Nginx load-balanced cluster of three servers for the Property Listing Details service. This cut down my **average response time under 1000rps load by 98%**.
+
+<img width="1008" alt="Screen Shot 2021-10-13 at 12 55 06 PM" src="https://user-images.githubusercontent.com/42009003/138358796-a944dd64-0876-4744-ae4a-b2e6d0ea84e7.png">
+<img width="1007" alt="Screen Shot 2021-10-13 at 12 55 28 PM" src="https://user-images.githubusercontent.com/42009003/138358821-070fac14-3546-46f3-8d10-2bf7351717cd.png">
  
 <br>
 
