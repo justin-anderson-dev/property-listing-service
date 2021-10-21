@@ -1,22 +1,121 @@
 # NotReallyAirBnB Property Listing Service
 
-
-## Related Projects
-
-  - https://github.com/RPT20-FEC/tbd
-  - https://github.com/RPT20-FEC/tbd
-  - https://github.com/RPT20-FEC/tbd
-  - https://github.com/RPT20-FEC/tbd
+It's like AirBnB, but... not really.
+   
+<br>
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-2. [Requirements](#requirements)
-3. [Development](#development)
+1. [Description](#Description)
+2. [Getting Started](#Getting-Started)
+3. [Related Projects](#Related-Projects)
+4. [API](#API)
+  
+<br>
 
-## Usage
+## Description
 
-> API Endpoints:
+_This repo is one-fourth of a team full-stack system design project. The project uses a microservice architecture to create an **AirBnB** clone, with each team member responsible for one critical service -- in my case, the property listing details. See [Related Projects](#Related-Projects) below for links._
+ 
+### Frontend and Data Modeling
+
+I began by breaking down the AirBnB listing details UI and creating a React component tree to match it. I used the information in sample listings to create database schema to store TK unique pieces of information about each property listing. I styled the Listing Details module to match the actual AirBnB UI.
+ 
+IMAGE TK
+ 
+ 
+### Database Seeding
+
+To simulate the demands of an enterprise-scale production app, I created a script to seed my database with **10 million realistic mock records**. I tested both relational and non-relational databases for performance with my schema before ultimately selecting PostgresQL.
+ 
+IMAGE TK?
+ 
+### Proxy Server
+
+After getting the backend API up and running, I built a proxy server to bring all four of the team's microservices together into a single browser view, as depicted below. 
+ 
+MORE TK - image of sequence diagram
+ 
+### Testing and Tuning
+
+Once all aspects of the system -- frontend, API, database, and proxy -- were working and connected, I began the process of performance tuning, with the goal of being able to respond to 1000 requests per second in less than 1 second each, with an error rate below 5%. 
+
+MORE TK about performance optimization and outcomes with IMAGES TK
+ 
+<br>
+
+
+## Getting Started
+
+This project comprises the Listing Details service only. There are three other services, plus a proxy server, needed to re-create the entire AirBnB clone. (See [Related Projects](#Related-Projects) below.)
+
+**These instructions are sufficient to get this single microservice running, seed the database with 1M mock records, and make the API available locally.**
+
+<br>
+
+### Requirements
+
+- The backend is built on **Node 12.16.2**. More recent versions may also be supported, but I can't guarantee that!
+- **Postgres 14.0 or greater must be installed and running** locally in order to seed the database.
+- You need to create a `.env` file at the root level of your project directory, containing the following variables:
+  ```sh
+  PGHOST='127.0.0.1'
+  PGPORT=5432 (default Postgres port number)
+  PGDATABASE='property_service'
+  PGUSER='{username for your Postgres install}'
+  PGPASSWORD='{password for your Postgres user}'
+  API_URL='http://localhost:3005'
+  PORT=3005
+  S3_URL='https://listing-service-images.s3-us-west-1.amazonaws.com' (or other location for your image hosting service)
+  ```
+ 
+<br>
+
+### Development
+
+The instructions below will set up a dev environment for continued work on the system. For a production build, use the appropriate scripts included in the `package.json` file to start the production server and build the client app.
+
+#### 1. **Install Dependencies**
+
+After cloning the repo to your local machine, from within the root directory:
+
+```sh
+npm install
+```
+
+#### 2. **Seed Database**
+
+Though the production version of this project used 10M primary records, the sample seeding script included with this version will seed the database with 1M records. That should be plenty for demo purposes. If you need more, feel free to tweak the scripts.
+
+MORE TK
+
+#### 3. **Start Server**
+
+MORE TK
+
+#### 4. **Build Client**
+
+MORE TK
+
+
+<br>
+
+
+## Related Projects
+
+  - [Host Info service](https://github.com/RPT20-FEC/host-service-SDC)
+  - [Photo Service](https://github.com/RPT20-FEC/photo-service)
+  - [Similar Properties service](https://github.com/RPT20-FEC/similarprops-service-SDC)
+  - [Proxy server](https://github.com/RPT20-FEC/sdc-justin-proxy)
+ 
+<br>
+
+
+## API
+
+Once you have the service up and running, the following API endpoints will be available at the server url.
+
+**Endpoints:**
 
 `GET /:id`
 - Responds with an HTML page displaying listing details for the property with matching `listingId: ${id}` or `headline: ${id}`
@@ -37,23 +136,3 @@
 
 `DELETE /listings/:id/delete`
 - Deletes a single property listing matching `listingId: ${id}` or `headline: ${id}`
-
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 12.16.2
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
-
