@@ -90,20 +90,47 @@ After cloning the repo to your local machine, from within the root directory:
 npm install
 ```
 
-#### 2. **Seed Database**
+#### 2. **Create and Seed Database**
 
-Though the production version of this project used 10M primary records, the sample seeding script included with this version will seed the database with 1M records. That should be plenty for demo purposes. If you need more, feel free to tweak the scripts.
+Though the production version of this project used 10M primary records, the sample seeding script included with this version will seed the database with **1M records**. That should be plenty for demo purposes. If you need more, feel free to tweak the scripts.
 
-MORE TK
+After ensuring that your local PostgresQL instance is running on port `5432`, create a db called `property_service`.
+```sh
+createdb 'property_service'
+```
+
+The rest of the database scripts are defined in the `package.json` doc. Run them one at a time, in this order, for best results:
+```sh
+npm run db:setup
+```
+```sh
+npm run db:makeFeatures
+```
+```sh
+npm run db:loadFeatures
+```
+```sh
+npm run db:makeMocks
+```
+```sh
+npm run db:loadMocks
+```
+
+This last script will take several minutes or more depending on your local machine specs.
 
 #### 3. **Start Server**
 
-MORE TK
+```sh
+npm run dev:start
+```
 
 #### 4. **Build Client**
 
-MORE TK
+```sh
+npm run dev:build
+```
 
+You should now have access to the Property Listing Detail service at `http://localhost:3005/`
 
 <br>
 
