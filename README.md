@@ -19,7 +19,7 @@ _This repo is one-fourth of a team full-stack system design project. The project
  
 ### Frontend and Data Modeling
 
-I began by breaking down the AirBnB listing details UI and creating a React component tree to match it. I used the information in sample listings to create database schema to store TK unique pieces of information about each property listing. I styled the Listing Details module to match the actual AirBnB UI.
+I began by breaking down the AirBnB listing details UI and creating a React component tree to match it. I used the information in sample listings to create database schema to store dozens of unique pieces of information about each property listing. I styled the Listing Details module to match the actual AirBnB UI.
  
  ![SDC-frontend-lorem](https://user-images.githubusercontent.com/42009003/138357146-4e4cfdba-2df0-4b34-baa3-b01d4dcee0bc.png)
 
